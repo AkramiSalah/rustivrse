@@ -92,7 +92,7 @@ function handleHover(e) {
     console.log('Hover detected');
     const absPosX = (e.clientX - shiftedX)/sizeFactor;
     const absPosY = (e.clientY - shiftedY)/sizeFactor;
-    console.log(`${absPosX}`);
+    
     console.log(`${absPosY}`);
     console.log(`${sizeFactor}`);
     if( 570.0 <= absPosX && absPosX <= 670.0 &&  600.0 <= absPosY && absPosY <= 700.0){
