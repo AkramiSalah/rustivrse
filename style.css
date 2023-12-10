@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgba(18,64,77,255)
+}
+
+.map{
+    background-image: url(images/MAP2.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden
+}
+
+.first{
+    height: 128px;
+    width: 165px;
+    background-image: url(images/MissleSilo.png);
+    background-size: cover;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+.first:hover{
+    transform: scale(1.40);
+    cursor: pointer;
+}
+
+.map:hover{
+    cursor:move;
+}
+
+#coordinates {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
