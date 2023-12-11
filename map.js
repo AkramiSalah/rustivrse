@@ -88,7 +88,14 @@ function handleHover(e) {
     // Get the screen resolution
     let screenWidth = window.innerWidth;
     let screenHeight = window.innerHeight;
-    let sizeFactor = screenWidth/mapWidth;
+
+    // Calculate the scale factors for width and height
+    let widthScaleFactor = screenWidth / mapWidth;
+    let heightScaleFactor = screenHeight / mapHeight;
+
+    // Use the minimum of the two scale factors
+    let sizeFactor = Math.max(widthScaleFactor, heightScaleFactor);
+
     console.log('Hover detected');
     const absPosX = (e.clientX - shiftedX)/sizeFactor;
     const absPosY = (e.clientY - shiftedY)/sizeFactor;
