@@ -82,11 +82,44 @@ function handleHover(e) {
     const absPosX = (e.clientX - totalDragX) / sizeFactor;
     const absPosY = (e.clientY - totalDragY) / sizeFactor;
 
-    //temp
-    if (570.0 <= absPosX && absPosX <= 670.0 && 600.0 <= absPosY && absPosY <= 700.0) {
-        // alert("גמרתי");
-        console.log("Hovering on mon");
+    
+    
+    //change
+    let hoverSquare = document.getElementById('hoverSquare');
+    const isInsideBounds =
+        absPosX >= 570 && absPosX <= 670 && absPosY >= 600 && absPosY <= 700;
+
+    if (isInsideBounds) {
+        if (!hoverSquare) {
+            // Create the square if it doesn't exist
+            const squareSize = 100; // You can adjust the size as needed
+            hoverSquare = document.createElement('div');
+            hoverSquare.id = 'hoverSquare';
+            hoverSquare.style.width = `${squareSize}px`;
+            hoverSquare.style.height = `${squareSize}px`;
+            hoverSquare.style.backgroundColor = 'red';
+            hoverSquare.style.position = 'fixed'; // Use fixed position
+            map.appendChild(hoverSquare);
+        }
+
+        // Calculate the position based on the background position and scale factors
+        const scaledLeftPos = (570 * sizeFactor + totalDragX) ;
+        const scaledTopPos = (600 * sizeFactor + totalDragY) ;
+
+        // Position the square within the specified bounds
+        hoverSquare.style.left = `${scaledLeftPos}px`;
+        hoverSquare.style.top = `${scaledTopPos}px`;
+    } else {
+        // Remove the square if it's outside the bounds
+        if (hoverSquare) {
+            hoverSquare.remove();
+        }
     }
+
+
+    //end of change
+    
+    
 
     // updating the coordinates at the bottom of the screen:
     const coordinatesElement = document.getElementById('coords');
