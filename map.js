@@ -123,19 +123,14 @@ function handleHover(e) {
         
     }
 
+    // Event listeners for updating mouse coordinates on mouse and touch move
+    const coordinatesElement = document.getElementById('coords');
+
     const clientX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
     const clientY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
+    
     coordinatesElement.textContent = `(${clientX - shiftedX}, ${clientY - shiftedY}), (${absPosX}, ${absPosY}), ${sizeFactor}`;
 
 }
 
-// Event listeners for updating mouse coordinates on mouse and touch move
-const coordinatesElement = document.getElementById('coords');
-document.addEventListener('mousemove', updateCoordinates);
-document.addEventListener('touchmove', updateCoordinates);
 
-function updateCoordinates(event) {
-    //const clientX = event.type === 'mousemove' ? event.clientX : event.touches[0].clientX;
-    //const clientY = event.type === 'mousemove' ? event.clientY : event.touches[0].clientY;
-    //coordinatesElement.textContent = `(${clientX - shiftedX}, ${clientY - shiftedY}), ${mapHeight}, ${mapWidth}`;
-}
