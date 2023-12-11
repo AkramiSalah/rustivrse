@@ -13,6 +13,8 @@ let totalDragY = 0;
 let mapWidth = 0;
 let mapHeight = 0;
 
+let hoverSquare = document.getElementById('hoverSquare');
+
 // Event listeners for drag start - mouse and touch
 map.addEventListener('mousedown', handleDragStart);
 map.addEventListener('touchstart', handleDragStart);
@@ -58,6 +60,7 @@ function handleDragMove(e) {
             map.style.backgroundPositionY = `${newY}px`;
             currentDragY += deltaY;
         }
+        hoverSquare.style.display = "none"
     }
 }
 
@@ -85,21 +88,22 @@ function handleHover(e) {
     
     
     //change
-    let hoverSquare = document.getElementById('hoverSquare');
+    
+    
     const isInsideBounds =
         absPosX >= 570 && absPosX <= 670 && absPosY >= 600 && absPosY <= 700;
 
     if (isInsideBounds) {
-        if (!hoverSquare) {
-            // Create the square if it doesn't exist
-            const squareSize = 100; // You can adjust the size as needed
-            hoverSquare = document.createElement('div');
-            hoverSquare.id = 'hoverSquare';
+        if (hoverSquare) {  
+            const squareSize = 100; 
+            hoverSquare.style.transition  = "opacity 1s"
+            hoverSquare.style.display = "block"
             hoverSquare.style.width = `${squareSize}px`;
             hoverSquare.style.height = `${squareSize}px`;
             hoverSquare.style.backgroundColor = 'red';
-            hoverSquare.style.position = 'fixed'; // Use fixed position
-            map.appendChild(hoverSquare);
+            hoverSquare.style.position = 'fixed';
+            hoverSquare.style.opacity = '1';        
+            console.log(hoverSquare.style.transition)
         }
 
         // Calculate the position based on the background position and scale factors
@@ -109,11 +113,12 @@ function handleHover(e) {
         // Position the square within the specified bounds
         hoverSquare.style.left = `${scaledLeftPos}px`;
         hoverSquare.style.top = `${scaledTopPos}px`;
-    } else {
-        // Remove the square if it's outside the bounds
-        if (hoverSquare) {
-            hoverSquare.remove();
-        }
+    } 
+    else {
+        hoverSquare.style.opacity = '0';    
+        hoverSquare.addEventListener('transitionend', () => {
+            hoverSquare.style.display = "none";
+        });          
     }
 
 
