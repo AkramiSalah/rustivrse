@@ -1,5 +1,10 @@
+const monumentsList = [
+    new Monument(625, 645, 70, "hoverCircle"),
+];
 const map = document.querySelector(".map");
+
 let isDragging = false;
+let isScreenSmall = false;
 
 let startPointX = 0;
 let startPointY = 0;
@@ -14,7 +19,7 @@ let mapWidth = 0;
 let mapHeight = 0;
 let sizeFactor = 0
 
-let hoverSquare = document.getElementById('hoverSquare');
+let hoverCircle = document.getElementById('hoverCircle');
 const monuments = document.querySelectorAll('.monument')
 
 // Event listeners for drag start - mouse and touch
@@ -30,7 +35,9 @@ function handleDragStart(e) {
         startPointX = e.touches[0].clientX;
         startPointY = e.touches[0].clientY;
     }
+    
     map.style.cursor = "grab";
+
 }
 
 // Event listeners for drag move - mouse and touch
@@ -72,36 +79,54 @@ function handleDragMove(e) {
 map.addEventListener('mousemove',handleMonumentHover)
 map.addEventListener('touchmove',handleMonumentHover)
 
-function handleMonumentHover(e){ 
-    const outpost = new Monument(625,645,70,"hoverSquare");   
-    if (outpost.isInsideBounds(e.clientX, e.clientY)) {
-        console.log("yes")
-        if (hoverSquare) {  
-            const squareSize = 100; 
-            hoverSquare.style.transition  = "opacity 1s"
-            hoverSquare.style.display = "block"
-            hoverSquare.style.width = `${squareSize}px`;
-            hoverSquare.style.height = `${squareSize}px`;
-            hoverSquare.style.backgroundColor = 'red';
-            hoverSquare.style.position = 'fixed';
-            hoverSquare.style.opacity = '1';        
+function handleMonumentHover(e) { 
+    for (const monument of monumentsList) {
+        if (monument.isInsideBounds(e.clientX, e.clientY) && e.buttons === 0) {
+            console.log("Mouse is not down");
+
+            // Shows the hover circle based on the monument's scaled position
+            monument.showHoverCircle();
+        } 
+        else {
+            // Hide the hover circle when not hovering over the monument
+            monument.hideHoverCircle();
         }
-
-        // Calculate the position based on the background position and scale factors
-        const scaledLeftPos = (600 * sizeFactor + totalDragX);
-        const scaledTopPos = (620 * sizeFactor + totalDragY);
-
-        // Position the square within the specified bounds
-        hoverSquare.style.left = `${scaledLeftPos}px`;
-        hoverSquare.style.top = `${scaledTopPos}px`;
-    } 
-    else {
-        hoverSquare.style.opacity = '0';    
-        hoverSquare.addEventListener('transitionend', () => {
-            hoverSquare.style.display = "none";
-        });          
     }
 }
+
+// function handleMonumentHover(e){ 
+//     const outpost = new Monument(625, 645, 70, "hoverCircle");   
+//     if (outpost.isInsideBounds(e.clientX, e.clientY) && e.buttons === 0) {
+//         console.log("Mouse is not down");
+//         if (hoverCircle) {  
+//             const circleRadius = 50;  // Adjust the radius as needed
+//             hoverCircle.style.transition = "opacity 1s";
+//             hoverCircle.style.display = "block";
+//             hoverCircle.style.width = `${circleRadius * 2}px`;
+//             hoverCircle.style.height = `${circleRadius * 2}px`;
+//             hoverCircle.style.backgroundColor = 'red';
+//             hoverCircle.style.borderRadius = '50%';  // Make it a circle
+//             hoverCircle.style.position = 'fixed';
+//             hoverCircle.style.opacity = '1';        
+//         }
+    
+
+//         // Calculate the position based on the background position and scale factors
+//         const position = outpost.calculateScaledPosition();
+//         const scaledLeftPos = position.left
+//         const scaledTopPos = position.top
+
+//         // Position the square within the specified bounds
+//         hoverCircle.style.left = `${scaledLeftPos}px`;
+//         hoverCircle.style.top = `${scaledTopPos}px`;
+//     } 
+//     else {
+//         hoverCircle.style.opacity = '0';    
+//         hoverCircle.addEventListener('transitionend', () => {
+//             hoverCircle.style.display = "none";
+//         });          
+//     }
+// }
 
 map.addEventListener('mousemove', handleHover);
 map.addEventListener('touchmove', handleHover);
@@ -149,10 +174,13 @@ const mapImage = new Image();
 // Set the source to the background image URL
 mapImage.src = imageUrl;
 
-// Access dimensions after the map has loaded
-mapImage.onload = function () {
+
+function calcSizeFactor() {
+    console.log("in calc")
     mapWidth = mapImage.width;
     mapHeight = mapImage.height;
+
+    console.log(mapHeight)
 
     // Get the screen resolution
     let screenWidth = window.innerWidth;
@@ -164,4 +192,15 @@ mapImage.onload = function () {
 
     // Use the maximum of the two scale factors
     sizeFactor = Math.max(widthScaleFactor, heightScaleFactor);
-};
+    sizeFactorMin = Math.min(widthScaleFactor, heightScaleFactor);
+
+    
+    if( widthScaleFactor <= 1 || heightScaleFactor <= 1){
+        isScreenSmall = true;
+    }
+    console.log(sizeFactor)
+}
+
+// Access dimensions after the map has loaded or window resized
+mapImage.onload = calcSizeFactor;
+window.addEventListener('resize', calcSizeFactor);
