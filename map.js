@@ -83,6 +83,21 @@ mapImage.onload = function() {
 
 
 
+// Event listeners for drag end on mouse and touch
+document.addEventListener('mouseup', handleEnd);
+document.addEventListener('touchend', handleEnd);
+
+function handleEnd() {
+    if (isDragging) {
+        isDragging = false;
+        shiftedX += distanceTraveledX;
+        shiftedY += distanceTraveledY;
+        distanceTraveledX = 0;
+        distanceTraveledY = 0;
+        map.style.cursor = "move";
+    }
+}
+
 function handleHover(e) {
     // Handle hover logic if needed
     // Get the screen resolution
@@ -112,21 +127,6 @@ function handleHover(e) {
     const clientY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
     coordinatesElement.textContent = `(${clientX - shiftedX}, ${clientY - shiftedY}), (${absPosX}, ${absPosY}), ${sizeFactor}`;
 
-}
-
-// Event listeners for drag end on mouse and touch
-document.addEventListener('mouseup', handleEnd);
-document.addEventListener('touchend', handleEnd);
-
-function handleEnd() {
-    if (isDragging) {
-        isDragging = false;
-        shiftedX += distanceTraveledX;
-        shiftedY += distanceTraveledY;
-        distanceTraveledX = 0;
-        distanceTraveledY = 0;
-        map.style.cursor = "move";
-    }
 }
 
 // Event listeners for updating mouse coordinates on mouse and touch move
