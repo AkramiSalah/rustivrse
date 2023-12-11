@@ -18,20 +18,6 @@ body{
     overflow: hidden
 }
 
-.first{
-    height: 128px;
-    width: 165px;
-    background-image: url(images/MissleSilo.png);
-    background-size: cover;
-    border-radius: 50%;
-    transition: 1s;
-}
-
-.first:hover{
-    transform: scale(1.40);
-    cursor: pointer;
-}
-
 .map:hover{
     cursor:move;
 }
@@ -43,5 +29,7 @@ body{
     background-color: rgba(255, 255, 255, 0.8);
     padding: 5px;
     border-radius: 5px;
+    font-size: 25px;
+    font-weight: bolder;
     font-family: Arial, sans-serif;
 }
