@@ -103,8 +103,8 @@ function handleHover(e) {
         }
 
         // Calculate the position based on the background position and scale factors
-        const scaledLeftPos = (570 * sizeFactor + totalDragX) ;
-        const scaledTopPos = (600 * sizeFactor + totalDragY) ;
+        const scaledLeftPos = (600 * sizeFactor + totalDragX) ;
+        const scaledTopPos = (620 * sizeFactor + totalDragY) ;
 
         // Position the square within the specified bounds
         hoverSquare.style.left = `${scaledLeftPos}px`;
