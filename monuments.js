@@ -18,8 +18,8 @@ class Monument {
     }
 
     calculateScaledPosition() {
-        const scaledLeftPos = (this.x - this.radius) * sizeFactor + totalDragX;
-        const scaledTopPos = (this.y - this.radius) * sizeFactor + totalDragY;
+        const scaledLeftPos = this.x * sizeFactor + totalDragX;
+        const scaledTopPos = this.y * sizeFactor + totalDragY;
         return { left: scaledLeftPos, top: scaledTopPos };
     }
 
@@ -40,7 +40,7 @@ class Monument {
         this.hoverCircle.style.borderRadius = '50%';  // Make it a circle
         this.hoverCircle.style.position = 'fixed';
         this.hoverCircle.style.transform = 
-            `translate(-50%, -50%) translate(${left + this.radius * sizeFactor}px, ${top + this.radius * sizeFactor}px)`;
+            ` translate(${left}px, ${top}px) translate(-50%, -50%)`;
 
         this.hoverCircle.style.opacity = '1';
     }
