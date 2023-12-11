@@ -12,8 +12,10 @@ let totalDragY = 0;
 
 let mapWidth = 0;
 let mapHeight = 0;
+let sizeFactor = 0
 
 let hoverSquare = document.getElementById('hoverSquare');
+const monuments = document.querySelectorAll('.monument')
 
 // Event listeners for drag start - mouse and touch
 map.addEventListener('mousedown', handleDragStart);
@@ -32,9 +34,8 @@ function handleDragStart(e) {
 }
 
 // Event listeners for drag move - mouse and touch
-document.addEventListener('mousemove', handleDragMove);
-document.addEventListener('touchmove', handleDragMove);
-
+map.addEventListener('mousemove', handleDragMove);
+map.addEventListener('touchmove', handleDragMove);
 
 function handleDragMove(e) {
     if (isDragging) {
@@ -60,40 +61,21 @@ function handleDragMove(e) {
             map.style.backgroundPositionY = `${newY}px`;
             currentDragY += deltaY;
         }
-        hoverSquare.style.display = "none"
+
+        monuments.forEach(mon =>{
+            mon.style.display = "none"
+        })
     }
 }
 
 // Event listeners for hover - mouse and touch
-map.addEventListener('mousemove', handleHover);
-map.addEventListener('touchmove', handleHover);
+map.addEventListener('mousemove',handleMonumentHover)
+map.addEventListener('touchmove',handleMonumentHover)
 
-function handleHover(e) {
-    if(!isDragging){
-
-    // Get the screen resolution
-    let screenWidth = window.innerWidth;
-    let screenHeight = window.innerHeight;
-
-    // Calculate the scale factors for width and height
-    let widthScaleFactor = screenWidth / mapWidth;
-    let heightScaleFactor = screenHeight / mapHeight;
-
-    // Use the maximum of the two scale factors
-    let sizeFactor = Math.max(widthScaleFactor, heightScaleFactor);
-
-    const absPosX = (e.clientX - totalDragX) / sizeFactor;
-    const absPosY = (e.clientY - totalDragY) / sizeFactor;
-
-    
-    
-    //change
-    
-    
-    const isInsideBounds =
-        absPosX >= 570 && absPosX <= 670 && absPosY >= 600 && absPosY <= 700;
-
-    if (isInsideBounds) {
+function handleMonumentHover(e){ 
+    const outpost = new Monument(625,645,70,"hoverSquare");   
+    if (outpost.isInsideBounds(e.clientX, e.clientY)) {
+        console.log("yes")
         if (hoverSquare) {  
             const squareSize = 100; 
             hoverSquare.style.transition  = "opacity 1s"
@@ -103,12 +85,11 @@ function handleHover(e) {
             hoverSquare.style.backgroundColor = 'red';
             hoverSquare.style.position = 'fixed';
             hoverSquare.style.opacity = '1';        
-            console.log(hoverSquare.style.transition)
         }
 
         // Calculate the position based on the background position and scale factors
-        const scaledLeftPos = (600 * sizeFactor + totalDragX) ;
-        const scaledTopPos = (620 * sizeFactor + totalDragY) ;
+        const scaledLeftPos = (600 * sizeFactor + totalDragX);
+        const scaledTopPos = (620 * sizeFactor + totalDragY);
 
         // Position the square within the specified bounds
         hoverSquare.style.left = `${scaledLeftPos}px`;
@@ -120,11 +101,16 @@ function handleHover(e) {
             hoverSquare.style.display = "none";
         });          
     }
+}
 
+map.addEventListener('mousemove', handleHover);
+map.addEventListener('touchmove', handleHover);
 
-    //end of change
-    
-    
+function handleHover(e) {
+    if(!isDragging){
+
+    const absPosX = (e.clientX - totalDragX) / sizeFactor;
+    const absPosY = (e.clientY - totalDragY) / sizeFactor;
 
     // updating the coordinates at the bottom of the screen:
     const coordinatesElement = document.getElementById('coords');
@@ -136,8 +122,8 @@ function handleHover(e) {
 
 
 // Event listeners for ending drag - mouse and touch
-document.addEventListener('mouseup', handleDragEnd);
-document.addEventListener('touchend', handleDragEnd);
+map.addEventListener('mouseup', handleDragEnd);
+map.addEventListener('touchend', handleDragEnd);
 
 function handleDragEnd() {
     if (isDragging) {
@@ -167,4 +153,15 @@ mapImage.src = imageUrl;
 mapImage.onload = function () {
     mapWidth = mapImage.width;
     mapHeight = mapImage.height;
+
+    // Get the screen resolution
+    let screenWidth = window.innerWidth;
+    let screenHeight = window.innerHeight;
+
+    // Calculate the scale factors for width and height
+    let widthScaleFactor = screenWidth / mapWidth;
+    let heightScaleFactor = screenHeight / mapHeight;
+
+    // Use the maximum of the two scale factors
+    sizeFactor = Math.max(widthScaleFactor, heightScaleFactor);
 };
