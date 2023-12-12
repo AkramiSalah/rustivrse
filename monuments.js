@@ -56,17 +56,10 @@ class Monument {
         this.mon.style.display = "block";
         this.mon.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
         this.mon.style.opacity = '1';
-        // Trigger fade-in by setting opacity to 1 after a brief delay
-        // setTimeout(() => {
-            
-        // }, 50);
     }
     
     hideHoverCircle() {
-        this.mon.style.opacity = '0'; 
-          
-        this.mon.addEventListener('transitionend', () => {
-            this.mon.style.display = "none";
-        });
+        this.mon.style.display = "none";
+        this.mon.style.opacity = '0';
     }
 }
