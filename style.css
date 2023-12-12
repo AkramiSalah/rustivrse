@@ -39,6 +39,7 @@ body{
     width: 30vh;
     height: 30vh;
     display: none;
+    position: fixed;
 }
 
 .monument-name{
@@ -46,7 +47,7 @@ body{
     background-color: black;
     width: 100%;
     color: white;
-    font-size: 30px;
+    font-size: 1.3vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,7 +72,7 @@ body{
     height: 20vh;
     width: 15vh;
     color: white;
-    font-size: 30px;
+    font-size: 1.2vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -82,7 +83,7 @@ body{
     height: 3vh;
     background-color: black;
     width: 100%;
-    font-size: 30px;
+    font-size: 1.3vw;
     display: flex;
     align-items: center;
     justify-content: center;

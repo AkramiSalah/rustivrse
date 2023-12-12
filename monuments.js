@@ -57,7 +57,6 @@ class Monument {
         // Apply styles for fade-in
         this.mon.style.transition = "opacity 1s";
         this.mon.style.display = "block";
-        this.mon.style.position = 'fixed';
         this.mon.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
     
         // Trigger fade-in by setting opacity to 1 after a brief delay

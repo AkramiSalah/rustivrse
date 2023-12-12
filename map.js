@@ -1,8 +1,9 @@
 const monumentsList = [
-    new Monument(925, 537, 45, "hoverCircle",true,0,false,false,true)
+    new Monument(925, 537, 55, "hoverCircle",true,0,false,false,true)
 ];
 
 const map = document.querySelector(".map");
+const monumentCards = document.querySelectorAll(".monument");
 
 let isDragging = false;
 let isScreenSmall = false;
@@ -83,8 +84,8 @@ function handleMonumentHover(e) {
         if (monument.isInsideBounds(e.clientX, e.clientY) && e.buttons === 0) {
             monument.showHoverCircle();
         } 
-        else {
-            monument.hideHoverCircle();
+        else {          
+            monument.hideHoverCircle();          
         }
     }
 }
