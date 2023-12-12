@@ -33,3 +33,62 @@ body{
     font-weight: bolder;
     font-family: Arial, sans-serif;
 }
+
+.monument {
+    background-color: rgb(43, 42, 42);
+    width: 30vh;
+    height: 30vh;
+    display: none;
+}
+
+.monument-name{
+    height: 3vh;
+    background-color: black;
+    width: 100%;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    
+}
+
+.monument-image{
+    background-image: url(images/outpostNew.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 24vh;
+    width: 15vh;
+}
+
+.monument-desc{
+    height: 20vh;
+    width: 15vh;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.moreDetails{
+    height: 3vh;
+    background-color: black;
+    width: 100%;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.moreDetails a{
+    color: white;
+    text-decoration: none;
+}

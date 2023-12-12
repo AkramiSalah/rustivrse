@@ -1,6 +1,7 @@
 const monumentsList = [
-    new Monument(625, 645, 70, "hoverCircle"),
+    new Monument(625, 645, 45, "hoverCircle",true,0,false,false,true)
 ];
+
 const map = document.querySelector(".map");
 
 let isDragging = false;
@@ -17,10 +18,8 @@ let totalDragY = 0;
 
 let mapWidth = 0;
 let mapHeight = 0;
-let sizeFactor = 0
+let sizeFactor = 0;
 
-let hoverCircle = document.getElementById('hoverCircle');
-const monuments = document.querySelectorAll('.monument')
 
 // Event listeners for drag start - mouse and touch
 map.addEventListener('mousedown', handleDragStart);
@@ -34,10 +33,8 @@ function handleDragStart(e) {
     } else if (e.type === 'touchstart') {
         startPointX = e.touches[0].clientX;
         startPointY = e.touches[0].clientY;
-    }
-    
+    }               
     map.style.cursor = "grab";
-
 }
 
 // Event listeners for drag move - mouse and touch
@@ -46,6 +43,7 @@ map.addEventListener('touchmove', handleDragMove);
 
 function handleDragMove(e) {
     if (isDragging) {
+        map.style.cursor = "grab";
         const clientX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
         const clientY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
 
@@ -69,8 +67,9 @@ function handleDragMove(e) {
             currentDragY += deltaY;
         }
 
-        monuments.forEach(mon =>{
-            mon.style.display = "none"
+        // changed from monuments to monumnetList
+        monumentsList.forEach(mon =>{
+            mon.mon.style.display = "none"
         })
     }
 }
@@ -82,51 +81,13 @@ map.addEventListener('touchmove',handleMonumentHover)
 function handleMonumentHover(e) { 
     for (const monument of monumentsList) {
         if (monument.isInsideBounds(e.clientX, e.clientY) && e.buttons === 0) {
-            console.log("Mouse is not down");
-
-            // Shows the hover circle based on the monument's scaled position
             monument.showHoverCircle();
         } 
         else {
-            // Hide the hover circle when not hovering over the monument
             monument.hideHoverCircle();
         }
     }
 }
-
-// function handleMonumentHover(e){ 
-//     const outpost = new Monument(625, 645, 70, "hoverCircle");   
-//     if (outpost.isInsideBounds(e.clientX, e.clientY) && e.buttons === 0) {
-//         console.log("Mouse is not down");
-//         if (hoverCircle) {  
-//             const circleRadius = 50;  // Adjust the radius as needed
-//             hoverCircle.style.transition = "opacity 1s";
-//             hoverCircle.style.display = "block";
-//             hoverCircle.style.width = `${circleRadius * 2}px`;
-//             hoverCircle.style.height = `${circleRadius * 2}px`;
-//             hoverCircle.style.backgroundColor = 'red';
-//             hoverCircle.style.borderRadius = '50%';  // Make it a circle
-//             hoverCircle.style.position = 'fixed';
-//             hoverCircle.style.opacity = '1';        
-//         }
-    
-
-//         // Calculate the position based on the background position and scale factors
-//         const position = outpost.calculateScaledPosition();
-//         const scaledLeftPos = position.left
-//         const scaledTopPos = position.top
-
-//         // Position the square within the specified bounds
-//         hoverCircle.style.left = `${scaledLeftPos}px`;
-//         hoverCircle.style.top = `${scaledTopPos}px`;
-//     } 
-//     else {
-//         hoverCircle.style.opacity = '0';    
-//         hoverCircle.addEventListener('transitionend', () => {
-//             hoverCircle.style.display = "none";
-//         });          
-//     }
-// }
 
 map.addEventListener('mousemove', handleHover);
 map.addEventListener('touchmove', handleHover);
@@ -175,12 +136,9 @@ const mapImage = new Image();
 mapImage.src = imageUrl;
 
 
-function calcSizeFactor() {
-    console.log("in calc")
+function calcSizeFactor() {   
     mapWidth = mapImage.width;
     mapHeight = mapImage.height;
-
-    console.log(mapHeight)
 
     // Get the screen resolution
     let screenWidth = window.innerWidth;
@@ -193,12 +151,10 @@ function calcSizeFactor() {
     // Use the maximum of the two scale factors
     sizeFactor = Math.max(widthScaleFactor, heightScaleFactor);
     sizeFactorMin = Math.min(widthScaleFactor, heightScaleFactor);
-
-    
+  
     if( widthScaleFactor <= 1 || heightScaleFactor <= 1){
         isScreenSmall = true;
     }
-    console.log(sizeFactor)
 }
 
 // Access dimensions after the map has loaded or window resized
