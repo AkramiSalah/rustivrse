@@ -70,7 +70,6 @@ function handleDragMove(e) {
             currentDragY += deltaY;
         }
 
-        // changed from monuments to monumnetList
         monumentsList.forEach(mon =>{
             mon.mon.style.display = "none"
         })
@@ -153,11 +152,12 @@ function calcSizeFactor() {
 
     // Use the maximum of the two scale factors
     sizeFactor = Math.max(widthScaleFactor, heightScaleFactor);
-    sizeFactorMin = Math.min(widthScaleFactor, heightScaleFactor);
+    
+    // sizeFactorMin = Math.min(widthScaleFactor, heightScaleFactor);
   
-    if( widthScaleFactor <= 1 || heightScaleFactor <= 1){
-        isScreenSmall = true;
-    }
+    // if( widthScaleFactor <= 1 || heightScaleFactor <= 1){
+    //     isScreenSmall = true;
+    // }
 }
 
 // Access dimensions after the map has loaded or window resized

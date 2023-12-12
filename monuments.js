@@ -50,6 +50,8 @@ class Monument {
     showHoverCircle() {
         const { left, top } = this.calculateScaledPosition();
         // const diameter = isScreenSmall ? (this.radius * 2) * sizeFactor : (this.radius * 2) / sizeFactorMin; //important no delete        
+    
+        this.mon.style.transition = "opacity 1s ease-in-out";
         
         // Apply styles for fade-in
         this.mon.style.transition = "opacity 1s";
@@ -59,6 +61,7 @@ class Monument {
     }
     
     hideHoverCircle() {
+        this.mon.style.display = "none";   
         this.mon.style.display = "none";
         this.mon.style.opacity = '0';
     }
