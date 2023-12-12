@@ -44,31 +44,16 @@ class Monument {
         return { left: scaledLeftPos, top: scaledTopPos };
     }
 
-    // calculateScaledPosition() {
-    //     const scaledLeftPos = this.x * sizeFactor + totalDragX - this.radius * sizeFactor;
-    //     const scaledTopPos = this.y * sizeFactor + totalDragY - this.radius * sizeFactor;
-    //     return { left: scaledLeftPos, top: scaledTopPos };
-    // }
-
     showHoverCircle() {
         const { left, top } = this.calculateScaledPosition();
         // const diameter = isScreenSmall ? (this.radius * 2) * sizeFactor : (this.radius * 2) / sizeFactorMin; //important no delete        
     
-        // Apply styles for fade-in
-        this.mon.style.transition = "opacity 1s";
+        this.mon.style.transition = "opacity 1s ease-in-out";
         this.mon.style.display = "block";
         this.mon.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
-        this.mon.style.opacity = '1';
-        // Trigger fade-in by setting opacity to 1 after a brief delay
-        // setTimeout(() => {
-            
-        // }, 50);
     }
     
     hideHoverCircle() {
-        this.mon.style.opacity = '0';    
-        this.mon.addEventListener('transitionend', () => {
-            this.mon.style.display = "none";
-        });
+        this.mon.style.display = "none";   
     }
 }
