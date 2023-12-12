@@ -1,5 +1,5 @@
 const monumentsList = [
-    new Monument(625, 645, 45, "hoverCircle",true,0,false,false,true)
+    new Monument(925, 537, 45, "hoverCircle",true,0,false,false,true)
 ];
 
 const map = document.querySelector(".map");

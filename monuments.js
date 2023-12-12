@@ -9,7 +9,10 @@ class Monument {
         this.puzzle = puzzle;
         this.scientists = scientists;
         this.recycler = recycler;
-        this.mon = document.getElementById(monumentName);
+        this.mon = document.createElement('div');
+        this.mon.id = monumentName;
+        this.mon.classList.add('monument');
+        document.querySelector('.map').appendChild(this.mon);
         this.mon.innerHTML =
            `<div class="monument-name">${monumentName}</div> 
             <div class="container">
@@ -57,7 +60,7 @@ class Monument {
         this.mon.style.position = 'fixed';
         this.mon.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
     
-        // Trigger fade-in by setting opacity to 1 after a brief delay (e.g., using setTimeout)
+        // Trigger fade-in by setting opacity to 1 after a brief delay
         setTimeout(() => {
             this.mon.style.opacity = '1';
         }, 50);
