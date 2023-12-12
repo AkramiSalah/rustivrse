@@ -48,8 +48,6 @@ class Monument {
 
 
     showHoverCircle() {
-        
-
         const { left, top } = this.calculateScaledPosition();
         // const diameter = isScreenSmall ? (this.radius * 2) * sizeFactor : (this.radius * 2) / sizeFactorMin; //important no delete        
         
@@ -57,20 +55,11 @@ class Monument {
         this.mon.style.transition = "opacity 1s";
         this.mon.style.display = "block";
         this.mon.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
-        console.log(absPosX,absPosY);
         this.mon.style.opacity = '1';
-        // Trigger fade-in by setting opacity to 1 after a brief delay
-        
         // Trigger fade-in by setting opacity to 1 after a brief delay
         // setTimeout(() => {
             
         // }, 50);
-
-        //Add an event listener to ensure the fade-in has completed
-        this.mon.addEventListener('transitionend', () => {
-            this.mon.style.transition = ""; // Remove the transition property to allow smooth fade-out
-        }, { once: true });
-    
     }
     
     hideHoverCircle() {
