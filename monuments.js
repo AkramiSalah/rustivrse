@@ -14,20 +14,18 @@ class Monument {
         this.mon.classList.add('monument');
         document.querySelector('.map').appendChild(this.mon);
         this.mon.innerHTML =
-           `
-            <div class="monument-name">${monumentName}</div> 
-                <div class="container">
-                    <div class="monument-image"></div>
-                    <div class="monument-desc">
-                        <div class="safeZone">safezone: ${safezone}</div>
-                        <div class="radiation">radiation: ${radiation}</div>
-                        <div class="puzzle">puzzle: ${puzzle}</div>
-                        <div class="scientists">scientists: ${scientists}</div>
-                        <div class="recycler">recycler: ${recycler}</div>
-                    </div>
-                </div>          
-                <div class="moreDetails"><a href="#">More Details</a></div>
-            `
+           `<div class="monument-name">${monumentName}</div>
+            <div class="container">
+                <div class="monument-image"></div>
+                <div class="monument-desc">
+                    <div class="safeZone">safezone: ${safezone}</div>
+                    <div class="radiation">radiation: ${radiation}</div>
+                    <div class="puzzle">puzzle: ${puzzle}</div>
+                    <div class="scientists">scientists: ${scientists}</div>
+                    <div class="recycler">recycler: ${recycler}</div>
+                </div>
+            </div>          
+            <div class="moreDetails"><a href="#">More Details</a></div>`
     }
 
     distanceToMonument(mouseX, mouseY) {
@@ -46,23 +44,16 @@ class Monument {
         return { left: scaledLeftPos, top: scaledTopPos };
     }
 
-
     showHoverCircle() {
         const { left, top } = this.calculateScaledPosition();
         // const diameter = isScreenSmall ? (this.radius * 2) * sizeFactor : (this.radius * 2) / sizeFactorMin; //important no delete        
-    
+   
         this.mon.style.transition = "opacity 1s ease-in-out";
-        
-        // Apply styles for fade-in
-        this.mon.style.transition = "opacity 1s";
         this.mon.style.display = "block";
         this.mon.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
-        this.mon.style.opacity = '1';
     }
-    
+   
     hideHoverCircle() {
-        this.mon.style.display = "none";   
-        this.mon.style.display = "none";
-        this.mon.style.opacity = '0';
+        this.mon.style.display = "none";  
     }
 }

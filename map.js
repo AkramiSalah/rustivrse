@@ -20,8 +20,6 @@ let totalDragY = 0;
 let mapWidth = 0;
 let mapHeight = 0;
 let sizeFactor = 0;
-let absPosX = 0;
-let absPosY = 0;
 
 
 // Event listeners for drag start - mouse and touch
@@ -97,8 +95,8 @@ map.addEventListener('touchmove', handleHover);
 function handleHover(e) {
     if(!isDragging){
 
-    absPosX = (e.clientX - totalDragX) / sizeFactor;
-    absPosY = (e.clientY - totalDragY) / sizeFactor;
+    const absPosX = (e.clientX - totalDragX) / sizeFactor;
+    const absPosY = (e.clientY - totalDragY) / sizeFactor;
 
     // updating the coordinates at the bottom of the screen:
     const coordinatesElement = document.getElementById('coords');
