@@ -51,7 +51,7 @@ class Monument {
         this.mon.style.display = "block";
         this.mon.style.opacity = 0;
         setTimeout(() => {
-            this.mon.style.transition = "opacity 0.7s ease-in-out";
+            this.mon.style.transition = "opacity 0.3s ease-in-out";
             this.mon.style.opacity = 1;
             this.mon.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
         }, 0);
