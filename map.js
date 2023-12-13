@@ -1,5 +1,6 @@
 const monumentsList = [
-    new Monument(925, 537, 55, "Outpost", true, 0, false, false, true)
+    new Monument(925, 537, 55, "Outpost", true, 0, false, false, true),
+    new Monument(532, 810, 85, "Launch Site", false, 30, true, true, true)  
 ];
 
 const map = document.querySelector(".map");

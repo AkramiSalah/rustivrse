@@ -9,7 +9,7 @@ body{
 }
 
 .map{
-    background-image: url(images/map3.png);
+    background-image: url(images/Map.png);
     background-size:cover;
     background-repeat: no-repeat;
     background-position: 0px 0px;
@@ -60,10 +60,7 @@ body{
     
 }
 
-
-
 .monument-image{
-    background-image: url(images/outpostNew.jpg);
     background-size:cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -95,4 +92,8 @@ body{
 .moreDetails a{
     color: white;
     text-decoration: none;
+}
+
+.monument:hover{
+    cursor: pointer;
 }

@@ -16,13 +16,13 @@ class Monument {
         this.mon.innerHTML =
            `<div class="monument-name">${monumentName}</div>
             <div class="container">
-                <div class="monument-image"></div>
+                <div class="monument-image" style = "background-image : url('images/${this.monumentName}.jpg')"></div>
                 <div class="monument-desc">
-                    <div class="safeZone">safezone: ${safezone}</div>
-                    <div class="radiation">radiation: ${radiation}</div>
-                    <div class="puzzle">puzzle: ${puzzle}</div>
-                    <div class="scientists">scientists: ${scientists}</div>
-                    <div class="recycler">recycler: ${recycler}</div>
+                    <div class="safeZone">Safezone: ${safezone}</div>
+                    <div class="radiation">Radiation: ${radiation}</div>
+                    <div class="puzzle">Puzzle: ${puzzle}</div>
+                    <div class="scientists">Scientists: ${scientists}</div>
+                    <div class="recycler">Recycler: ${recycler}</div>
                 </div>
             </div>          
             <div class="moreDetails"><a href="#">More Details</a></div>`
