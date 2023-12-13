@@ -7,6 +7,7 @@ const monumentCards = document.querySelectorAll(".monument");
 
 let isDragging = false;
 let isScreenSmall = false;
+let hoveringOverCard = false;
 
 let startPointX = 0;
 let startPointY = 0;
@@ -83,8 +84,11 @@ function handleMonumentHover(e) {
         if (monument.isInsideBounds(e.clientX, e.clientY) && e.buttons === 0) {
             monument.showHoverCircle();
         } 
-        else {          
-            monument.hideHoverCircle();          
+        else {  
+            if (!hoveringOverCard){
+                monument.hideHoverCircle();
+            }        
+                      
         }
     }
 }
@@ -161,3 +165,16 @@ function calcSizeFactor() {
 // Access dimensions after the map has loaded or window resized
 mapImage.onload = calcSizeFactor;
 window.addEventListener('resize', calcSizeFactor);
+
+
+monumentCards.forEach(card =>{
+    card.addEventListener('mouseenter',()=>{
+        hoveringOverCard = true;
+    })
+})
+
+monumentCards.forEach(card =>{
+    card.addEventListener('mouseleave',()=>{
+        hoveringOverCard = false;
+    })
+})
