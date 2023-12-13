@@ -19,7 +19,7 @@ class Monument {
                 <div class="monument-image" style = "background-image : url('images/${this.monumentName}.jpg')"></div>
                 <div class="monument-desc">
                     <div class="safeZone">Safezone: ${safezone}</div>
-                    <div class="radiation">Radiation: ${radiation}</div>
+                    <div class="radiation">Radiation: ${radiation}%</div>
                     <div class="puzzle">Puzzle: ${puzzle}</div>
                     <div class="scientists">Scientists: ${scientists}</div>
                     <div class="recycler">Recycler: ${recycler}</div>
@@ -44,7 +44,7 @@ class Monument {
         return { left: scaledLeftPos, top: scaledTopPos };
     }
 
-    showHoverCircle() {
+    showMonumentCard() {
         if(isFadingIn){
             return;
         }
@@ -62,7 +62,7 @@ class Monument {
         }
         
    
-    hideHoverCircle() {
+    hideMonumentCard() {
         isFadingIn = false;
         setTimeout(()=>{
             this.mon.style.opacity = 0;

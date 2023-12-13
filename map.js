@@ -84,11 +84,11 @@ map.addEventListener('touchmove',handleMonumentHover)
 function handleMonumentHover(e) { 
     for (const monument of monumentsList) {
         if (monument.isInsideBounds(e.clientX, e.clientY) && e.buttons === 0) {
-            monument.showHoverCircle();
+            monument.showMonumentCard();
         } 
         else {  
             if (!isHoveringOverCard){
-                monument.hideHoverCircle();
+                monument.hideMonumentCard();
             }        
                       
         }
