@@ -8,7 +8,8 @@ const monumentCards = document.querySelectorAll(".monument");
 
 let isDragging = false;
 let isScreenSmall = false;
-let hoveringOverCard = false;
+let isHoveringOverCard = false;
+let isFadingIn = false;
 
 let startPointX = 0;
 let startPointY = 0;
@@ -86,7 +87,7 @@ function handleMonumentHover(e) {
             monument.showHoverCircle();
         } 
         else {  
-            if (!hoveringOverCard){
+            if (!isHoveringOverCard){
                 monument.hideHoverCircle();
             }        
                       
@@ -170,12 +171,12 @@ window.addEventListener('resize', calcSizeFactor);
 
 monumentCards.forEach(card =>{
     card.addEventListener('mouseenter',()=>{
-        hoveringOverCard = true;
+        isHoveringOverCard = true;
     })
 })
 
 monumentCards.forEach(card =>{
     card.addEventListener('mouseleave',()=>{
-        hoveringOverCard = false;
+        isHoveringOverCard = false;
     })
 })
