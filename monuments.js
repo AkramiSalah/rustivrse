@@ -48,12 +48,18 @@ class Monument {
         const { left, top } = this.calculateScaledPosition();
         // const diameter = isScreenSmall ? (this.radius * 2) * sizeFactor : (this.radius * 2) / sizeFactorMin; //important no delete        
    
-        this.mon.style.transition = "opacity 1s ease-in-out";
         this.mon.style.display = "block";
-        this.mon.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
-    }
+        this.mon.style.opacity = 0;
+        setTimeout(() => {
+            this.mon.style.transition = "opacity 1s ease-in-out";
+            this.mon.style.opacity = 1;
+            this.mon.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
+        }, 0);
+        }
    
     hideHoverCircle() {
-        this.mon.style.display = "none";  
+        setTimeout(()=>{
+            this.mon.style.opacity = 0;
+        },0); 
     }
 }
