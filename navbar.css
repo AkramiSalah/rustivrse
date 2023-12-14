@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar ul{   
+    list-style: none; 
+    background: linear-gradient(180deg, rgb(20, 4, 4),rgba(95, 21, 21, 0.82)); 
+    position: fixed;   
+    width: 100%;
+    display: flex;
+}
+
+.navbar li{
+    display: inline-block;
+    position:relative;
+}
+
+#lowTier-monuments{
+    margin-left: 22vh;
+}
+
+.navbar a{   
+    display: block;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;   
+    padding: 2.5vh;
+    font-size: 2.5vh; 
+    transition: 0.5s;       
+}
+
+.navbar ul li ul{
+    width: 100%;
+    position: absolute;
+    display: none;  
+}
+
+.navbar ul li ul li{
+    display: block;
+}
+
+
+.navbar ul li:hover ul{
+    display: block;
+} 
+
+.navbar a:hover{
+    background-color: rgb(141, 18, 14);
+    transform: scale(1.05); 
+    color: black;  
+}
