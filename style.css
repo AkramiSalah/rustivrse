@@ -36,11 +36,13 @@ body{
 
 .monument {
     background-color: rgba(95, 21, 21, 0.88);
-    width: 35vh;
+    width: 38vh;
     height: 35vh;
     display: none;
     position: fixed;
     font-family: fantasy;
+    border-radius: 15%;
+    overflow: hidden;
 }
 
 .monument-name{
@@ -66,9 +68,7 @@ body{
     height: 24vh;
     width: 50%;
     border-radius: 10%;
-    margin-top: 1vh;
-    margin-left: 1vh;
-    margin-bottom: 1vh;
+    margin: 1vh 0 1vh 3vh;
 }
 
 .monument-desc{
@@ -79,7 +79,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-left: 2vh;
+    margin-left: 3.5vh;
 }
 
 .moreDetails{
