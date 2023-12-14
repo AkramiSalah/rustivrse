@@ -18,7 +18,7 @@
 }
 
 #lowTier-monuments{
-    margin-left: 22vh;
+    margin-left: 25vh;
 }
 
 .navbar a{   
@@ -28,9 +28,9 @@
     text-decoration: none;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style: italic;   
-    padding: 2.8vh;
+    padding: 4vh;
     font-size: 2.5vh; 
-    transition: 0.5s;       
+    transition: 0.5s;
 }
 
 .navbar ul li ul{
@@ -53,11 +53,15 @@
 }
 
 #logo{
-    background-image: url(images/RustiVerseLogo.svg);
+    position: absolute;
+    background-image: url(images/RustiVerse.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transform: scale(1.9);
-    margin-left: 4.5vh;
-    margin-top: 1.3vh;
+    transform: scale(1.6);
+    left: 1.5vh;
+    margin-top: 1vh;
+    width: 20vh;
+    height: 9vh;
+    
 }
