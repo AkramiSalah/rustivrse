@@ -28,7 +28,7 @@
     text-decoration: none;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style: italic;   
-    padding: 2.5vh;
+    padding: 2.8vh;
     font-size: 2.5vh; 
     transition: 0.5s;       
 }
@@ -58,6 +58,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     transform: scale(1.9);
-    margin-left: 3.5vh;
+    margin-left: 4.5vh;
     margin-top: 1.3vh;
 }
