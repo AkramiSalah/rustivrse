@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     
     const container = document.querySelector(".navbar ul");
     container.addEventListener("mouseenter", ()=> {
-        console.log("gamer")
         monumentsList.forEach(mon => {
             mon.hideMonumentCard();
         })

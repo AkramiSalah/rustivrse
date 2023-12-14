@@ -18,10 +18,6 @@ body{
     overflow: hidden;
 }
 
-.map:hover{
-    cursor:move;
-}
-
 #coordinates {
     position: fixed;
     bottom: 10px;
@@ -56,7 +52,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 1vh;
+    border-bottom-color: white;
+    border-bottom-style: solid;
 }
 
 .container{
@@ -72,6 +69,8 @@ body{
     width: 50%;
     border-radius: 10%;
     margin: 1vh 0 1vh 3vh;
+    border-color: white;
+    border-style: groove; 
 }
 
 .monument-desc{
@@ -85,6 +84,7 @@ body{
     margin-left: 3.5vh;
 }
 
+
 .moreDetails{
     height: 4vh;
     width: 100%;
@@ -94,6 +94,8 @@ body{
     justify-content: center;
     transition: 0.7s ease-in-out;
     padding-bottom: 0.7vh;
+    border-top-color: white;
+    border-top-style: solid;
 }
 
 .moreDetails a{

@@ -11,6 +11,7 @@
     background: linear-gradient(180deg, rgb(20, 4, 4),rgb(138, 28, 28));  
     width: 100%;  
     z-index: 999;
+    box-shadow: 1vh 1vh 5vh rgb(0, 0, 0);
 }
 
 .navbar li{
@@ -31,6 +32,7 @@
     font-style: italic;   
     padding: 2.4vh;
     font-size: 2.5vh; 
+    text-shadow: 1vh 1vh 4vh rgb(0, 0, 0);
 }
 
 .navbar ul li ul{
