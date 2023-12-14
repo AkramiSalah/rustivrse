@@ -35,7 +35,7 @@ body{
 }
 
 .monument {
-    background-color: rgba(95, 21, 21, 0.88);
+    background: linear-gradient(180deg, rgb(20, 4, 4),rgba(95, 21, 21, 0.82));
     width: 38vh;
     height: 35vh;
     display: none;
@@ -43,17 +43,20 @@ body{
     font-family: fantasy;
     border-radius: 15%;
     overflow: hidden;
+    border-style:groove;
+    border-color: white;
+    box-shadow: 1vh 1vh 5vh rgb(0, 0, 0);
 }
 
 .monument-name{
     height: 4vh;
-    background: linear-gradient(180deg, rgb(20, 4, 4),rgba(95, 21, 21, 0.88));
     width: 100%;
     color: white;
     font-size: 2.2vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 1vh;
 }
 
 .container{
@@ -84,19 +87,19 @@ body{
 
 .moreDetails{
     height: 4vh;
-    background: linear-gradient(180deg, rgba(95, 21, 21, 0.88),rgb(20, 4, 4));
     width: 100%;
     font-size: 2.2vh;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 0.7s ease-in-out;
+    padding-bottom: 0.7vh;
 }
 
 .moreDetails a{
     color: white;
     text-decoration: none;
-    transition: 0.7s ease-in-out;
+    transition: 0.6s ease-in-out;
 }
 
 .moreDetails:hover {
@@ -105,4 +108,5 @@ body{
 
 .moreDetails:hover a {
     color: black;
+    transform: scale(1.08);
 }
