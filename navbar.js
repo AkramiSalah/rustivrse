@@ -6,5 +6,14 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     } 
     catch(error){
         console.error("Error loading the navbar",error);
-    }  
+    }
+    
+    const container = document.querySelector(".navbar ul");
+    container.addEventListener("mouseenter", ()=> {
+        console.log("gamer")
+        monumentsList.forEach(mon => {
+            mon.hideMonumentCard();
+        })
+    })  
 });
+

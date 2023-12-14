@@ -10,6 +10,7 @@
     position: fixed;   
     width: 100%;
     display: flex;
+    z-index: 999;
 }
 
 .navbar li{
