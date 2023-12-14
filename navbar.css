@@ -6,7 +6,7 @@
 
 .navbar ul{   
     list-style: none; 
-    background: linear-gradient(180deg, rgb(35,73,77),rgb(209,207,186),rgb(110,114,74)); 
+    background: linear-gradient(180deg, rgb(20, 4, 4),rgba(95, 21, 21));
     position: fixed;    
     width: 100%;
     display: flex;
@@ -47,8 +47,8 @@
     display: block;
 } 
 
-.navbar ul li:hover:not(#logo){
-    background-color:rgb(35,73,77);
+.navbar ul li:hover{
+    background-color:rgb(149, 12, 12);
     transform: scale(1.05);   
 }
 
@@ -65,12 +65,10 @@
     position: absolute;
     background-image: url(images/RustiVerse.png);
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
     transform: scale(1.6);
     left: 1.5vh;
     margin-top: 1vh;
     width: 20vh;
-    height: 9vh;
-    
+    height: 9vh; 
 }
