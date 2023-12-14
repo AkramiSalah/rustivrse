@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
         const data = await resposne.text();
         document.getElementById('navbar-container').innerHTML = data;
     } 
-    catch{
+    catch(error){
         console.error("Error loading the navbar",error);
     }  
 });
