@@ -47,7 +47,17 @@
     display: block;
 } 
 
-.navbar a:hover{
+.navbar a:hover:not(#logo){
     background-color:rgb(35,73,77);
     transform: scale(1.05);   
+}
+
+#logo{
+    background-image: url(images/RustiVerseLogo.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scale(1.9);
+    margin-left: 3.5vh;
+    margin-top: 1.3vh;
 }
