@@ -71,8 +71,8 @@ function handleDragMove(e) {
             currentDragY += deltaY;
         }
 
-        monumentsList.forEach(mon =>{
-            mon.mon.style.display = "none"
+        monumentsList.forEach(monument =>{
+            monument.cardContainer.style.display = "none";
         })
     }
 }
@@ -85,6 +85,7 @@ function handleMonumentHover(e) {
     for (const monument of monumentsList) {
         if (monument.isInsideBounds(e.clientX, e.clientY) && e.buttons === 0) {
             monument.showMonumentCard();
+            map.style.cursor = "default";
         } 
         else {  
             if (!isHoveringOverCard){
@@ -171,12 +172,13 @@ window.addEventListener('resize', calcSizeFactor);
 
 monumentCards.forEach(card =>{
     card.addEventListener('mouseenter',()=>{
-        isHoveringOverCard = true;
+        isHoveringOverCard = true;     
     })
 })
 
 monumentCards.forEach(card =>{
     card.addEventListener('mouseleave',()=>{
-        isHoveringOverCard = false;
+        isHoveringOverCard = false;   
+        map.style.cursor = "move";  
     })
 })

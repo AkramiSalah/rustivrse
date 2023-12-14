@@ -15,7 +15,7 @@ body{
     background-position: 0px 0px;
     height: 100vh;
     width: 100%;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .map:hover{
@@ -45,7 +45,7 @@ body{
 
 .monument-name{
     height: 4vh;
-    background-color: rgba(16, 15, 15, 0.88);
+    background: linear-gradient(180deg, rgb(20, 4, 4),rgba(95, 21, 21, 0.88));
     width: 100%;
     color: white;
     font-size: 2.2vh;
@@ -68,6 +68,7 @@ body{
     border-radius: 10%;
     margin-top: 1vh;
     margin-left: 1vh;
+    margin-bottom: 1vh;
 }
 
 .monument-desc{
@@ -77,13 +78,13 @@ body{
     font-size: 2vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-evenly;
+    margin-left: 2vh;
 }
 
 .moreDetails{
     height: 4vh;
-    background-color: rgba(16, 15, 15, 0.88);
+    background: linear-gradient(180deg, rgba(95, 21, 21, 0.88),rgb(20, 4, 4));
     width: 100%;
     font-size: 2.2vh;
     display: flex;
@@ -95,16 +96,13 @@ body{
 .moreDetails a{
     color: white;
     text-decoration: none;
+    transition: 0.7s ease-in-out;
 }
 
-.monument:hover{
-    cursor: pointer;
+.moreDetails:hover {
+    background: white;
 }
 
-.moreDetails:hover{
-    background-color: rgba(155, 34, 34, 0.88);
-}
-
-.moreDetails:hover a{
-    color: rgba(16, 15, 15, 0.88);
+.moreDetails:hover a {
+    color: black;
 }
