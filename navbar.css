@@ -7,7 +7,7 @@
 .navbar ul{   
     list-style: none; 
     background: linear-gradient(180deg, rgb(35,73,77),rgb(209,207,186),rgb(110,114,74)); 
-    position: fixed;   
+    position: fixed;    
     width: 100%;
     display: flex;
     z-index: 999;
@@ -31,7 +31,6 @@
     font-style: italic;   
     padding: 4vh;
     font-size: 2.5vh; 
-    transition: 0.5s;
 }
 
 .navbar ul li ul{
@@ -48,9 +47,18 @@
     display: block;
 } 
 
-.navbar a:hover:not(#logo){
+.navbar ul li:hover:not(#logo){
     background-color:rgb(35,73,77);
     transform: scale(1.05);   
+}
+
+.navbar ul li{
+    transition: 0.5s;
+}
+
+.navbar ul li:not(#lowTier-monuments,#midTier-monuments,#highTier-monuments){
+    display: flex;
+    align-items: center;
 }
 
 #logo{
