@@ -1,5 +1,5 @@
 class Monument {
-    constructor(x, y, radius, monumentName,safezone,radiation,puzzle,scientists,recycler) {
+    constructor(x, y, radius, monumentName, safezone, radiation, puzzle, scientists, recycler) {
         this.x = x;
         this.y = y;
         this.radius = radius;
