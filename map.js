@@ -1,8 +1,13 @@
 const monumentsList = [
     new Monument(925, 537, 55, "Outpost", true, 0, false, false, true),
-    new Monument(532, 810, 85, "Launch Site", false, 30, true, true, true) 
+    new Monument(532, 810, 85, "Launch Site", false, 30, true, true, true),
+    new Monument(481, 350, 40, "Abandoned Military Base", false, 30, true, true, true),
+    new Monument(760, 1170, 55, "Airfield", false, 30, true, false, true),
+    new Monument(988, 330, 50, "Train Yard", false, 30, true, false, true),
+    new Monument(807, 189, 50, "Sewer Branch", false, 30, true, false, true)
 ];
 
+const currentCardShowing = [];
 const map = document.querySelector(".map");
 const monumentCards = document.querySelectorAll(".monument");
 const coordinatesElement = document.getElementById('coords');
@@ -98,8 +103,17 @@ function handleMapHover(e) {
 function handleMonumentHover(e) { 
     for (const monument of monumentsList) {
         if (monument.isInsideBounds(e.clientX, e.clientY) && e.buttons === 0) {
-            monument.showMonumentCard();
-            map.style.cursor = "default";
+            if (currentCardShowing.length === 0){
+                monument.showMonumentCard();
+                currentCardShowing.push(monument);
+            }
+            else{
+                currentCardShowing[0].hideMonumentCard();
+                currentCardShowing.pop();
+                currentCardShowing.push(monument);
+                monument.showMonumentCard();              
+            } 
+            map.style.cursor = "default";         
         } 
         else {  
             if (!isHoveringOverCard){
