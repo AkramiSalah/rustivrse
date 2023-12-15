@@ -68,4 +68,9 @@ class Monument {
             this.cardContainer.style.opacity = 0;
         },0); 
     }
+
+    alignMonumentCard(){
+        const { left, top } = this.calculateScaledPosition();
+        this.cardContainer.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
+    }
 }
