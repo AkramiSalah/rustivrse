@@ -70,7 +70,11 @@ function handleDragMove(e) {
         if (newY <= 500 && newY >= -1400) {
             map.style.backgroundPositionY = `${newY}px`;
             currentDragY += deltaY;
-        }      
+        }
+        
+        monumentsList.forEach(mon =>{
+            mon.hideMonumentCard();
+        });
     }
     else{
         handleMapHover(e);

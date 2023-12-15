@@ -16,7 +16,7 @@ class Monument {
         this.cardContainer.innerHTML =
            `<div class="monument-name">${monumentName}</div>
             <div class="container">
-                <div class="monument-image" style = "background-image : url('images/${this.monumentName}.jpg')"></div>
+                <div class="monument-image" style="background-image: url('images/${this.monumentName}.jpg')"></div>
                 <div class="monument-desc">
                     <div class="safeZone">Safezone: ${safezone}</div>
                     <div class="radiation">Radiation: ${radiation}%</div>
@@ -45,21 +45,18 @@ class Monument {
     }
 
     showMonumentCard() {
-        if(isFadingIn){
+        if (isFadingIn){
             return;
-        }
-        isFadingIn = true;
-        const { left, top } = this.calculateScaledPosition();
+        }      
         // const diameter = isScreenSmall ? (this.radius * 2) * sizeFactor : (this.radius * 2) / sizeFactorMin; //important no delete        
-   
+        isFadingIn = true;
+        this.alignMonumentCard();
         this.cardContainer.style.display = "block";
-        this.cardContainer.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
-        this.cardContainer.style.opacity = 0;
         setTimeout(() => {
             this.cardContainer.style.transition = "opacity 0.4s ease-in-out";
             this.cardContainer.style.opacity = 1;         
         }, 0);
-        }
+    }
         
    
     hideMonumentCard() {
