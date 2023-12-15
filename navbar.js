@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     
     const container = document.querySelector(".navbar ul");
     container.addEventListener("mouseenter", ()=> {
+        handleDragEnd();
         monumentsList.forEach(mon => {
             mon.hideMonumentCard();
         })
