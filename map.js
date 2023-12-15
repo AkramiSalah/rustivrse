@@ -4,7 +4,29 @@ const monumentsList = [
     new Monument(481, 350, 40, "Abandoned Military Base", false, 30, true, true, true),
     new Monument(760, 1170, 55, "Airfield", false, 30, true, false, true),
     new Monument(988, 330, 50, "Train Yard", false, 30, true, false, true),
-    new Monument(807, 189, 50, "Sewer Branch", false, 30, true, false, true)
+    new Monument(807, 189, 50, "Sewer Branch", false, 30, true, false, true),
+    new Monument(222, 343, 40, "Missle Silo", false, 30, true, true, true),
+    new Monument(181, 664, 50, "Giant Excavator", false, 30, true, true, true),
+    new Monument(571, 602, 40, "Military Tunnels", false, 30, true, true, true),
+    new Monument(996, 765, 40, "Water Treatment", false, 30, true, false, true),
+    new Monument(1296, 836, 40, "Small Harbour", false, 30, true, false, true),
+    new Monument(920, 1046, 35, "Arctic Reaserch Base", false, 30, true, true, true),
+    new Monument(585, 1160, 35, "Satellite Dish", false, 30, true, false, true),
+    new Monument(308, 1102, 35, "Power Plant", false, 30, true, false, true),
+    new Monument(695, 900, 35, "Bandit Camp", true, 30, true, false, true),
+    new Monument(1270, 220, 35, "Harbour", false, 30, true, false, true),
+    new Monument(1060, 95, 35, "Ferry Terminal", false, 30, true, false, true),
+    new Monument(735, 700, 20, "Dome", false, 30, true, false, true),
+    new Monument(1100, 1240, 40, "Junkyard", false, 30, true, false, true),
+    new Monument(1277, 1173, 15, "Lighthouse", false, 30, true, false, true),
+    new Monument(152, 945, 15, "Fishing Village", false, 30, true, false, true),
+    new Monument(1159, 950, 20, "Mining Outpost", false, 30, true, false, true),
+    new Monument(372, 496, 20, "Abandoned Supermarket", false, 30, true, false, true),
+    new Monument(745, 470, 40, "Large Barn", false, 30, true, false, true),
+    new Monument(1165, 480, 30, "Ranch", false, 30, true, false, true),
+    new Monument(1316, -29, 20, "Large Oil Rig", false, 30, true, true, true),
+    new Monument(185, -29, 20, "Small Oil Rig", false, 30, true, true, true),
+    new Monument(707, -29, 20, "Underwater Labs", false, 30, true, true, true)
 ];
 
 const currentCardShowing = [];
@@ -118,6 +140,7 @@ function handleMonumentHover(e) {
         else {  
             if (!isHoveringOverCard){
                 monument.hideMonumentCard();
+                currentCardShowing.pop();
             }                           
         }
     }
