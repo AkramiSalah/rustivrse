@@ -27,7 +27,7 @@ const monumentsList = [
     new Monument(1316, -29, 20, "Large Oil Rig", false, 30, true, true, true),
     new Monument(185, -29, 20, "Small Oil Rig", false, 30, true, true, true),
     new Monument(707, -29, 20, "Underwater Labs", false, 30, true, true, true),
-    new Monument(857, 902, 15, "Oxum's Gas Station", false, 30, true, true, true) // need to move the icon to this location: 857,902.
+    new Monument(680, 362, 15, "Oxum's Gas Station", false, 30, true, true, true)
 ];
 
 const currentCardShowing = [];
@@ -100,9 +100,9 @@ function handleDragMove(e) {
             currentDragY += deltaY;
         }
         
-        if (currentCardShowing.length !==0){
-            currentCardShowing[0].hideMonumentCard();
-        }
+        monumentsList.forEach(mon =>{
+            mon.hideMonumentCard();
+        });
     }
     else{
         handleMapHover(e);
@@ -187,12 +187,10 @@ function calcSizeFactor() {
     // Use the maximum of the two scale factors
     sizeFactor = Math.max(widthScaleFactor, heightScaleFactor);
 
-    // aligning monument if window is rezised  
-    if (currentCardShowing.length !== 0){
-        currentCardShowing[0].alignMonumentCard();
-    }
-    
-    
+    // aligning monuments if window is rezised
+    monumentsList.forEach(monument =>{
+        monument.alignMonumentCard();
+    });
     
     // sizeFactorMin = Math.min(widthScaleFactor, heightScaleFactor);
   
