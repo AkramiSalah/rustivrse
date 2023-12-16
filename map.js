@@ -129,7 +129,9 @@ function handleMonumentHover(e) {
                 monument.showMonumentCard();
                 currentCardShowing.push(monument);
             }
-            else{
+            else if(currentCardShowing.length === 1 &&
+                currentCardShowing[0] != monument){
+
                 currentCardShowing[0].hideMonumentCard();
                 currentCardShowing.pop();
                 currentCardShowing.push(monument);
@@ -204,7 +206,7 @@ window.addEventListener('resize', calcSizeFactor);
 
 monumentCards.forEach(card =>{
     card.addEventListener('mouseenter',()=>{
-        isHoveringOverCard = true;     
+        isHoveringOverCard = true; 
     })
 })
 
