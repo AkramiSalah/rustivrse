@@ -25,7 +25,7 @@
 
 .navbar a{   
     display: block;
-    text-align: center;
+    width: 100%;
     color: white;
     text-decoration: none;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -34,6 +34,7 @@
     font-size: 2.5vh; 
     text-shadow: 1vh 1vh 4vh rgb(0, 0, 0);
     user-select: none;
+    transition: 0.5s;
 }
 
 .navbar ul li ul{
@@ -51,8 +52,13 @@
 } 
 
 .navbar ul li:hover{
-    background-color:rgb(149, 12, 12);
-    transform: scale(1.05);   
+    background-color:hsl(360, 100%, 45%);
+    transform: scale(1.05); 
+    box-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8); 
+}
+
+.navbar a:hover{
+    text-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
 }
 
 .navbar ul li{

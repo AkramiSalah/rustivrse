@@ -130,13 +130,12 @@ function handleMonumentHover(e) {
                 monument.showMonumentCard();
                 currentCardShowing.push(monument);
             }
-             else{
+            else if((currentCardShowing.length === 1 && currentCardShowing[0] != monument))
+            {
                 currentCardShowing[0].hideMonumentCard();
                 currentCardShowing.pop();
                 currentCardShowing.push(monument);
-                monument.showMonumentCard();
-                // (currentCardShowing.length === 1 &&
-                // currentCardShowing[0] != monument)                  
+                monument.showMonumentCard();                          
             } 
             map.style.cursor = "default";         
         } 

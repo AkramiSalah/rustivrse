@@ -107,10 +107,11 @@ body{
 }
 
 .moreDetails:hover {
-    background: white;
+    background-color:hsl(360, 100%, 45%);
+    box-shadow: 2vh 2vh 1.5vh rgba(255, 255, 255, 0.8), 2vh 2vh 1.5vh rgba(255, 255, 255, 0.8), 2vh 2vh 1.5vh rgba(255, 255, 255, 0.8);
 }
 
 .moreDetails:hover a {
-    color: black;
+    text-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
     transform: scale(1.08);
 }
