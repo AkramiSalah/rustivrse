@@ -26,7 +26,8 @@ const monumentsList = [
     new Monument(1165, 480, 30, "Ranch", false, 30, true, false, true),
     new Monument(1316, -29, 20, "Large Oil Rig", false, 30, true, true, true),
     new Monument(185, -29, 20, "Small Oil Rig", false, 30, true, true, true),
-    new Monument(707, -29, 20, "Underwater Labs", false, 30, true, true, true)
+    new Monument(707, -29, 20, "Underwater Labs", false, 30, true, true, true),
+    new Monument(680, 362, 15, "Oxum's Gas Station", false, 30, true, true, true)
 ];
 
 const currentCardShowing = [];
@@ -129,13 +130,13 @@ function handleMonumentHover(e) {
                 monument.showMonumentCard();
                 currentCardShowing.push(monument);
             }
-            else if(currentCardShowing.length === 1 &&
-                currentCardShowing[0] != monument){
-
+             else{
                 currentCardShowing[0].hideMonumentCard();
                 currentCardShowing.pop();
                 currentCardShowing.push(monument);
-                monument.showMonumentCard();              
+                monument.showMonumentCard();
+                // (currentCardShowing.length === 1 &&
+                // currentCardShowing[0] != monument)                  
             } 
             map.style.cursor = "default";         
         } 
