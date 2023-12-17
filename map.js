@@ -190,7 +190,8 @@ function calcSizeFactor() {
     // aligning monuments if window is rezised
     monumentsList.forEach(monument =>{
         monument.alignMonumentCard();
-    });
+    });  
+      
     
     // sizeFactorMin = Math.min(widthScaleFactor, heightScaleFactor);
   

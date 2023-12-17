@@ -11,8 +11,14 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     const navbarContainer = document.querySelector(".navbar ul");
     navbarContainer.addEventListener("mouseenter", ()=> {
         handleDragEnd();
-        if (currentCardShowing.length !== 0){
-            currentCardShowing[0].hideMonumentCard();
-        }
+        console.log("test")
+        monumentsList.forEach(mon=>{
+            mon.hideMonumentCard();
+        })
+        // if (currentCardShowing.length !== 0){
+        //     currentCardShowing[0].hideMonumentCard();      
+        // }
+
+        // why this ^^ dont work ?
     });
 });
