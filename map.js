@@ -34,6 +34,7 @@ const currentCardShowing = [];
 const map = document.querySelector(".map");
 const monumentCards = document.querySelectorAll(".monument");
 const coordinatesElement = document.getElementById('coords');
+const cardCloseButton = document.querySelectorAll('.monument .monument-name i')
 
 let isDragging = false;
 let isHoveringOverCard = false;
@@ -187,12 +188,11 @@ function calcSizeFactor() {
     // Use the maximum of the two scale factors
     sizeFactor = Math.max(widthScaleFactor, heightScaleFactor);
 
-    // aligning monuments if window is rezised
+    // aligning monuments if window is rezised    
     monumentsList.forEach(monument =>{
         monument.alignMonumentCard();
     });  
-      
-    
+
     // sizeFactorMin = Math.min(widthScaleFactor, heightScaleFactor);
   
     // if( widthScaleFactor <= 1 || heightScaleFactor <= 1){
@@ -218,3 +218,11 @@ monumentCards.forEach(card =>{
         map.style.cursor = "move";  
     })
 })
+
+cardCloseButton.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        monumentsList.forEach(mon=>{
+            mon.hideMonumentCard();
+        })
+    })
+});

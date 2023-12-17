@@ -14,7 +14,7 @@ class Monument {
         this.cardContainer.classList.add('monument');
         document.querySelector('.map').appendChild(this.cardContainer);
         this.cardContainer.innerHTML =
-           `<div class="monument-name">${monumentName}</div>
+           `<div class="monument-name"><i>X</i>${monumentName}</div>
             <div class="container">
                 <div class="monument-image" style="background-image: url('images/${this.monumentName}.jpg')"></div>
                 <div class="monument-desc">
