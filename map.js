@@ -105,13 +105,11 @@ function handleDragMove(e) {
         });
     }
     else{
-        handleMapHover(e);
-        handleMonumentHover(e);     
+        handleMapHover(e);     
     }
 }
 
-
-function handleMapHover(e) {   
+function handleMapHover(e) {
     const absPosX = (e.clientX - totalDragX) / sizeFactor;
     const absPosY = (e.clientY - totalDragY) / sizeFactor;
 
@@ -123,7 +121,9 @@ function handleMapHover(e) {
 }
 
 
-function handleMonumentHover(e) { 
+map.addEventListener('click',handleMonumentClick);
+
+function handleMonumentClick(e) { 
     for (const monument of monumentsList) {
         if (monument.isInsideBounds(e.clientX, e.clientY) && e.buttons === 0) {
             if (currentCardShowing.length === 0){
@@ -207,6 +207,7 @@ window.addEventListener('resize', calcSizeFactor);
 monumentCards.forEach(card =>{
     card.addEventListener('mouseenter',()=>{
         isHoveringOverCard = true; 
+        map.style.cursor = "default"; 
     })
 })
 
