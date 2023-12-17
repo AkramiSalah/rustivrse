@@ -45,6 +45,7 @@ body{
     border-color: white;
     box-shadow: 1vh 1vh 5vh rgb(0, 0, 0);
     user-select: none;
+    opacity: 0;
 }
 
 .monument-name{
