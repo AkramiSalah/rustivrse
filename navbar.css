@@ -17,10 +17,33 @@
 .navbar li{
     display: inline-block;
     position:relative;
+    transition: 0.5s;
 }
+
 
 #lowTier-monuments{
     margin-left: 43.3vh;
+}
+
+.navbar li:hover{
+    background-color:hsl(360, 100%, 45%);
+    transform: scale(1.05); 
+    box-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8); 
+}
+
+.navbar ul li ul{
+    width: 100%;
+    position: absolute;
+    display: none; 
+}
+
+.navbar li:hover ul{
+    display: block;
+} 
+
+.navbar ul li ul li{
+    display: block;
+    border: 0.3vh white groove;
 }
 
 .navbar a{   
@@ -37,36 +60,11 @@
     transition: 0.5s;
 }
 
-.navbar ul li ul{
-    width: 100%;
-    position: absolute;
-    display: none; 
-}
-
-.navbar ul li ul li{
-    display: block;
-    border: 0.3vh white groove;
-}
-
-.navbar ul li:hover ul{
-    display: block;
-} 
-
-.navbar ul li:hover{
-    background-color:hsl(360, 100%, 45%);
-    transform: scale(1.05); 
-    box-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8); 
-}
-
 .navbar a:hover{
     text-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
 }
 
-.navbar ul li{
-    transition: 0.5s;
-}
-
-.navbar ul li:not(#lowTier-monuments,#midTier-monuments,#highTier-monuments){
+#logo-container{
     display: flex;
     align-items: center;
 }
@@ -80,4 +78,4 @@
     left: 0.5vh;
     width: 20vh;
     height: 9vh; 
-}
+}  

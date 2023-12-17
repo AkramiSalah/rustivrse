@@ -8,12 +8,11 @@ document.addEventListener('DOMContentLoaded',async ()=>{
         console.error("Error loading the navbar",error);
     }
     
-    const container = document.querySelector(".navbar ul");
-    container.addEventListener("mouseenter", ()=> {
+    const navbarContainer = document.querySelector(".navbar ul");
+    navbarContainer.addEventListener("mouseenter", ()=> {
         handleDragEnd();
-        monumentsList.forEach(mon => {
-            mon.hideMonumentCard();
-        })
-    })  
+        if (currentCardShowing.length !== 0){
+            currentCardShowing[0].hideMonumentCard();
+        }
+    });
 });
-
