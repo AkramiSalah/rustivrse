@@ -63,27 +63,28 @@ body{
 
 .monument-name i{
     position: absolute;
-    left: 0;
-    top: 50.5%;
-    padding-left: 0.3em;
-    padding-top: 0.2125em;
-    transform: translateY(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(203, 203, 203);
-    color: black;
     width: 20%; 
-    height: 100%; 
+    height: 100%;
+    left: 0; top: 50.5%;
+    padding-left: 0.3em;
+    padding-top: 0.2525em;
+    color: white;
     font-style: normal; 
-    font-weight: 400;
-    transition: 0.6s ease-in-out;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 2.1vh;
+    transition: 0.5s ease-in-out;
+    transform: translateY(-50%);
+    border-radius: 5%;
 }
 
 .monument-name i:hover{
     cursor: pointer;
     background-color:hsl(360, 100%, 45%);
-    color: white;
+    text-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
 }
 
 .container{
