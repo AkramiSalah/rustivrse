@@ -1,5 +1,5 @@
 class Monument {
-    constructor(x, y, radius, iconPath ,monumentName , safezone, radiation, puzzle, scientists, recycler) {
+    constructor(x, y, radius, monumentName, safezone, radiation, puzzle, scientists, recycler) {
         this.x = x;
         this.y = y;
         this.radius = radius;
@@ -9,15 +9,12 @@ class Monument {
         this.puzzle = puzzle;
         this.scientists = scientists;
         this.recycler = recycler;
-        this.iconPath = iconPath;
-        //creating monument card
         this.cardContainer = document.createElement('div');
         this.cardContainer.id = monumentName;
         this.cardContainer.classList.add('monument');
         document.querySelector('.map').appendChild(this.cardContainer);
-        this.cardContainer.innerHTML =
-           `
-           <div class="monument-name"><i>X</i>${monumentName}</div>
+        this.cardContainer.innerHTML =     
+           `<div class="monument-name"><i>X</i>${monumentName}</div>
             <div class="container">
                 <div class="monument-image" style="background-image: url('images/${this.monumentName}.jpg')"></div>
                 <div class="monument-desc">
@@ -28,12 +25,7 @@ class Monument {
                     <div class="recycler">Recycler: ${recycler}</div>
                 </div>
             </div>          
-            <div class="moreDetails"><a href="#">More Details</a></div>`
-
-        //creating monument icon
-        this.iconElement = document.createElement('img');
-        this.iconElement.src = this.iconPath;
-        document.querySelector('.map').appendChild(this.iconElement);     
+            <div class="moreDetails"><a href="#">More Details</a></div>`   
     }
 
     distanceToMonument(mouseX, mouseY) {
@@ -79,10 +71,5 @@ class Monument {
     alignMonumentCard(){
         const { left, top } = this.calculateScaledPosition();
         this.cardContainer.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
-    }
-
-    alignMonumentIcon(){
-        const { left, top } = this.calculateScaledPosition();
-        this.iconElement.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
     }
 }

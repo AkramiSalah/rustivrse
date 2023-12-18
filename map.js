@@ -1,33 +1,32 @@
 const monumentsList = [
-    new Monument(925, 537, 55, "./images/MapIcons/lighthouse.png", "Outpost", true, 0, false, false, true),
-    new Monument(532, 810, 85, "./images/MapIcons/launch-site.png", "Launch Site", false, 30, true, true, true),
-    new Monument(481, 350, 40, "./images/MapIcons/abandoned-military-base.png", "Abandoned Military Base", false, 30, true, true, true),
-    new Monument(760, 1170, 55, "./images/MapIcons/airfield.png", "Airfield", false, 30, true, false, true),
-    new Monument(988, 330, 50, "./images/MapIcons/train-yard.png", "Train Yard", false, 30, true, false, true),
-    new Monument(807, 189, 50, "./images/MapIcons/sewer-branch.png", "Sewer Branch", false, 30, true, false, true),
-    new Monument(222, 343, 40, "./images/MapIcons/missile-silo.png", "Missile Silo", false, 30, true, true, true),
-    new Monument(181, 664, 50, "./images/MapIcons/giant-excavator.png", "Giant Excavator", false, 30, true, true, true),
-    new Monument(571, 602, 40, "./images/MapIcons/military-tunnels.png", "Military Tunnels", false, 30, true, true, true),
-    new Monument(996, 765, 40, "./images/MapIcons/water-treatment.png", "Water Treatment", false, 30, true, false, true),
-    new Monument(1296, 836, 40, "./images/MapIcons/small-harbour.png", "Small Harbour", false, 30, true, false, true),
-    new Monument(920, 1046, 35, "./images/MapIcons/arctic-research-base.png", "Arctic Research Base", false, 30, true, true, true),
-    new Monument(585, 1160, 35, "./images/MapIcons/satellite-dish.png", "Satellite Dish", false, 30, true, false, true),
-    new Monument(308, 1102, 35, "./images/MapIcons/power-plant.png", "Power Plant", false, 30, true, false, true),
-    new Monument(695, 900, 35, "./images/MapIcons/bandit-camp.png", "Bandit Camp", true, 30, true, false, true),
-    new Monument(1270, 220, 35, "./images/MapIcons/harbour.png", "Harbour", false, 30, true, false, true),
-    new Monument(1060, 95, 35, "./images/MapIcons/ferry-terminal.png", "Ferry Terminal", false, 30, true, false, true),
-    new Monument(735, 700, 20, "./images/MapIcons/dome.png", "Dome", false, 30, true, false, true),
-    new Monument(1100, 1240, 40, "./images/MapIcons/junkyard.png", "Junkyard", false, 30, true, false, true),
-    new Monument(1277, 1173, 15, "./images/MapIcons/lighthouse.png", "Lighthouse", false, 30, true, false, true),
-    new Monument(152, 945, 15, "./images/MapIcons/fishing-village.png", "Fishing Village", false, 30, true, false, true),
-    new Monument(1159, 950, 20, "./images/MapIcons/mining-outpost.png", "Mining Outpost", false, 30, true, false, true),
-    new Monument(372, 496, 20, "./images/MapIcons/abandoned-supermarket.png", "Abandoned Supermarket", false, 30, true, false, true),
-    new Monument(745, 470, 40, "./images/MapIcons/large-barn.png", "Large Barn", false, 30, true, false, true),
-    new Monument(1165, 480, 30, "./images/MapIcons/ranch.png", "Ranch", false, 30, true, false, true),
-    new Monument(1316, -29, 20, "./images/MapIcons/large-oil-rig.png", "Large Oil Rig", false, 30, true, true, true),
-    new Monument(185, -29, 20, "./images/MapIcons/small-oil-rig.png", "Small Oil Rig", false, 30, true, true, true),
-    new Monument(707, -29, 20, "./images/MapIcons/underwater-labs.png", "Underwater Labs", false, 30, true, true, true),
-    new Monument(680, 362, 15, "./images/MapIcons/oxums-gas-station.png", "Oxum's Gas Station", false, 30, true, true, true)
+    new Monument(925, 537, 55, "Outpost", true, 0, false, false, true),
+    new Monument(532, 810, 85, "Launch Site", false, 30, true, true, true),
+    new Monument(481, 350, 40, "Abandoned Military Base", false, 30, true, true, true),
+    new Monument(760, 1170, 55, "Airfield", false, 30, true, false, true),
+    new Monument(988, 330, 50, "Train Yard", false, 30, true, false, true),
+    new Monument(807, 189, 50, "Sewer Branch", false, 30, true, false, true),
+    new Monument(222, 343, 40, "Missile Silo", false, 30, true, true, true),
+    new Monument(181, 664, 50, "Giant Excavator", false, 30, true, true, true),
+    new Monument(571, 602, 40, "Military Tunnels", false, 30, true, true, true),
+    new Monument(996, 765, 40, "Water Treatment", false, 30, true, false, true),
+    new Monument(1296, 836, 40, "Small Harbour", false, 30, true, false, true),
+    new Monument(920, 1046, 35, "Arctic Research Base", false, 30, true, true, true),
+    new Monument(585, 1160, 35, "Satellite Dish", false, 30, true, false, true),
+    new Monument(308, 1102, 35, "Power Plant", false, 30, true, false, true),
+    new Monument(695, 900, 35, "Bandit Camp", true, 30, true, false, true),
+    new Monument(1270, 220, 35, "Harbour", false, 30, true, false, true),
+    new Monument(1060, 95, 35, "Ferry Terminal", false, 30, true, false, true),
+    new Monument(735, 700, 20, "Dome", false, 30, true, false, true),
+    new Monument(1100, 1240, 40, "Junkyard", false, 30, true, false, true),
+    new Monument(1277, 1173, 15, "Lighthouse", false, 30, true, false, true),
+    new Monument(152, 945, 15, "Fishing Village", false, 30, true, false, true),
+    new Monument(1159, 950, 20, "Mining Outpost", false, 30, true, false, true),
+    new Monument(372, 496, 20, "Abandoned Supermarket", false, 30, true, false, true),
+    new Monument(745, 470, 40, "Large Barn", false, 30, true, false, true),
+    new Monument(1165, 480, 30, "Ranch", false, 30, true, false, true),
+    new Monument(1316, -29, 20, "Large Oil Rig", false, 30, true, true, true),
+    new Monument(185, -29, 20, "Small Oil Rig", false, 30, true, true, true),
+    new Monument(707, -29, 20, "Underwater Labs", false, 30, true, true, true)
 ];
 
 
@@ -119,13 +118,7 @@ function handleMapHover(e) {
     const clientX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
     const clientY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
     coordinatesElement.textContent = `(${clientX - totalDragX}, ${clientY - totalDragY}),
-                                        (${Math.round(absPosX)}, ${Math.round(absPosY)})`;
-
-                                        monumentsList.forEach(monument =>{
-                                            monument.alignMonumentCard();
-                                            monument.alignMonumentIcon();
-                                    
-                                        });  
+                                        (${Math.round(absPosX)}, ${Math.round(absPosY)})`; 
 }
 
 
@@ -198,7 +191,6 @@ function calcSizeFactor() {
     // aligning monuments if window is rezised    
     monumentsList.forEach(monument =>{
         monument.alignMonumentCard();
-        monument.setIconSrc();
     });  
     
 
