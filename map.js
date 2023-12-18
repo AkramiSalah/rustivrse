@@ -68,7 +68,7 @@ function handleDragStart(e) {
     } else if (e.type === 'touchstart') {
         startPointX = e.touches[0].clientX;
         startPointY = e.touches[0].clientY;
-    }                 
+    }                     
 }
 
 // Event listeners for drag move - mouse and touch
@@ -99,8 +99,8 @@ function handleDragMove(e) {
             map.style.backgroundPositionY = `${newY}px`;
             currentDragY += deltaY;
         }
-        
-        monumentsList.forEach(mon =>{
+
+        monumentsList.forEach(mon=>{
             mon.hideMonumentCard();
         });
     }
@@ -129,24 +129,16 @@ function handleMonumentClick(e) {
     for (const monument of monumentsList) {
         if (monument.isInsideBounds(e.clientX, e.clientY) && e.buttons === 0) {
             if (currentCardShowing.length === 0){
-                monument.showMonumentCard();
                 currentCardShowing.push(monument);
+                monument.showMonumentCard();           
             }
-            else if((currentCardShowing.length === 1 && currentCardShowing[0] != monument))
-            {
+            else{
                 currentCardShowing[0].hideMonumentCard();
                 currentCardShowing.pop();
                 currentCardShowing.push(monument);
-                monument.showMonumentCard();                          
-            } 
-            map.style.cursor = "default";         
+                monument.showMonumentCard();
+            }      
         } 
-        else {  
-            if (!isHoveringOverCard){
-                monument.hideMonumentCard();
-                currentCardShowing.pop();
-            }                           
-        }
     }
 }
 
@@ -209,12 +201,11 @@ function calcSizeFactor() {
     // Use the maximum of the two scale factors
     sizeFactor = Math.max(widthScaleFactor, heightScaleFactor);
 
-    // aligning monuments if window is rezised    
-    monumentsList.forEach(monument =>{
-        monument.alignMonumentCard();
-    });  
+    // aligning monument if window is rezised
+    if (currentCardShowing.length === 1){
+        currentCardShowing[0].alignMonumentCard();
+    }     
     
-
     // sizeFactorMin = Math.min(widthScaleFactor, heightScaleFactor);
   
     // if( widthScaleFactor <= 1 || heightScaleFactor <= 1){
@@ -237,7 +228,7 @@ monumentCards.forEach(card =>{
 monumentCards.forEach(card =>{
     card.addEventListener('mouseleave',()=>{
         isHoveringOverCard = false;   
-        map.style.cursor = "move";  
+        // map.style.cursor = "move";  
     })
 })
 
