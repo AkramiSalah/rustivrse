@@ -48,7 +48,7 @@ class Monument {
         if (isFadingIn){
             return;
         }      
-        // const diameter = isScreenSmall ? (this.radius * 2) * sizeFactor : (this.radius * 2) / sizeFactorMin; //important no delete        
+        // const diameter = isScreenSmall ? (this.radius * 2) * sizeFactor : (this.radius * 2) / sizeFactorMin; //important no delete 
         isFadingIn = true;
         this.alignMonumentCard();
         this.cardContainer.style.display = "block";
@@ -64,7 +64,8 @@ class Monument {
         isFadingIn = false;
         setTimeout(()=>{
             this.cardContainer.style.opacity = 0;
-            this.cardContainer.style.pointerEvents= "none";
+            map.style.cursor = "move";
+            // this.cardContainer.style.pointerEvents= "none";
         },0);      
     }
 

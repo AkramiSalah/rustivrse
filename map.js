@@ -118,8 +118,8 @@ function handleMapHover(e) {
     const clientY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
     coordinatesElement.textContent = `(${clientX - totalDragX}, ${clientY - totalDragY}),
                                         (${Math.round(absPosX)}, ${Math.round(absPosY)})`; 
-
-    handleMonumentHover(e);                                
+    
+    handleMonumentHover(e);                                   
 }
 
 
@@ -159,23 +159,21 @@ function handleDragEnd() {
 }
 
 
-function handleMonumentHover(e){
-    if(!isHoveringOverCard){
-        let isAnyMonumentInsideBounds = false;
-        isAnyMonumentInsideBounds = false;
-        monumentsList.forEach(mon=>{
-            if (mon.isInsideBounds(e.clientX, e.clientY)){
-                isAnyMonumentInsideBounds = true;           
-            }    
-        });
+function handleMonumentHover(e){ 
+    let isAnyMonumentInsideBounds = false;
+    isAnyMonumentInsideBounds = false;
+    monumentsList.forEach(mon=>{
+        if (mon.isInsideBounds(e.clientX, e.clientY)){
+            isAnyMonumentInsideBounds = true;           
+        }    
+    });
 
-        if (isAnyMonumentInsideBounds){
-            map.style.cursor = "pointer";
-        } 
-        else{
-            map.style.cursor = "move";
-        }                                   
-    }   
+    if (isAnyMonumentInsideBounds){
+        map.style.cursor = "pointer";
+    } 
+    else{
+        map.style.cursor = "move";
+    }                                        
 }
 
 
@@ -218,19 +216,27 @@ mapImage.onload = calcSizeFactor;
 window.addEventListener('resize', calcSizeFactor);
 
 
-monumentCards.forEach(card =>{
-    card.addEventListener('mouseenter',()=>{
-        isHoveringOverCard = true; 
-        map.style.cursor = "default"; 
-    })
-})
 
-monumentCards.forEach(card =>{
-    card.addEventListener('mouseleave',()=>{
-        isHoveringOverCard = false;   
-        // map.style.cursor = "move";  
-    })
-})
+// monumentCards.forEach(card=>{
+//     card.addEventListener('mouseenter',insideCard);
+// });
+
+// monumentCards.forEach(card=>{
+//     card.addEventListener('mouseleave',outsideCard);
+// });
+        
+// function insideCard(){
+//     isHoveringOverCard = true; 
+//     map.style.cursor = "default"; 
+//     console.log(isHoveringOverCard);
+// }
+
+// function outsideCard(){
+//     isHoveringOverCard = false;  
+//     console.log(isHoveringOverCard); 
+//     // map.style.cursor = "move";
+// }
+
 
 cardCloseButton.forEach(btn=>{
     btn.addEventListener('click',()=>{
