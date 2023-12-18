@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     navbarContainer.addEventListener("mouseenter", ()=> {
         handleDragEnd();
         if (currentCardShowing.length === 1){
-            currentCardShowing[0].hideMonumentCard();      
+            currentCardShowing[0].hideMonumentCard(); 
+            currentCardShowing.pop();     
         }
     });
 });
