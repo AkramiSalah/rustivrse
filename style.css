@@ -48,10 +48,6 @@ body{
     opacity: 0;
 }
 
-.monument :hover{
-    cursor: auto;
-}
-
 .monument-name{
     position: relative;
     height: 4vh;
