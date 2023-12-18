@@ -61,7 +61,7 @@ body{
     border-bottom-style: solid;
 }
 
-.monument-name i{
+.monument .close-icon{
     position: absolute;
     display: flex;
     align-items: center;
@@ -81,7 +81,7 @@ body{
     border-radius: 5%;
 }
 
-.monument-name i:hover{
+.monument .close-icon:hover{
     cursor: pointer;
     background-color:hsl(360, 100%, 45%);
     text-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);

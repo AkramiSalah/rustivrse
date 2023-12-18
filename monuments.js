@@ -13,19 +13,23 @@ class Monument {
         this.cardContainer.id = monumentName;
         this.cardContainer.classList.add('monument');
         document.querySelector('.map').appendChild(this.cardContainer);
-        this.cardContainer.innerHTML =     
-           `<div class="monument-name"><i>X</i>${monumentName}</div>
+        this.createMonumentCardElement();
+    }
+
+    createMonumentCardElement(){
+        this.cardContainer.innerHTML =
+           `<div class="monument-name"><i class="close-icon">X</i>${this.monumentName}</div>
             <div class="container">
-                <div class="monument-image" style="background-image: url('images/${this.monumentName}.jpg')"></div>
+                <div class="monument-image"></div>
                 <div class="monument-desc">
-                    <div class="safeZone">Safezone: ${safezone}</div>
-                    <div class="radiation">Radiation: ${radiation}%</div>
-                    <div class="puzzle">Puzzle: ${puzzle}</div>
-                    <div class="scientists">Scientists: ${scientists}</div>
-                    <div class="recycler">Recycler: ${recycler}</div>
+                    <div class="safeZone">Safezone: ${this.safezone}</div>
+                    <div class="radiation">Radiation: ${this.radiation}%</div>
+                    <div class="puzzle">Puzzle: ${this.puzzle}</div>
+                    <div class="scientists">Scientists: ${this.scientists}</div>
+                    <div class="recycler">Recycler: ${this.recycler}</div>
                 </div>
             </div>          
-            <div class="moreDetails"><a href="#">More Details</a></div>`   
+            <div class="moreDetails"><a href="#">More Details</a></div>`
     }
 
     distanceToMonument(mouseX, mouseY) {

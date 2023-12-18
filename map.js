@@ -36,7 +36,6 @@ const coordinatesElement = document.getElementById('coords');
 const cardCloseButton = document.querySelectorAll('.monument .monument-name i')
 
 let isDragging = false;
-let isHoveringOverCard = false;
 let isFadingIn = false;
 // let isScreenSmall = false; - not in use atm.
 
@@ -142,8 +141,6 @@ map.addEventListener('click',handleMonumentClick);
 function handleMonumentClick(e) { 
     for (let monument of monumentsList) {
         if (monument.isInsideBounds(e.clientX, e.clientY)) {
-            isHoveringOverCard = true; 
-            console.log(isHoveringOverCard)
             monument.cardContainer.style.cursor = "default";
             if (currentCardShowing.length === 0){     
                 currentCardShowing.push(monument);
@@ -225,25 +222,19 @@ monumentCards.forEach(card=>{
 monumentCards.forEach(card=>{
     card.addEventListener('mouseleave',outsideCard);
 });
-        
+  
+
 function insideCard(e){
-    if(currentCardShowing.length === 1){
-        isHoveringOverCard = true; 
+    if (currentCardShowing.length === 1){  
         e.currentTarget.style.cursor = "default"; 
-        console.log(isHoveringOverCard);
-    }else{
-        isHoveringOverCard = false;  
-        e.currentTarget.style.cursor = "move";
-        console.log(isHoveringOverCard);
     }
-    
+    else{ 
+        e.currentTarget.style.cursor = "move";
+    }   
 }
 
-function outsideCard(e){
-    isHoveringOverCard = false;  
-    map.style.cursor = "move";
-    console.log(isHoveringOverCard); 
-
+function outsideCard(){ 
+    map.style.cursor = "move"; 
 }
 
 
@@ -251,8 +242,6 @@ cardCloseButton.forEach(btn=>{
     btn.addEventListener('click',(e)=>{
             currentCardShowing[0].hideMonumentCard();
             currentCardShowing.pop();
-            isHoveringOverCard = false;
-            console.log(isHoveringOverCard)
             map.style.cursor = "move";
     })
 });
