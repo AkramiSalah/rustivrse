@@ -1,5 +1,5 @@
 const monumentsList = [
-    new Monument(925, 537, 55, "Outpost", true, 0, false, false, true),
+    new Monument(925, 537, 48, "Outpost", true, 0, false, false, true),
     new Monument(532, 810, 85, "Launch Site", false, 30, true, true, true),
     new Monument(481, 350, 40, "Abandoned Military Base", false, 30, true, true, true),
     new Monument(760, 1170, 55, "Airfield", false, 30, true, false, true),
@@ -12,8 +12,8 @@ const monumentsList = [
     new Monument(1296, 836, 40, "Small Harbour", false, 30, true, false, true),
     new Monument(920, 1046, 35, "Arctic Research Base", false, 30, true, true, true),
     new Monument(585, 1160, 35, "Satellite Dish", false, 30, true, false, true),
-    new Monument(308, 1102, 35, "Power Plant", false, 30, true, false, true),
-    new Monument(695, 900, 35, "Bandit Camp", true, 30, true, false, true),
+    new Monument(308, 1102, 45, "Power Plant", false, 30, true, false, true),
+    new Monument(695, 900, 38, "Bandit Camp", true, 30, true, false, true),
     new Monument(1270, 220, 35, "Harbour", false, 30, true, false, true),
     new Monument(1060, 95, 35, "Ferry Terminal", false, 30, true, false, true),
     new Monument(735, 700, 20, "Dome", false, 30, true, false, true),
@@ -28,7 +28,6 @@ const monumentsList = [
     new Monument(185, -29, 20, "Small Oil Rig", false, 30, true, true, true),
     new Monument(707, -29, 20, "Underwater Labs", false, 30, true, true, true)
 ];
-
 
 const currentCardShowing = [];
 const map = document.querySelector(".map");
@@ -119,6 +118,8 @@ function handleMapHover(e) {
     const clientY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
     coordinatesElement.textContent = `(${clientX - totalDragX}, ${clientY - totalDragY}),
                                         (${Math.round(absPosX)}, ${Math.round(absPosY)})`; 
+
+    handleMonumentHover(e);                                
 }
 
 
@@ -163,6 +164,26 @@ function handleDragEnd() {
         currentDragY = 0;
         map.style.cursor = "move";
     }
+}
+
+
+function handleMonumentHover(e){
+    if(!isHoveringOverCard){
+        let isAnyMonumentInsideBounds = false;
+        isAnyMonumentInsideBounds = false;
+        monumentsList.forEach(mon=>{
+            if (mon.isInsideBounds(e.clientX, e.clientY)){
+                isAnyMonumentInsideBounds = true;           
+            }    
+        });
+
+        if (isAnyMonumentInsideBounds){
+            map.style.cursor = "pointer";
+        } 
+        else{
+            map.style.cursor = "move";
+        }                                   
+    }   
 }
 
 

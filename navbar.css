@@ -6,12 +6,11 @@
 
 .navbar ul{   
     position: fixed;
-    display: flex;
+    display:flex;
     list-style: none; 
-    background: linear-gradient(180deg, rgb(20, 4, 4),rgb(138, 28, 28));  
-    width: 100%;  
+    background: linear-gradient(180deg, rgb(20, 4, 4),rgb(138, 28, 28));    
     z-index: 999;
-    box-shadow: 1vh 1vh 5vh rgb(0, 0, 0);
+    box-shadow: 1vh 1vh 3vh rgb(0, 0, 0);
 }
 
 .navbar li{
@@ -19,7 +18,6 @@
     position:relative;
     transition: 0.5s;
 }
-
 
 #lowTier-monuments{
     margin-left: 57.3vh;
