@@ -118,17 +118,34 @@ function handleMapHover(e) {
     const clientY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
     coordinatesElement.textContent = `(${clientX - totalDragX}, ${clientY - totalDragY}),
                                         (${Math.round(absPosX)}, ${Math.round(absPosY)})`; 
-    
-    handleMonumentHover(e);                                   
+    if(currentCardShowing.length === 0){
+        handleMonumentHover(e);  
+    }
+                                     
+}
+
+function handleMonumentHover(e) { 
+    let isAnyMonumentInsideBounds = monumentsList.some(mon => {
+        return mon.isInsideBounds(e.clientX, e.clientY);
+    });
+
+    if (isAnyMonumentInsideBounds) {
+        e.currentTarget.style.cursor = "pointer";
+    } else {
+        e.currentTarget.style.cursor = "move";
+    }                                        
 }
 
 
 map.addEventListener('click',handleMonumentClick);
 
 function handleMonumentClick(e) { 
-    for (const monument of monumentsList) {
-        if (monument.isInsideBounds(e.clientX, e.clientY) && e.buttons === 0) {
-            if (currentCardShowing.length === 0){
+    for (let monument of monumentsList) {
+        if (monument.isInsideBounds(e.clientX, e.clientY)) {
+            isHoveringOverCard = true; 
+            console.log(isHoveringOverCard)
+            monument.cardContainer.style.cursor = "default";
+            if (currentCardShowing.length === 0){     
                 currentCardShowing.push(monument);
                 monument.showMonumentCard();           
             }
@@ -159,22 +176,6 @@ function handleDragEnd() {
 }
 
 
-function handleMonumentHover(e){ 
-    let isAnyMonumentInsideBounds = false;
-    isAnyMonumentInsideBounds = false;
-    monumentsList.forEach(mon=>{
-        if (mon.isInsideBounds(e.clientX, e.clientY)){
-            isAnyMonumentInsideBounds = true;           
-        }    
-    });
-
-    if (isAnyMonumentInsideBounds){
-        map.style.cursor = "pointer";
-    } 
-    else{
-        map.style.cursor = "move";
-    }                                        
-}
 
 
 // Determining map height and width:
@@ -226,22 +227,32 @@ monumentCards.forEach(card=>{
 });
         
 function insideCard(e){
-    isHoveringOverCard = true; 
-    e.currentTarget.style.cursor = "default"; 
-    console.log(isHoveringOverCard);
+    if(currentCardShowing.length === 1){
+        isHoveringOverCard = true; 
+        e.currentTarget.style.cursor = "default"; 
+        console.log(isHoveringOverCard);
+    }else{
+        isHoveringOverCard = false;  
+        e.currentTarget.style.cursor = "move";
+        console.log(isHoveringOverCard);
+    }
+    
 }
 
 function outsideCard(e){
     isHoveringOverCard = false;  
+    map.style.cursor = "move";
     console.log(isHoveringOverCard); 
-    e.currentTarget.style.cursor = "move";
+
 }
 
 
 cardCloseButton.forEach(btn=>{
-    btn.addEventListener('click',()=>{
-        monumentsList.forEach(mon=>{
-            mon.hideMonumentCard();
-        })
+    btn.addEventListener('click',(e)=>{
+            currentCardShowing[0].hideMonumentCard();
+            currentCardShowing.pop();
+            isHoveringOverCard = false;
+            console.log(isHoveringOverCard)
+            map.style.cursor = "move";
     })
 });
