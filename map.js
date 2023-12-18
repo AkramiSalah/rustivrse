@@ -217,25 +217,25 @@ window.addEventListener('resize', calcSizeFactor);
 
 
 
-// monumentCards.forEach(card=>{
-//     card.addEventListener('mouseenter',insideCard);
-// });
+monumentCards.forEach(card=>{
+    card.addEventListener('mouseenter',insideCard);
+});
 
-// monumentCards.forEach(card=>{
-//     card.addEventListener('mouseleave',outsideCard);
-// });
+monumentCards.forEach(card=>{
+    card.addEventListener('mouseleave',outsideCard);
+});
         
-// function insideCard(){
-//     isHoveringOverCard = true; 
-//     map.style.cursor = "default"; 
-//     console.log(isHoveringOverCard);
-// }
+function insideCard(e){
+    isHoveringOverCard = true; 
+    e.currentTarget.style.cursor = "default"; 
+    console.log(isHoveringOverCard);
+}
 
-// function outsideCard(){
-//     isHoveringOverCard = false;  
-//     console.log(isHoveringOverCard); 
-//     // map.style.cursor = "move";
-// }
+function outsideCard(e){
+    isHoveringOverCard = false;  
+    console.log(isHoveringOverCard); 
+    e.currentTarget.style.cursor = "move";
+}
 
 
 cardCloseButton.forEach(btn=>{
