@@ -26,11 +26,30 @@ class Monument {
             <div class="container">
                 <div class="monument-image"></div>
                 <div class="monument-desc">
-                    <div class="safeZone">Safezone: ${this.safezone}</div>
-                    <div class="radiation">Radiation: ${this.radiation}%</div>
-                    <div class="puzzle">Puzzle: ${this.puzzle}</div>
-                    <div class="scientists">Scientists: ${this.scientists}</div>
-                    <div class="recycler">Recycler: ${this.recycler}</div>
+                    <div class="info-item">
+                        <img src="images/MapIcons/outpost.png" alt="safezone">
+                        <span class="content">${this.safezone}</span>         
+                    </div>
+
+                    <div class="info-item">
+                        <img src="images/MapIcons/radiation.png" alt="radiation">
+                        <span class="content">${this.radiation}%</span>  
+                    </div>
+
+                    <div class="info-item">
+                        <img src="images/MapIcons/puzzle.png" alt="puzzle">
+                        <span class="content">${this.puzzle}</span>  
+                    </div>
+
+                    <div class="info-item">
+                        <img src="images/MapIcons/scientist.png" alt="scientist">
+                        <span class="content">${this.scientists}</span>  
+                    </div>
+
+                    <div class="info-item">
+                        <img src="images/MapIcons/recycler.png" alt="recycler">
+                        <span class="content">${this.recycler}</span>    
+                    </div>
                 </div>
             </div>          
             <div class="moreDetails"><a href="#">More Details</a></div>`

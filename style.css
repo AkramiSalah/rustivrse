@@ -99,7 +99,7 @@ body{
     height: 24vh;
     width: 50%;
     border-radius: 10%;
-    margin: 1vh 0 1vh 3vh;
+    margin: 1vh 2vh 1vh 2vh;
     border-color: white;
     border-style: groove; 
 }
@@ -111,8 +111,26 @@ body{
     font-size: 2vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    margin-left: 3.5vh;
+    padding-right: 1vh;
+    padding-top: 0.3vh;
+    padding-bottom: 2vh;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-top: 1.1vh;
+}
+
+.info-item img{
+    width: 4vh;
+    margin-right: 1.9vh;
+    margin-left: 1.9vh;
+}
+
+.content {
+    margin-left: 1vh;
+    margin-right: 0.5vh;
 }
 
 .moreDetails{
