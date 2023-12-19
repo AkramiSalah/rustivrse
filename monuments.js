@@ -16,6 +16,8 @@ class Monument {
         this.createMonumentCardElement();
         this.cardCloseButton = document.getElementById(`${this.monumentName}close`);
         this.cardCloseButton.addEventListener('click',this.hideMonumentCard);
+        this.cardContainer.addEventListener('mouseenter',this.insideCard);
+        this.cardContainer.addEventListener('mouseleave',this.outsideCard);
     }
 
     createMonumentCardElement(){
@@ -83,5 +85,15 @@ class Monument {
     alignMonumentCard(){
         const { left, top } = this.calculateScaledPosition();
         this.cardContainer.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
+    }
+
+    insideCard = () => {
+        isInsideCard = true;
+        map.style.cursor = "default";
+    }
+
+    outsideCard = () => {
+        isInsideCard = false;
+        map.style.cursor = "move";
     }
 }

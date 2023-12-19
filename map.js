@@ -31,11 +31,11 @@ const monumentsList = [
 
 const currentCardShowing = [];
 const map = document.querySelector(".map");
-const monumentCards = document.querySelectorAll(".monument");
 const coordinatesElement = document.getElementById('coords');
 
 let isDragging = false;
 let isFadingIn = false;
+let isInsideCard = false;
 // let isScreenSmall = false; - not in use atm.
 
 let startPointX = 0;
@@ -143,7 +143,7 @@ function handleMonumentHover(e) {
 map.addEventListener('click',handleMonumentClick);
 function handleMonumentClick(e) { 
     for (let monument of monumentsList) {
-        if (monument.isInsideBounds(e.clientX, e.clientY)) {
+        if (monument.isInsideBounds(e.clientX, e.clientY) && !isInsideCard) {
             if (currentCardShowing.length === 0){     
                 currentCardShowing.push(monument);
                 currentCardShowing[0].showMonumentCard();           
@@ -170,7 +170,12 @@ function handleDragEnd() {
         totalDragY += currentDragY;
         currentDragX = 0;
         currentDragY = 0;
+    }
+    if (!isInsideCard){
         map.style.cursor = "move";
+    }
+    if (isInsideCard){
+        map.style.cursor = "default";
     }
 }
 
