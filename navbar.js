@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     const navbarContainer = document.querySelector(".navbar ul");
     navbarContainer.addEventListener("mouseenter", ()=> {
         handleDragEnd();
-        if (currentCardShowing.length !== 0){
-            currentCardShowing[0].hideMonumentCard();     
+        if (currentCardShowing.length === 1){
+            currentCardShowing[0].hideMonumentCard();      
         }
     });
 });

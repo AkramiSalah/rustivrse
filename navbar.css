@@ -7,7 +7,6 @@
 .navbar ul{   
     position: fixed;
     display:flex;
-    width: 100%;
     list-style: none; 
     background: linear-gradient(180deg, rgb(20, 4, 4),rgb(138, 28, 28));    
     z-index: 999;

@@ -61,27 +61,27 @@ body{
     border-bottom-style: solid;
 }
 
-.monument .close-icon{
+.monument-name i{
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 16%; 
+    width: 20%; 
     height: 100%;
     left: 0; top: 50.5%;
-    padding-left: 0.8em;
-    padding-top: 0.3em;
+    padding-left: 0.3em;
+    padding-top: 0.2525em;
     color: white;
     font-style: normal; 
     font-family: sans-serif;
     font-weight: bolder;
-    font-size: 2vh;
+    font-size: 2.1vh;
     transition: 0.5s ease-in-out;
     transform: translateY(-50%);
     border-radius: 5%;
 }
 
-.monument .close-icon:hover{
+.monument-name i:hover{
     cursor: pointer;
     background-color:hsl(360, 100%, 45%);
     text-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
@@ -99,7 +99,7 @@ body{
     height: 24vh;
     width: 50%;
     border-radius: 10%;
-    margin: 1vh 2vh 1vh 2vh;
+    margin: 1vh 0 1vh 3vh;
     border-color: white;
     border-style: groove; 
 }
@@ -111,26 +111,8 @@ body{
     font-size: 2vh;
     display: flex;
     flex-direction: column;
-    padding-right: 1vh;
-    padding-top: 0.3vh;
-    padding-bottom: 2vh;
-}
-
-.info-item {
-    display: flex;
-    align-items: center;
-    margin-top: 1.1vh;
-}
-
-.info-item img{
-    width: 4vh;
-    margin-right: 1.9vh;
-    margin-left: 1.9vh;
-}
-
-.content {
-    margin-left: 1vh;
-    margin-right: 0.5vh;
+    justify-content: space-evenly;
+    margin-left: 3.5vh;
 }
 
 .moreDetails{
