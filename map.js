@@ -121,9 +121,7 @@ function handleMapHover(e) {
     coordinatesElement.textContent = `(${clientX - totalDragX}, ${clientY - totalDragY}),
                                         (${Math.round(absPosX)}, ${Math.round(absPosY)})`; 
                                  
-    if (currentCardShowing.length === 0){
-        handleMonumentHover(e);  
-    }                                     
+    handleMonumentHover(e);                                         
 }
 
 function handleMonumentHover(e) { 
@@ -132,10 +130,10 @@ function handleMonumentHover(e) {
     });
     
     if (isAnyMonumentInsideBounds) {
-        e.currentTarget.style.cursor = "pointer";
+        map.style.cursor = "pointer";
     }
     else {
-        e.currentTarget.style.cursor = "move";
+        map.style.cursor = "move";
     }                                        
 }
 
@@ -152,8 +150,7 @@ function handleMonumentClick(e) {
                 currentCardShowing[0].hideMonumentCard();
                 currentCardShowing.push(monument);
                 currentCardShowing[0].showMonumentCard();
-            } 
-            // monument.cardContainer.style.cursor = "default";     
+            }   
         } 
     }
 }

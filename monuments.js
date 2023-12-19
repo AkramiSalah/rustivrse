@@ -87,13 +87,12 @@ class Monument {
         this.cardContainer.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
     }
 
-    insideCard = () => {
+    insideCard = (e) => {
         isInsideCard = true;
-        map.style.cursor = "default";
+        e.currentTarget.style.cursor = "default";
     }
 
     outsideCard = () => {
         isInsideCard = false;
-        map.style.cursor = "move";
     }
 }
