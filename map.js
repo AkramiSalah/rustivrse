@@ -1,5 +1,5 @@
 const monumentsList = [
-    new Monument(925, 537, 48, "Outpost", true, 0, false, false, true),
+    new Monument(925, 537, 52, "Outpost", true, 0, false, false, true),
     new Monument(532, 810, 85, "Launch Site", false, 30, true, true, true),
     new Monument(481, 350, 40, "Abandoned Military Base", false, 30, true, true, true),
     new Monument(760, 1170, 55, "Airfield", false, 30, true, false, true),
@@ -31,13 +31,11 @@ const monumentsList = [
 
 const currentCardShowing = [];
 const map = document.querySelector(".map");
-const monumentCards = document.querySelectorAll(".monument");
 const coordinatesElement = document.getElementById('coords');
-const cardCloseButton = document.querySelectorAll('.monument .monument-name i')
 
 let isDragging = false;
-let isHoveringOverCard = false;
 let isFadingIn = false;
+let isInsideCard = false;
 // let isScreenSmall = false; - not in use atm.
 
 let startPointX = 0;
@@ -100,13 +98,17 @@ function handleDragMove(e) {
             currentDragY += deltaY;
         }
 
-        monumentsList.forEach(mon=>{
-            mon.hideMonumentCard();
-        });
+        if (currentCardShowing.length === 1){
+            currentCardShowing[0].hideMonumentCard();
+        }
     }
     else{
         handleMapHover(e);     
     }
+    
+    monumentsList.forEach(mon =>{
+        mon.alignMonumentCard();
+    })
 }
 
 function handleMapHover(e) {
@@ -118,43 +120,37 @@ function handleMapHover(e) {
     const clientY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
     coordinatesElement.textContent = `(${clientX - totalDragX}, ${clientY - totalDragY}),
                                         (${Math.round(absPosX)}, ${Math.round(absPosY)})`; 
-    if(currentCardShowing.length === 0){
-        handleMonumentHover(e);  
-    }
-                                     
+                                 
+    handleMonumentHover(e);                                         
 }
 
 function handleMonumentHover(e) { 
     let isAnyMonumentInsideBounds = monumentsList.some(mon => {
         return mon.isInsideBounds(e.clientX, e.clientY);
     });
-
+    
     if (isAnyMonumentInsideBounds) {
-        e.currentTarget.style.cursor = "pointer";
-    } else {
-        e.currentTarget.style.cursor = "move";
+        map.style.cursor = "pointer";
+    }
+    else {
+        map.style.cursor = "move";
     }                                        
 }
 
 
 map.addEventListener('click',handleMonumentClick);
-
 function handleMonumentClick(e) { 
     for (let monument of monumentsList) {
-        if (monument.isInsideBounds(e.clientX, e.clientY)) {
-            isHoveringOverCard = true; 
-            console.log(isHoveringOverCard)
-            monument.cardContainer.style.cursor = "default";
+        if (monument.isInsideBounds(e.clientX, e.clientY) && !isInsideCard) {
             if (currentCardShowing.length === 0){     
                 currentCardShowing.push(monument);
-                monument.showMonumentCard();           
+                currentCardShowing[0].showMonumentCard();           
             }
             else{
                 currentCardShowing[0].hideMonumentCard();
-                currentCardShowing.pop();
                 currentCardShowing.push(monument);
-                monument.showMonumentCard();
-            }      
+                currentCardShowing[0].showMonumentCard();
+            }   
         } 
     }
 }
@@ -171,10 +167,14 @@ function handleDragEnd() {
         totalDragY += currentDragY;
         currentDragX = 0;
         currentDragY = 0;
+    }
+    if (!isInsideCard){
         map.style.cursor = "move";
     }
+    if (isInsideCard){
+        map.style.cursor = "default";
+    }
 }
-
 
 
 
@@ -184,6 +184,9 @@ const imageUrl = backgroundImage.replace(/url\(['"]?(.*?)['"]?\)/, '$1');
 const mapImage = new Image();
 mapImage.src = imageUrl;
 
+// Access dimensions after the map has loaded or window resized
+mapImage.onload = calcSizeFactor;
+window.addEventListener('resize', calcSizeFactor);
 
 function calcSizeFactor() {   
     mapWidth = mapImage.width;
@@ -200,7 +203,7 @@ function calcSizeFactor() {
     // Use the maximum of the two scale factors
     sizeFactor = Math.max(widthScaleFactor, heightScaleFactor);
 
-    // aligning monument if window is rezised
+    // aligning current monument if window is rezised
     if (currentCardShowing.length === 1){
         currentCardShowing[0].alignMonumentCard();
     }     
@@ -211,48 +214,3 @@ function calcSizeFactor() {
     //     isScreenSmall = true;
     // }
 }
-
-// Access dimensions after the map has loaded or window resized
-mapImage.onload = calcSizeFactor;
-window.addEventListener('resize', calcSizeFactor);
-
-
-
-monumentCards.forEach(card=>{
-    card.addEventListener('mouseenter',insideCard);
-});
-
-monumentCards.forEach(card=>{
-    card.addEventListener('mouseleave',outsideCard);
-});
-        
-function insideCard(e){
-    if(currentCardShowing.length === 1){
-        isHoveringOverCard = true; 
-        e.currentTarget.style.cursor = "default"; 
-        console.log(isHoveringOverCard);
-    }else{
-        isHoveringOverCard = false;  
-        e.currentTarget.style.cursor = "move";
-        console.log(isHoveringOverCard);
-    }
-    
-}
-
-function outsideCard(e){
-    isHoveringOverCard = false;  
-    map.style.cursor = "move";
-    console.log(isHoveringOverCard); 
-
-}
-
-
-cardCloseButton.forEach(btn=>{
-    btn.addEventListener('click',(e)=>{
-            currentCardShowing[0].hideMonumentCard();
-            currentCardShowing.pop();
-            isHoveringOverCard = false;
-            console.log(isHoveringOverCard)
-            map.style.cursor = "move";
-    })
-});

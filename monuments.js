@@ -13,19 +13,46 @@ class Monument {
         this.cardContainer.id = monumentName;
         this.cardContainer.classList.add('monument');
         document.querySelector('.map').appendChild(this.cardContainer);
-        this.cardContainer.innerHTML =     
-           `<div class="monument-name"><i>X</i>${monumentName}</div>
+        this.createMonumentCardElement();
+        this.cardCloseButton = document.getElementById(`${this.monumentName}close`);
+        this.cardCloseButton.addEventListener('click',this.hideMonumentCard);
+        this.cardContainer.addEventListener('mouseenter',this.insideCard);
+        this.cardContainer.addEventListener('mouseleave',this.outsideCard);
+    }
+
+    createMonumentCardElement(){
+        this.cardContainer.innerHTML =
+           `<div class="monument-name"><i id="${this.monumentName}close" class="close-icon">X</i>${this.monumentName}</div>
             <div class="container">
-                <div class="monument-image" style="background-image: url('images/${this.monumentName}.jpg')"></div>
+                <div class="monument-image"></div>
                 <div class="monument-desc">
-                    <div class="safeZone">Safezone: ${safezone}</div>
-                    <div class="radiation">Radiation: ${radiation}%</div>
-                    <div class="puzzle">Puzzle: ${puzzle}</div>
-                    <div class="scientists">Scientists: ${scientists}</div>
-                    <div class="recycler">Recycler: ${recycler}</div>
+                    <div class="info-item">
+                        <img src="images/MapIcons/outpost.png" alt="safezone">
+                        <span class="content">${this.safezone}</span>         
+                    </div>
+
+                    <div class="info-item">
+                        <img src="images/MapIcons/radiation.png" alt="radiation">
+                        <span class="content">${this.radiation}%</span>  
+                    </div>
+
+                    <div class="info-item">
+                        <img src="images/MapIcons/puzzle.png" alt="puzzle">
+                        <span class="content">${this.puzzle}</span>  
+                    </div>
+
+                    <div class="info-item">
+                        <img src="images/MapIcons/scientist.png" alt="scientist">
+                        <span class="content">${this.scientists}</span>  
+                    </div>
+
+                    <div class="info-item">
+                        <img src="images/MapIcons/recycler.png" alt="recycler">
+                        <span class="content">${this.recycler}</span>    
+                    </div>
                 </div>
             </div>          
-            <div class="moreDetails"><a href="#">More Details</a></div>`   
+            <div class="moreDetails"><a href="#">More Details</a></div>`
     }
 
     distanceToMonument(mouseX, mouseY) {
@@ -60,17 +87,31 @@ class Monument {
     }
         
    
-    hideMonumentCard() {
+    hideMonumentCard = () => {
         isFadingIn = false;
         setTimeout(()=>{
             this.cardContainer.style.opacity = 0;
+            this.cardContainer.style.display = "none";
             map.style.cursor = "move";
             // this.cardContainer.style.pointerEvents= "none";
-        },0);      
+        },0);
+        
+        if (currentCardShowing.length !==0){
+            currentCardShowing.pop();
+        }
     }
 
     alignMonumentCard(){
         const { left, top } = this.calculateScaledPosition();
         this.cardContainer.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
+    }
+
+    insideCard = (e) => {
+        isInsideCard = true;
+        e.currentTarget.style.cursor = "default";
+    }
+
+    outsideCard = () => {
+        isInsideCard = false;
     }
 }
