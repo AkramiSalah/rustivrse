@@ -33,7 +33,6 @@ const currentCardShowing = [];
 const map = document.querySelector(".map");
 const monumentCards = document.querySelectorAll(".monument");
 const coordinatesElement = document.getElementById('coords');
-const cardCloseButton = document.querySelectorAll('.monument .monument-name i')
 
 let isDragging = false;
 let isFadingIn = false;
@@ -101,7 +100,6 @@ function handleDragMove(e) {
 
         if (currentCardShowing.length === 1){
             currentCardShowing[0].hideMonumentCard();
-            currentCardShowing.pop();
         }
     }
     else{
@@ -132,13 +130,12 @@ function handleMonumentHover(e) {
     let isAnyMonumentInsideBounds = monumentsList.some(mon => {
         return mon.isInsideBounds(e.clientX, e.clientY);
     });
-    console.log(isAnyMonumentInsideBounds);
+    
     if (isAnyMonumentInsideBounds) {
         e.currentTarget.style.cursor = "pointer";
-        console.log(e.currentTarget.style.cursor);
-    } else {
+    }
+    else {
         e.currentTarget.style.cursor = "move";
-        console.log(e.currentTarget.style.cursor);
     }                                        
 }
 
@@ -149,13 +146,12 @@ function handleMonumentClick(e) {
         if (monument.isInsideBounds(e.clientX, e.clientY)) {
             if (currentCardShowing.length === 0){     
                 currentCardShowing.push(monument);
-                monument.showMonumentCard();           
+                currentCardShowing[0].showMonumentCard();           
             }
             else{
                 currentCardShowing[0].hideMonumentCard();
-                currentCardShowing.pop();
                 currentCardShowing.push(monument);
-                monument.showMonumentCard();
+                currentCardShowing[0].showMonumentCard();
             } 
             // monument.cardContainer.style.cursor = "default";     
         } 
@@ -216,38 +212,3 @@ function calcSizeFactor() {
     //     isScreenSmall = true;
     // }
 }
-
-
-
-// monumentCards.forEach(card=>{
-//     card.addEventListener('mouseenter',insideCard);
-// });
-
-// monumentCards.forEach(card=>{
-//     card.addEventListener('mouseleave',outsideCard);
-// });
-  
-
-// function insideCard(e){
-//     if (currentCardShowing.length === 1){  
-//         e.currentTarget.style.cursor = "default"; 
-//     }
-//     else{ 
-//         e.currentTarget.style.cursor = "move";
-//     }   
-// }
-
-// function outsideCard(){ 
-//     map.style.cursor = "move"; 
-// }
-
-
-cardCloseButton.forEach(btn=>{
-    btn.addEventListener('click',(e)=>{
-        if (currentCardShowing.length === 1){
-            currentCardShowing[0].hideMonumentCard();
-            currentCardShowing.pop();
-            map.style.cursor = "move";
-        }      
-    })
-});

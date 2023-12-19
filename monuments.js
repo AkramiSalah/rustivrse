@@ -14,11 +14,13 @@ class Monument {
         this.cardContainer.classList.add('monument');
         document.querySelector('.map').appendChild(this.cardContainer);
         this.createMonumentCardElement();
+        this.cardCloseButton = document.getElementById(`${this.monumentName}close`);
+        this.cardCloseButton.addEventListener('click',this.hideMonumentCard);
     }
 
     createMonumentCardElement(){
         this.cardContainer.innerHTML =
-           `<div class="monument-name"><i class="close-icon">X</i>${this.monumentName}</div>
+           `<div class="monument-name"><i id="${this.monumentName}close" class="close-icon">X</i>${this.monumentName}</div>
             <div class="container">
                 <div class="monument-image"></div>
                 <div class="monument-desc">
@@ -64,13 +66,18 @@ class Monument {
     }
         
    
-    hideMonumentCard() {
+    hideMonumentCard = () => {
         isFadingIn = false;
         setTimeout(()=>{
             this.cardContainer.style.opacity = 0;
+            this.cardContainer.style.display = "none";
             map.style.cursor = "move";
             // this.cardContainer.style.pointerEvents= "none";
-        },0);      
+        },0);
+        
+        if (currentCardShowing.length !==0){
+            currentCardShowing.pop();
+        }
     }
 
     alignMonumentCard(){
