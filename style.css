@@ -5,11 +5,11 @@
 }
 
 body{
-    background-color: rgb(3,56,73)
+    background-color: rgba(11,59,74,255)
 }
 
 .map{
-    background-image: url(images/mapa.png);
+    background-image: url(images/Icon\ Map\ final.png);
     background-size:cover;
     background-repeat: no-repeat;
     background-position: 0px 0px;

@@ -24,9 +24,10 @@ const monumentsList = [
     new Monument(372, 496, 20, "Abandoned Supermarket", false, 30, true, false, true),
     new Monument(745, 470, 40, "Large Barn", false, 30, true, false, true),
     new Monument(1165, 480, 30, "Ranch", false, 30, true, false, true),
-    new Monument(1316, -29, 20, "Large Oil Rig", false, 30, true, true, true),
-    new Monument(185, -29, 20, "Small Oil Rig", false, 30, true, true, true),
-    new Monument(707, -29, 20, "Underwater Labs", false, 30, true, true, true)
+    new Monument(1362, 60, 25, "Large Oil Rig", false, 30, true, true, true),
+    new Monument(66, 60, 25, "Small Oil Rig", false, 30, true, true, true),
+    new Monument(46, 1236, 25, "Underwater Labs", false, 30, true, true, true),
+    new Monument(863, 908, 25, "Oxum'S Gas Station", false, 0, false, false, true)
 ];
 
 const currentCardShowing = [];
