@@ -93,43 +93,70 @@
         background: linear-gradient(180deg,rgb(138, 28, 28),rgb(20, 4, 4));
         flex-direction: column;
         align-items: center;
-        width: 45%;
+        width: auto;
         height: 100%;     
     }
 
-    #lowTier-monuments {
-        margin-top: 2vh;
-        margin-left: 0;        
+    .main-item{
+        margin: 2vh 1vh 2vh 1vh;
+        padding-top: 1vh;
     }
 
-    .navbar ul li:not(:nth-child(1)){
-        border: 0.3vh white groove;
-    }
-  
     .navbar li {
         display: block;
         width: 100%;
         margin: 0;
     }
 
+    #lowTier-monuments {
+        margin-top: 1vh;
+        margin-left: 0;        
+    }
+
     .navbar li:hover {
         transform: none;
         border-radius: 0;
     }  
-  
-    .navbar ul li ul {
-        position:fixed;
-        display: none;
-        width: 55%;
-        margin-left: 21.6vh;
-        margin-top: 13vh;
-        top:0;
-    }
-  
+
     .navbar li:hover ul {
         display: block; 
     }
 
+    #lowTier-monuments ul,
+    #midTier-monuments ul,
+    #highTier-monuments ul
+    {
+        margin-left: 18.3vh;
+        top: 0;      
+    }
+
+    #lowTier-monuments ul{
+        margin-top: 12vh;
+    }
+
+    #midTier-monuments ul{
+        margin-top: 18.1vh;
+    }
+
+    #highTier-monuments ul{
+        margin-top: 24.2vh;
+    }
+
+    .navbar ul li ul {
+        position:fixed;
+        display: none;
+        width: auto;
+        height: auto;
+    }
+
+    .navbar ul li ul li{
+        border: 0;
+        padding-top: 1vh;
+        padding-right: 1vh;
+        padding-left: 1vh;
+    }
+  
+   
     .navbar a{
         text-align: center;
         font-size: 1.5em;

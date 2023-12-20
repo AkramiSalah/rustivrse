@@ -16,18 +16,18 @@ const monumentsList = [
     new Monument(695, 900, 38, "Bandit Camp", true, 30, true, false, true),
     new Monument(1270, 220, 35, "Harbour", false, 30, true, false, true),
     new Monument(1060, 95, 35, "Ferry Terminal", false, 30, true, false, true),
-    new Monument(735, 700, 20, "Dome", false, 30, true, false, true),
+    new Monument(735, 700, 30, "Dome", false, 30, true, false, true),
     new Monument(1100, 1240, 40, "Junkyard", false, 30, true, false, true),
     new Monument(1277, 1173, 15, "Lighthouse", false, 30, true, false, true),
-    new Monument(152, 945, 15, "Fishing Village", false, 30, true, false, true),
-    new Monument(1159, 950, 20, "Mining Outpost", false, 30, true, false, true),
-    new Monument(372, 496, 20, "Abandoned Supermarket", false, 30, true, false, true),
+    new Monument(152, 945, 30, "Fishing Village", false, 30, true, false, true),
+    new Monument(1159, 950, 30, "Mining Outpost", false, 30, true, false, true),
+    new Monument(382, 456, 30, "Abandoned Supermarket", false, 30, true, false, true),
     new Monument(745, 470, 40, "Large Barn", false, 30, true, false, true),
     new Monument(1165, 480, 30, "Ranch", false, 30, true, false, true),
-    new Monument(1362, 60, 25, "Large Oil Rig", false, 30, true, true, true),
-    new Monument(66, 60, 25, "Small Oil Rig", false, 30, true, true, true),
-    new Monument(46, 1236, 25, "Underwater Labs", false, 30, true, true, true),
-    new Monument(863, 908, 25, "Oxum'S Gas Station", false, 0, false, false, true)
+    new Monument(1362, 60, 30, "Large Oil Rig", false, 30, true, true, true),
+    new Monument(66, 60, 30, "Small Oil Rig", false, 30, true, true, true),
+    new Monument(46, 1236, 30, "Underwater Labs", false, 30, true, true, true),
+    new Monument(863, 908, 30, "Oxum'S Gas Station", false, 0, false, false, true)
 ];
 
 const currentCardShowing = [];
