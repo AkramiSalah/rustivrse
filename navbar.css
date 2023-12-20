@@ -7,10 +7,11 @@
 .navbar ul{   
     position: fixed;
     display:flex;
+    flex-wrap: wrap;
     width: 100%;
     list-style: none; 
     background: linear-gradient(180deg, rgb(20, 4, 4),rgb(138, 28, 28));    
-    z-index: 999;
+    z-index: 3;
     box-shadow: 1vh 1vh 3vh rgb(0, 0, 0);
 }
 
@@ -21,7 +22,11 @@
 }
 
 #lowTier-monuments{
-    margin-left: 57.3vh;
+    margin-left: 29%;
+}
+
+.dropdown-menu{
+    z-index: 4;
 }
 
 .navbar li:hover{
