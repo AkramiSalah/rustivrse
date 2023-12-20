@@ -21,7 +21,7 @@
     transition: 0.5s;
 }
 
-#lowTier-monuments{
+.navbar .main-item:nth-child(2){
     margin-left: 29%;
 }
 
@@ -89,7 +89,6 @@
 
 
 @media screen and (max-width: 768px) {
-    /* Adjust styles for smaller screens, e.g., mobile devices */
     .navbar ul {
         background: linear-gradient(180deg,rgb(138, 28, 28),rgb(20, 4, 4));
         flex-direction: column;
