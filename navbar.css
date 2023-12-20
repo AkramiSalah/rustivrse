@@ -79,3 +79,68 @@
     width: 20vh;
     height: 9vh; 
 }  
+
+
+
+
+@media screen and (max-width: 768px) {
+    /* Adjust styles for smaller screens, e.g., mobile devices */
+    .navbar ul {
+        background: linear-gradient(180deg,rgb(138, 28, 28),rgb(20, 4, 4));
+        flex-direction: column;
+        align-items: center;
+        width: 45%;
+        height: 100%;     
+    }
+
+    #lowTier-monuments {
+        margin-top: 2vh;
+        margin-left: 0;        
+    }
+
+    .navbar ul li:not(:nth-child(1)){
+        border: 0.3vh white groove;
+    }
+  
+    .navbar li {
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+
+    .navbar li:hover {
+        transform: none;
+        border-radius: 0;
+    }  
+  
+    .navbar ul li ul {
+        position:fixed;
+        display: none;
+        width: 55%;
+        margin-left: 21.6vh;
+        margin-top: 13vh;
+        top:0;
+    }
+  
+    .navbar li:hover ul {
+        display: block; 
+    }
+
+    .navbar a{
+        text-align: center;
+        font-size: 1.5em;
+        padding: 1.5vh;
+    }
+
+    #logo-container{
+        width: 100%;    
+    }
+  
+    #logo {
+        position: static; 
+        transform: none; 
+        width: 100%;
+        margin-top: 2vh;  
+        margin-right: 0.5vh;
+    }
+  } 
