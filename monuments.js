@@ -27,7 +27,7 @@ class Monument {
                 <div class="monument-image"></div>
                 <div class="monument-desc">
                     <div class="info-item">
-                        <img src="images/MapIcons/outpost.png" alt="safezone">
+                        <img src="images/MapIcons/SafeZone.png" alt="safezone">
                         <span class="content">${this.safezone}</span>         
                     </div>
 
@@ -47,7 +47,7 @@ class Monument {
                     </div>
 
                     <div class="info-item">
-                        <img src="images/MapIcons/recycler.png" alt="recycler">
+                        <img src="images/MapIcons/recyyclerIcon.png" alt="recycler">
                         <span class="content">${this.recycler}</span>    
                     </div>
                 </div>
