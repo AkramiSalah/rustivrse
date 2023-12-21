@@ -8,10 +8,10 @@
     position: fixed;
     display:flex;
     flex-wrap: wrap;
-    width: 100%;
     list-style: none; 
-    background: linear-gradient(180deg, rgb(20, 4, 4),rgb(138, 28, 28));    
+    width: 100%;
     z-index: 3;
+    background: linear-gradient(180deg, rgb(20, 4, 4),rgb(138, 28, 28));    
     box-shadow: 1vh 1vh 3vh rgb(0, 0, 0);
 }
 
@@ -61,15 +61,13 @@
 
 .navbar a{   
     display: block;
-    width: 100%;
     color: white;
+    font: italic 2.2vh Impact, sans-serif;
     text-decoration: none;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-style: italic;   
-    padding: 2.2vh;
-    font-size: 2.2vh; 
-    text-shadow: 1vh 1vh 4vh rgb(0, 0, 0);
     user-select: none;
+    width: 100%;
+    padding: 2.2vh;
+    text-shadow: 1vh 1vh 4vh rgb(0, 0, 0);
     transition: 0.5s;
 }
 
