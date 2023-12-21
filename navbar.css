@@ -25,7 +25,15 @@
     margin-left: 29%;
 }
 
-.dropdown-menu{
+#lowTier-monuments{
+    z-index: 6;
+}
+
+#midTier-monuments{
+    z-index: 5;
+}
+
+#highTier-monuments{
     z-index: 4;
 }
 
