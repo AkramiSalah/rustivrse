@@ -21,7 +21,7 @@ const monumentsList = [
     new Monument(1277, 1173, 35, "Lighthouse", false, 30, true, false, true),
     new Monument(152, 945, 35, "Fishing Village", false, 30, true, false, true),
     new Monument(1159, 950, 35, "Mining Outpost", false, 30, true, false, true),
-    new Monument(382, 456, 35, "Abandoned Supermarket", false, 30, true, false, true),
+    new Monument(382, 456, 40, "Abandoned Supermarket", false, 30, true, false, true),
     new Monument(745, 470, 40, "Large Barn", false, 30, true, false, true),
     new Monument(1165, 480, 35, "Ranch", false, 30, true, false, true),
     new Monument(1362, 60, 35, "Large Oil Rig", false, 30, true, true, true),

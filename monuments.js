@@ -72,25 +72,24 @@ class Monument {
     }
 
     showMonumentCard() {
-        if (isFadingIn){
-            return;
-        }      
-        // const diameter = isScreenSmall ? (this.radius * 2) * sizeFactor : (this.radius * 2) / sizeFactorMin; //important no delete 
-        isFadingIn = true;
-        this.alignMonumentCard();
-        this.cardContainer.style.display = "block";
-        this.cardContainer.style.pointerEvents= "auto";
-        setTimeout(() => {
-            this.cardContainer.style.transition = "opacity 0.4s ease-in-out";
-            this.cardContainer.style.opacity = 1;         
-        }, 0);
+        if (!isFadingIn){
+             // const diameter = isScreenSmall ? (this.radius * 2) * sizeFactor : (this.radius * 2) / sizeFactorMin; //important no delete 
+            isFadingIn = true;
+            this.alignMonumentCard();
+            this.cardContainer.style.display = "block";
+            this.cardContainer.style.pointerEvents= "auto";
+            setTimeout(() => {
+                this.cardContainer.style.transition = "opacity 0.4s ease-in-out";
+                this.cardContainer.style.opacity = 1;         
+            }, 0);
+        }          
     }
         
    
     hideMonumentCard = () => {
         isFadingIn = false;   
-        this.cardContainer.style.display = "none";  
         this.cardContainer.style.opacity = 0;
+        this.cardContainer.style.display = "none";  
         map.style.cursor = "move";
              
         if (currentCardShowing.length !==0){
@@ -98,7 +97,7 @@ class Monument {
         }
     }
 
-    alignMonumentCard(){
+    alignMonumentCard = () => {
         const { left, top } = this.calculateScaledPosition();
         this.cardContainer.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
     }
