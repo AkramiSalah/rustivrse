@@ -91,10 +91,10 @@ class Monument {
         isFadingIn = false;
         this.cardContainer.style.opacity = 0;
         map.style.cursor = "move";
-
+        const timeOutTimer = currentCardShowing.length === 0 ? 400 : 0;
         setTimeout(()=>{   
             this.cardContainer.style.display = "none";  
-        },400);    
+        },timeOutTimer);    
         
         if (currentCardShowing.length !==0){
             currentCardShowing.pop();
