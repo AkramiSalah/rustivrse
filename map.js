@@ -140,22 +140,20 @@ function handleMonumentHover(e) {
 
 
 map.addEventListener('click',handleMonumentClick);
-function handleMonumentClick(e) { 
+async function handleMonumentClick(e) {
     for (let monument of monumentsList) {
-        if (monument.isInsideBounds(e.clientX, e.clientY) && !isInsideCard) {
-            if (currentCardShowing.length === 0){     
-                currentCardShowing.push(monument);
-                currentCardShowing[0].showMonumentCard();           
-            }
-            else{
-                currentCardShowing[0].hideMonumentCard();
-                currentCardShowing.push(monument);
-                currentCardShowing[0].showMonumentCard();
-            }   
-        } 
+      if (monument.isInsideBounds(e.clientX, e.clientY) && !isInsideCard) {
+        if (currentCardShowing.length === 0) {
+          currentCardShowing.push(monument);
+          await currentCardShowing[0].showMonumentCard();
+        } else {
+          await currentCardShowing[0].hideMonumentCard();
+          currentCardShowing.push(monument);
+          await currentCardShowing[0].showMonumentCard();
+        }
+      }
     }
-}
-
+  }
 
 // Event listeners for ending drag - mouse and touch
 map.addEventListener('mouseup', handleDragEnd);

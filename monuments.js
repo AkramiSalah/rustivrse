@@ -86,17 +86,33 @@ class Monument {
     }
         
    
-    hideMonumentCard = () => {
-        isFadingIn = false;   
-        this.cardContainer.style.opacity = 0;
-        this.cardContainer.style.display = "none";  
+    hideMonumentCard = async () => {
+        isFadingIn = false;
+      
+        // Set transition property before changing opacity
+        this.cardContainer.style.transition = "opacity 0.15678s ease-in-out";
+      
+        // Change opacity and wait for transition to complete
+        await new Promise(resolve => {
+          this.cardContainer.style.opacity = 0;
+          const transitionEndHandler = () => {
+            resolve();
+            // Remove the event listener to avoid memory leaks
+            this.cardContainer.removeEventListener('transitionend', transitionEndHandler);
+          };
+          // Listen for the 'transitionend' event to know when the transition is complete
+          this.cardContainer.addEventListener('transitionend', transitionEndHandler, { once: true });
+        });
+      
+        // After transition is complete, hide the container
+        this.cardContainer.style.display = "none";
         map.style.cursor = "move";
-             
-        if (currentCardShowing.length !==0){
-            currentCardShowing.pop();
+      
+        if (currentCardShowing.length !== 0) {
+          currentCardShowing.pop();
         }
-    }
-
+      };
+      
     alignMonumentCard = () => {
         const { left, top } = this.calculateScaledPosition();
         this.cardContainer.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
