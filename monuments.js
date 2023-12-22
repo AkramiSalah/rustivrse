@@ -88,14 +88,11 @@ class Monument {
         
    
     hideMonumentCard = () => {
-        isFadingIn = false;
+        isFadingIn = false;   
+        this.cardContainer.style.display = "none";  
         this.cardContainer.style.opacity = 0;
         map.style.cursor = "move";
-
-        setTimeout(()=>{   
-            this.cardContainer.style.display = "none";  
-        },400);    
-        
+             
         if (currentCardShowing.length !==0){
             currentCardShowing.pop();
         }
