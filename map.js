@@ -27,7 +27,7 @@ const monumentsList = [
     new Monument(1362, 60, 35, "Large Oil Rig", false, 30, true, true, true),
     new Monument(66, 60, 35, "Small Oil Rig", false, 30, true, true, true),
     new Monument(46, 1236, 35, "Underwater Labs", false, 30, true, true, true),
-    new Monument(863, 908, 35, "Oxum's Gas Station", false, 0, false, false, true)
+    new Monument(863, 908, 35, "Oxum'S Gas Station", false, 0, false, false, true)
 ];
 
 const currentCardShowing = [];
