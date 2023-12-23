@@ -88,8 +88,6 @@ class Monument {
    
     hideMonumentCard = async () => {
         isFadingIn = false;
-      
-        // Set transition property before changing opacity
         this.cardContainer.style.transition = "opacity 0.15678s ease-in-out";
       
         // Change opacity and wait for transition to complete

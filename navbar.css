@@ -98,59 +98,60 @@
     .navbar ul {
         background: linear-gradient(180deg,rgb(138, 28, 28),rgb(20, 4, 4));
         flex-direction: column;
-        align-items: center;
         width: 100%;
-        height: auto;     
+        height: 100%;   
+        display: none;
+        animation: slideInFromRight 0.5s ease;
     }
 
-    .main-item{
-        margin: 2vh 1vh 2vh 1vh;
-        padding-top: 1vh;
+    @keyframes slideInFromRight {
+        0% {
+            right: -100%;         
+        }
+        100% {
+            right: 0;
+        }
+    }
+
+    @keyframes slideInFromLeft {
+        0% {
+            right: 0;         
+        }
+        100% {
+            right: -100%;
+        }
+    }
+
+    .main-item{ 
+        padding-top: 1em;
     }
 
     .navbar li {
-        display: flex;
-        align-items: center;
         width: 100%;
-        height: auto;
-        margin: 0;
     }
 
     #lowTier-monuments {
-        margin-top: 1vh;
         margin-left: 0;        
     }
 
     .navbar li:hover {
         transform: none;
-        border-radius: 0;
+        border-radius: 5%;
         background: none;
         box-shadow: none;
     }  
 
     .navbar li:hover ul {
-        display: block; 
+        display: none; 
     }
 
-    #lowTier-monuments ul,
+    /* #lowTier-monuments ul,
     #midTier-monuments ul,
     #highTier-monuments ul
     {
         margin-left: 18.3vh;
         top: 0;      
-    }
-
-    #lowTier-monuments ul{
-        margin-top: 12vh;
-    }
-
-    #midTier-monuments ul{
-        margin-top: 18.1vh;
-    }
-
-    #highTier-monuments ul{
-        margin-top: 24.2vh;
-    }
+    } */
 
     .navbar ul li ul {
         position:fixed;
@@ -160,20 +161,18 @@
         box-shadow: none;
     }
 
-    .navbar ul li ul li{
+    /* .navbar ul li ul li{
         border: 0;
         padding-top: 1vh;
         padding-right: 1vh;
         padding-left: 1vh;
-    }
+    } */
   
-   
     .navbar a{
         text-align: center;
-        font-size: 2em;
+        font-size: 2vh;
         padding: 1.5vh;
         width: 50%;
-        height: auto;
     }
 
     .navbar a:not(#logo){
@@ -187,13 +186,17 @@
         background-color:hsl(360, 100%, 45%);
         box-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
     }
+
+    #logo-container{
+        width: 100%;
+    }
   
     #logo {
         position: static; 
         transform: none; 
-        width: 100%;
-        margin-top: 2vh;  
-        margin-right: 0.5vh;
-        padding: 10.2vh;
+        width: 50%;   
+        margin-left: 25%;  
+        padding: 8vh;
+        transform: scale(1.20);       
     }
   } 

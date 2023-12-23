@@ -17,6 +17,7 @@ body{
     width: 100%;
     overflow: hidden;
     cursor: move;
+    position: relative;
 }
 
 #coordinates {
@@ -160,4 +161,29 @@ body{
 .moreDetails:hover a {
     text-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
     transform: scale(1.08);
+}
+
+#arrow-menu{
+    display: none;
+}
+
+
+@media screen and (max-width: 768px){ 
+
+    #arrow-menu{
+        display: block;
+        position: fixed;
+        background-image: url(images/MapIcons/arrow.png);
+        background-position: center;
+        background-size: cover;
+        width: 5vh;
+        height: 5vh;
+        right: 1vh;
+        top: 5vh;
+        z-index: 10;
+    }
+
+    .monument{
+        z-index: 9;
+    }
 }
