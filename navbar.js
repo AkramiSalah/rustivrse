@@ -62,9 +62,14 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     logo.addEventListener('click', closeNavbarMenuFromLogo);
 
     function closeNavbarMenuFromLogo(e){
-        if(window.location.href.includes('index.html') && isMenuOpen){
-            e.preventDefault();
-            closeNavbarMenu();
+        if (window.location.href.includes('index.html')){
+            if (isMenuOpen){
+                e.preventDefault()
+                closeNavbarMenu();
+            }
+            else{
+                e.preventDefault();  
+            }                 
         }
     }
 });
