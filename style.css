@@ -145,6 +145,7 @@ body{
     padding-bottom: 0.7vh;
     border-top-color: white;
     border-top-style: solid;
+    cursor: pointer;    
 }
 
 .moreDetails a{
