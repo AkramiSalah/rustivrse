@@ -146,7 +146,8 @@ async function handleMonumentClick(e) {
         if (currentCardShowing.length === 0) {
           currentCardShowing.push(monument);
           await currentCardShowing[0].showMonumentCard();
-        } else {
+        }
+        else {
           await currentCardShowing[0].hideMonumentCard();
           currentCardShowing.push(monument);
           await currentCardShowing[0].showMonumentCard();
