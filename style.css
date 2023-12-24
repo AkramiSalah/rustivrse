@@ -180,7 +180,7 @@ body{
         height: 5vh;
         right: 1vh;
         top: 5vh;
-        z-index: 10;
+        z-index: 1;
     }
 
     .monument{

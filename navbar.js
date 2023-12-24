@@ -16,40 +16,28 @@ document.addEventListener('DOMContentLoaded',async ()=>{
         }
     });
 
-    const MobileMenuOpener = document.getElementById('arrow-menu');
+    const mobileMenuOpener = document.getElementById('arrow-menu');
     const navbar = document.querySelector("#navbar-container .navbar ul");
-    
-    let isArrowMenuTouched = false;
-    let isMenuOpen = false;
+    const mobileMenuCloser = document.querySelector("#navbar-container .navbar ul .close-navbar") 
     let isMenuTransitioning = false;
 
-    MobileMenuOpener.addEventListener('touchstart', arrowMenuTouchStart);
-    MobileMenuOpener.addEventListener('touchend', arrowMenuTouchEnd);
+    mobileMenuOpener.addEventListener('click', openNavbarMenu);
+    mobileMenuCloser.addEventListener('click', closeNavbarMenu);
 
-    function arrowMenuTouchStart() {
-        if(!isMenuTransitioning){
-            if (isMenuOpen){
-                isArrowMenuTouched = false;
-            }
-            else{
-                isArrowMenuTouched = true;
-            }  
-        }            
+    function openNavbarMenu(){
+        if (!isMenuTransitioning){
+            navbar.style.animation = "slideInFromRight 0.5s ease"
+            navbar.style.display = "block";
+            isMenuTransitioning = true;
+            if (currentCardShowing.length !==0){
+                currentCardShowing[0].hideMonumentCard();
+            }   
+        }     
     }
 
-    function arrowMenuTouchEnd() {
-        if (isArrowMenuTouched) {
-            isArrowMenuTouched = false;
-            isMenuOpen = true;
-            isMenuTransitioning = true;
-            navbar.style.animation = "slideInFromRight 0.5s ease"
-            navbar.style.display = "block";    
-        }
-        else{
-            navbar.style.animation = "slideInFromLeft 0.5s ease";
-            navbar.addEventListener('animationend', onAnimationEnd, { once: true });
-            isMenuOpen = false;
-        }       
+    function closeNavbarMenu(){
+        navbar.style.animation = "slideInFromLeft 0.5s ease";
+        navbar.addEventListener('animationend', onAnimationEnd, { once: true });
     }
 
     function onAnimationEnd() {
