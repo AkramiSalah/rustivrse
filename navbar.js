@@ -44,4 +44,13 @@ document.addEventListener('DOMContentLoaded',async ()=>{
         navbar.style.display = "none";
         isMenuTransitioning = false;
     }
+
+    window.addEventListener('resize',()=>{
+        if (window.innerWidth > 768){
+            navbar.style.display = "flex";
+        }
+        else{
+            closeNavbarMenu();
+        }
+    }); 
 });

@@ -206,7 +206,7 @@ function calcSizeFactor() {
     // aligning current monument if window is rezised
     if (currentCardShowing.length === 1){
         currentCardShowing[0].alignMonumentCard();
-    }     
+    }  
     
     // sizeFactorMin = Math.min(widthScaleFactor, heightScaleFactor);
   
