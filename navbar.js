@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     const navbar = document.querySelector("#navbar-container .navbar ul");
     const mobileMenuCloser = document.querySelector("#navbar-container .navbar ul .close-navbar") 
     let isMenuTransitioning = false;
+    let isMenuOpen = false;
 
     mobileMenuOpener.addEventListener('click', openNavbarMenu);
     mobileMenuCloser.addEventListener('click', closeNavbarMenu);
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
             navbar.style.animation = "slideInFromRight 0.5s ease"
             navbar.style.display = "block";
             isMenuTransitioning = true;
+            isMenuOpen = true;
             if (currentCardShowing.length !==0){
                 currentCardShowing[0].hideMonumentCard();
             }                  
@@ -43,6 +45,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     function onAnimationEnd() {
         navbar.style.display = "none";
         isMenuTransitioning = false;
+        isMenuOpen = false;
     }
 
     window.addEventListener('resize',()=>{
@@ -59,7 +62,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     logo.addEventListener('click', closeNavbarMenuFromLogo);
 
     function closeNavbarMenuFromLogo(e){
-        if(window.location.href.includes('index.html')){
+        if(window.location.href.includes('index.html') && isMenuOpen){
             e.preventDefault();
             closeNavbarMenu();
         }
