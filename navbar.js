@@ -25,13 +25,13 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     mobileMenuCloser.addEventListener('click', closeNavbarMenu);
 
     function openNavbarMenu(){
-        if (!isMenuTransitioning){
+        if (!isMenuTransitioning){      
             navbar.style.animation = "slideInFromRight 0.5s ease"
             navbar.style.display = "block";
             isMenuTransitioning = true;
             if (currentCardShowing.length !==0){
                 currentCardShowing[0].hideMonumentCard();
-            }   
+            }                  
         }     
     }
 
@@ -53,4 +53,15 @@ document.addEventListener('DOMContentLoaded',async ()=>{
             closeNavbarMenu();
         }
     }); 
+
+
+    const logo = document.getElementById('logo');
+    logo.addEventListener('click', closeNavbarMenuFromLogo);
+
+    function closeNavbarMenuFromLogo(e){
+        if(window.location.href.includes('index.html')){
+            e.preventDefault();
+            closeNavbarMenu();
+        }
+    }
 });
