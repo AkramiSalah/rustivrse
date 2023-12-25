@@ -213,7 +213,7 @@
   } 
 
 
-  @media screen and (min-width: 769px) and (max-width: 1281px) {
+@media screen and (min-width: 769px) and (max-width: 1281px) {
 
     #logo{      
         margin-left: 1vh;
@@ -222,5 +222,19 @@
 
     #lowTier-monuments{
         margin-left: 22vh;
+    }
+}
+
+
+@media screen and (min-width: 1282px) and (max-width: 1919px){
+    .navbar .main-item:nth-child(3){
+        margin-left: 20vh;
+    }
+}
+
+
+@media screen and (min-width: 1920px) and (max-width: 1920px){
+    .navbar .main-item:nth-child(3){
+        margin-left: 37.2vh;
     }
 }
