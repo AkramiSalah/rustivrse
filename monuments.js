@@ -24,7 +24,7 @@ class Monument {
         this.cardContainer.innerHTML =
            `<div class="monument-name"><i id="${this.monumentName}close" class="close-icon">X</i>${this.monumentName}</div>
             <div class="container">
-                <div class="monument-image"></div>
+                <div class="monument-image" style="background-image: url('images/CardImages/${this.monumentName}.png')"></div>
                 <div class="monument-desc">
                     <div class="info-item">
                         <img src="images/MapIcons/SafeZone.png" alt="safezone">
