@@ -98,7 +98,7 @@
 
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     
     .navbar ul {
         background: linear-gradient(180deg,rgb(138, 28, 28),rgb(20, 4, 4));
@@ -213,7 +213,7 @@
   } 
 
 
-@media screen and (min-width: 769px) and (max-width: 1281px) {
+@media screen and (min-width: 1025px) and (max-width: 1281px) {
 
     #logo{      
         margin-left: 1vh;
