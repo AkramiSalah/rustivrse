@@ -41,7 +41,6 @@
     background-color:hsl(360, 100%, 45%);
     transform: scale(1.05); 
     box-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
-    border-radius: 7%; 
 }
 
 .navbar ul li ul{
@@ -66,9 +65,15 @@
     text-decoration: none;
     user-select: none;
     width: 100%;
-    padding: 2.2vh;
+    padding: 2.2vh 2.2vh 2.2vh 2.2vh;
     text-shadow: 1vh 1vh 4vh rgb(0, 0, 0);
     transition: 0.5s;
+}
+
+.navbar ul li ul li a{
+    padding: 1.8vh 2.2vh 1.8vh 2.2vh;
+    font-size: 2vh;
+    text-align: center;
 }
 
 .navbar a:hover{

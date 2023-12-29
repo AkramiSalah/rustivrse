@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     }
 
     window.addEventListener('resize',()=>{
-        if (window.innerWidth > 768){
+        if (window.innerWidth >= 1024){
             navbar.style.display = "flex";
         }
         else{
