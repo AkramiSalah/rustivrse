@@ -38,6 +38,7 @@ const coordinatesElement = document.getElementById('coords');
 let isDragging = false;
 let isFadingIn = false;
 let isInsideCard = false;
+let isMenuTransitioning = false;
 // let isScreenSmall = false; - not in use atm.
 
 let startPointX = 0;

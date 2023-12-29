@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     const mobileMenuOpener = document.getElementById('arrow-menu');
     const navbar = document.querySelector("#navbar-container .navbar ul");
     const mobileMenuCloser = document.querySelector("#navbar-container .navbar ul .close-navbar") 
-    let isMenuTransitioning = false;
     let isMenuOpen = false;
 
     mobileMenuOpener.addEventListener('click', openNavbarMenu);
