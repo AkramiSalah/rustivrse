@@ -76,18 +76,18 @@ class Monument {
     showMonumentCard() {
         if (!isFadingIn){
             if(!isMenuTransitioning){
-             // const diameter = isScreenSmall ? (this.radius * 2) * sizeFactor : (this.radius * 2) / sizeFactorMin; //important no delete 
-            isFadingIn = true;
-            this.alignMonumentCard();
-            this.cardContainer.style.display = "block";
-            this.cardContainer.style.pointerEvents= "auto";
-            setTimeout(() => {
-                this.cardContainer.style.transition = "opacity 0.4s ease-in-out";
-                this.cardContainer.style.opacity = 1;         
-            }, 0);
-        }
-    }          
-}
+                // const diameter = isScreenSmall ? (this.radius * 2) * sizeFactor : (this.radius * 2) / sizeFactorMin; //important no delete 
+                isFadingIn = true;
+                this.alignMonumentCard();
+                this.cardContainer.style.display = "block";
+                this.cardContainer.style.pointerEvents= "auto";
+                setTimeout(() => {
+                    this.cardContainer.style.transition = "opacity 0.4s ease-in-out";
+                    this.cardContainer.style.opacity = 1;         
+                }, 0);
+            }
+        }          
+    }
         
    
     hideMonumentCard = async () => {
