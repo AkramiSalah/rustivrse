@@ -134,6 +134,16 @@ body{
     margin: 0 0.5vh 0 1vh;
 }
 
+.radiation-info{
+    display: block;
+    margin-left: 3.2vh;
+}
+
+.content img{
+    width: 3vh;
+    padding-top: 1vh;
+}
+
 .moreDetails{
     height: 4vh;
     width: 100%;

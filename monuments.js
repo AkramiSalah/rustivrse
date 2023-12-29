@@ -4,11 +4,11 @@ class Monument {
         this.y = y;
         this.radius = radius;
         this.monumentName = monumentName;
-        this.safezone = safezone;
+        this.safezone = `images/${safezone}.png`;
         this.radiation = radiation;
-        this.puzzle = puzzle;
-        this.scientists = scientists;
-        this.recycler = recycler;
+        this.puzzle = `images/${puzzle}.png`;
+        this.scientists = `images/${scientists}.png`;
+        this.recycler = `images/${recycler}.png`;
         this.cardContainer = document.createElement('div');
         this.cardContainer.id = monumentName;
         this.cardContainer.classList.add('monument');
@@ -30,27 +30,27 @@ class Monument {
                 <div class="monument-desc">
                     <div class="info-item">
                         <img src="images/MapIcons/SafeZone.png" alt="safezone">
-                        <span class="content">${this.safezone}</span>         
+                        <span class="content"><img src="${this.safezone}"></span>         
                     </div>
 
                     <div class="info-item">
                         <img src="images/MapIcons/radiation.png" alt="radiation">
-                        <span class="content">${this.radiation}%</span>  
+                        <span class="content radiation-info">${this.radiation}%</span>  
                     </div>
 
                     <div class="info-item">
                         <img src="images/MapIcons/puzzle.png" alt="puzzle">
-                        <span class="content">${this.puzzle}</span>  
+                        <span class="content"><img src="${this.puzzle}"></span>  
                     </div>
 
                     <div class="info-item">
                         <img src="images/MapIcons/scientist.png" alt="scientist">
-                        <span class="content">${this.scientists}</span>  
+                        <span class="content"><img src="${this.scientists}"></span>  
                     </div>
 
                     <div class="info-item">
                         <img src="images/MapIcons/recyyclerIcon.png" alt="recycler">
-                        <span class="content">${this.recycler}</span>    
+                        <span class="content"><img src="${this.recycler}"></span>    
                     </div>
                 </div>
             </div>          
