@@ -184,14 +184,14 @@ body{
     #arrow-menu{
         display: block;
         position: fixed;
-        background-image: url(images/MapIcons/arrow.png);
+        background-image: url(images/MapIcons/MENU.png);
         background-position: center;
         background-size: cover;
         width: 5vh;
         height: 5vh;
         right: 1vh;
         top: 5vh;
-        z-index: 1;
+        z-index: 999;
     }
 
     .monument{

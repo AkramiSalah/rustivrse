@@ -9,12 +9,16 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     }
     
     const navbarContainer = document.querySelector(".navbar ul");
-    navbarContainer.addEventListener("mouseenter", ()=> {
+    navbarContainer.addEventListener("mouseenter", handleNavbarEnter)
+    navbarContainer.addEventListener("touchstart", handleNavbarEnter)
+       
+    function handleNavbarEnter(){
         handleDragEnd();
         if (currentCardShowing.length !== 0){
             currentCardShowing[0].hideMonumentCard();     
         }
-    });
+    }
+
 
     const mobileMenuOpener = document.getElementById('arrow-menu');
     const navbar = document.querySelector("#navbar-container .navbar ul");
