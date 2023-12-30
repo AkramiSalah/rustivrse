@@ -174,23 +174,23 @@ body{
     transform: scale(1.08);
 }
 
-#arrow-menu{
+#mobile-menu{
     display: none;
 }
 
 
 @media screen and (max-width: 1024px){ 
 
-    #arrow-menu{
+    #mobile-menu{
         display: block;
         position: fixed;
         background-image: url(images/MapIcons/MENU.png);
         background-position: center;
         background-size: cover;
-        width: 5vh;
-        height: 5vh;
-        right: 1vh;
-        top: 5vh;
+        width: 11vw;
+        height: 11vw;
+        right: 3vw;
+        top: 2.7vh;
         z-index: 999;
     }
 

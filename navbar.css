@@ -9,7 +9,7 @@
     display:flex;
     flex-wrap: wrap;
     list-style: none; 
-    width: 100%;
+    width: 100vw;
     z-index: 3;
     background: linear-gradient(180deg, rgb(20, 4, 4),rgb(138, 28, 28));    
     box-shadow: 1vh 1vh 3vh rgb(0, 0, 0);
@@ -22,7 +22,7 @@
 }
 
 .navbar .main-item:nth-child(3){
-    margin-left: 29%;
+    margin-left: 29.1vw;
 }
 
 #lowTier-monuments{
@@ -113,15 +113,17 @@
         display: none; 
     }
 
-    .navbar ul .close-navbar{
+    .close-navbar{
         display: block;
+    }
+
+    .close-navbar img{
         position: absolute;
-        font: normal bold 5.5vh sans-serif;
-        color: white;
-        left: 0.5vh;
-        top: 0.5vh;
-        padding: 1.7vh;
-        z-index: 1;
+        width: 8vw;
+        height: 8vw;
+        left: 3vw;
+        top: 3.2vh;
+        z-index: 999;
     }
 
     @keyframes slideInFromRight {
@@ -204,15 +206,15 @@
         background-color:hsl(360, 100%, 45%);
         box-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
     }
-  
+
     #logo {
         position: static; 
         display: block;
         transform: none; 
-        width: 70%;   
+        width: 50vw;   
         padding: 8vh;
         transform: scale(1.10); 
-        margin-left: 14.5%;
+        margin-left: 25vw;
         margin-top: 1vh;
     }   
   } 
@@ -220,26 +222,15 @@
 
 @media screen and (min-width: 1025px) and (max-width: 1281px) {
 
-    #logo{      
-        margin-left: 1vh;
-        margin-bottom: 0.5vh; 
-    }
-
     #lowTier-monuments{
         margin-left: 22vh;
     }
 }
 
+@media screen and (max-width: 549px){
 
-@media screen and (min-width: 1282px) and (max-width: 1919px){
-    .navbar .main-item:nth-child(3){
-        margin-left: 20vh;
-    }
-}
-
-
-@media screen and (min-width: 1920px) and (max-width: 1920px){
-    .navbar .main-item:nth-child(3){
-        margin-left: 37.2vh;
+    #logo{
+        width: 55vw;
+        margin-left: 22vw;
     }
 }

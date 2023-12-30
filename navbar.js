@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     }
 
 
-    const mobileMenuOpener = document.getElementById('arrow-menu');
+    const mobileMenuOpener = document.getElementById('mobile-menu');
     const navbar = document.querySelector("#navbar-container .navbar ul");
     const mobileMenuCloser = document.querySelector("#navbar-container .navbar ul .close-navbar") 
     let isMenuOpen = false;
