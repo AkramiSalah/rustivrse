@@ -56,7 +56,9 @@ document.addEventListener('DOMContentLoaded',async ()=>{
             navbar.style.display = "flex";
         }
         else{
-            closeNavbarMenu();
+            if (isMenuOpen){
+                closeNavbarMenu();
+            }
         }
     }); 
 
