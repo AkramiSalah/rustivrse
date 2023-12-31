@@ -55,7 +55,7 @@
 
 .navbar ul li ul li{
     display: block;
-    border: 0.3vh white groove;
+    border: 0.2250vh white solid;
 }
 
 .navbar a{   
