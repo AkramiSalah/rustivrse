@@ -29,27 +29,27 @@ class Monument {
                 <div class="monument-image" style="background-image: url('images/CardImages/${imgMonumentName}.png')"></div>
                 <div class="monument-desc">
                     <div class="info-item">
-                        <img src="images/MapIcons/SafeZone.png" alt="safezone">
+                        <img src="images/Icons/SafeZone.png" alt="safezone">
                         <span class="content"><img src="${this.safezone}"></span>         
                     </div>
 
                     <div class="info-item">
-                        <img src="images/MapIcons/radiation.png" alt="radiation">
+                        <img src="images/Icons/radiation.png" alt="radiation">
                         <span class="content radiation-info">${this.radiation}%</span>  
                     </div>
 
                     <div class="info-item">
-                        <img src="images/MapIcons/puzzle.png" alt="puzzle">
+                        <img src="images/Icons/puzzle.png" alt="puzzle">
                         <span class="content"><img src="${this.puzzle}"></span>  
                     </div>
 
                     <div class="info-item">
-                        <img src="images/MapIcons/scientist.png" alt="scientist">
+                        <img src="images/Icons/scientist.png" alt="scientist">
                         <span class="content"><img src="${this.scientists}"></span>  
                     </div>
 
                     <div class="info-item">
-                        <img src="images/MapIcons/recyyclerIcon.png" alt="recycler">
+                        <img src="images/Icons/recyyclerIcon.png" alt="recycler">
                         <span class="content"><img src="${this.recycler}"></span>    
                     </div>
                 </div>

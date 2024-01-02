@@ -184,7 +184,7 @@ body{
     #mobile-menu{
         display: block;
         position: fixed;
-        background-image: url(images/MapIcons/MENU.png);
+        background-image: url(images/Icons/MENU.png);
         background-position: center;
         background-size: cover;
         width: 11vw;
