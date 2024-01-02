@@ -21,7 +21,7 @@
     transition: 0.5s;
 }
 
-.navbar .main-item:nth-child(3){
+.main-item:nth-child(3){
     margin-left: 29.1vw;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .navbar ul li ul li a{
-    padding: 1.8vh 2.2vh 1.8vh 2.2vh;
+    padding: 1.8vh 1.5vh 1.8vh 1.5vh;
     font-size: 2vh;
     text-align: center;
 }
@@ -230,7 +230,7 @@
 @media screen and (max-width: 549px){
 
     #logo{
-        width: 55vw;
-        margin-left: 21vw;
+        width: 58vw;
+        margin-left: 20vw;
     }
 }
