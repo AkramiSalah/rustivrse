@@ -120,6 +120,24 @@ class Monument {
         this.cardContainer.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
     }
 
+    // alignMonumentLogo = (monLogo) => {
+    //     const { left, top } = this.calculateScaledPosition();
+    //     console.log(left,top);
+    //     monLogo.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
+    // }
+    alignMonumentLogo = (monLogo) => {
+        const { left, top } = this.calculateScaledPosition();
+        const imageWidth = monLogo.offsetWidth;
+        const imageHeight = monLogo.offsetHeight;
+    
+        // Calculate the position with respect to the center of the image
+        const adjustedLeft = left - imageWidth / 2;
+        const adjustedTop = top - imageHeight / 2;
+    
+        monLogo.style.left = `${adjustedLeft}px`;
+        monLogo.style.top = `${adjustedTop}px`;
+    };
+
     insideCard = (e) => {
         isInsideCard = true;
         e.currentTarget.style.cursor = "default";
