@@ -80,7 +80,7 @@
 
 .navbar a:hover {
   text-shadow: 0 0 2vh rgba(255, 255, 255, 0.8),
-    0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
+  0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
 }
 
 #logo-container {
@@ -97,7 +97,7 @@
   background-position: center;
   background-size: cover;
   transform: scale(1.05);
-  width: 20vh;
+  width: 10vw;
   height: 7.5vh;
   user-select: none;
 }
@@ -207,7 +207,7 @@
   .navbar a:hover:not(#logo) {
     background-color: hsl(360, 100%, 45%);
     box-shadow: 0 0 2vh rgba(255, 255, 255, 0.8),
-      0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
+    0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
   }
 
   #logo {
