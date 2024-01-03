@@ -32,18 +32,6 @@ const monumentsList = [
 ];
 
 
-function updateMonumentLogoPositions(){
-    monumentsList.forEach((mon) => {
-        const monumentImage = document.getElementById(mon.monumentName); // Assuming the id is the same as the monumentName
-        if (monumentImage) {
-            const { left, top } = mon.calculateScaledPosition();
-            monumentImage.style.left = `${left}px`;
-            monumentImage.style.top = `${top}px`;
-        }
-    });
-}
-
-
 const currentCardShowing = [];
 const map = document.querySelector(".map");
 const coordinatesElement = document.getElementById('coords');
@@ -133,18 +121,8 @@ function handleDragMove(e) {
         }
         monumentsList.forEach(mon => {
             mon.alignMonumentCard();
-            const monLogo = document.getElementById(mon.monumentName + "logo");
-            // Extracting the current left and top values
-            const currentLeft = parseFloat(getComputedStyle(monLogo).left);
-            const currentTop = parseFloat(getComputedStyle(monLogo).top);
-            if(!isAtLeftEdge)
-                monLogo.style.left = `${currentLeft + deltaX}px`;
-            if(!isAtTopEdge)
-                monLogo.style.top = `${currentTop + deltaY}px`;
-
-            console.log(monLogo)
-
-            // Update monument position by adding currentDragX and currentDragY
+            updateMonumentIconPosition(mon, deltaX, deltaY);
+            
         });
     }
     else{
@@ -250,27 +228,47 @@ function calcSizeFactor() {
         currentCardShowing[0].alignMonumentCard();
     }  
 
-    monumentsList.forEach((mon) => {
-        const monumentImage = document.createElement('img');
-        monumentImage.className = 'monument-logo';
-        monumentImage.id = `${mon.monumentName + "logo"}`;
-        monumentImage.classList.add('monument-logo');
-        monumentImage.src = `images/Icons/MapIcons/${mon.monumentName}.png`;  // Use src instead of backgroundImage
-        monumentImage.style.width = `5vh`;
-        monumentImage.style.height = `5vh`;
-        monumentImage.style.position = 'absolute';
-        const { left, top } = mon.calculateScaledPosition();
-        monumentImage.style.left = `${left}px`;
-        monumentImage.style.top = `${top}px`;
-        monumentImage.style.zIndex = "1";
-    
-        // Append the monument image to the map
-        document.querySelector('.map').appendChild(monumentImage);
-    });
+    createMonumentIcons();
     
     // sizeFactorMin = Math.min(widthScaleFactor, heightScaleFactor);
   
     // if( widthScaleFactor <= 1 || heightScaleFactor <= 1){
     //     isScreenSmall = true;
     // }
+}
+
+function createMonumentIcons(){
+    monumentsList.forEach((mon) => {
+    const monLogo = document.getElementById(mon.monumentName + "logo");
+    if(monLogo)
+        monLogo.remove();
+    const monumentImage = document.createElement('img');
+    monumentImage.className = 'monument-logo';
+    monumentImage.id = `${mon.monumentName + "logo"}`;
+    monumentImage.classList.add('monument-logo');
+    monumentImage.src = `images/Icons/MapIcons/${mon.monumentName}.png`;  // Use src instead of backgroundImage
+    monumentImage.style.width = `3.2vw`;
+    monumentImage.style.height = `3.2vw`;
+    monumentImage.style.position = 'absolute';
+    const { left, top } = mon.calculateScaledPosition();
+    monumentImage.style.left = `${left}px`;
+    monumentImage.style.top = `${top}px`;
+    monumentImage.style.zIndex = "1";
+    monumentImage.style.userSelect = "none";
+    monumentImage.style.transform= "translateY(-50%) translateX(-50%)";
+
+    // Append the monument image to the map
+    document.querySelector('.map').appendChild(monumentImage);
+    });
+}
+
+function updateMonumentIconPosition(mon, deltaX, deltaY){
+    const monumentIcon = document.getElementById(mon.monumentName + "logo");
+    // Extracting the current left and top values
+    const currentLeft = parseFloat(getComputedStyle(monumentIcon).left);
+    const currentTop = parseFloat(getComputedStyle(monumentIcon).top);
+    if(!isAtLeftEdge)
+        monumentIcon.style.left = `${currentLeft + deltaX}px`;
+    if(!isAtTopEdge)
+        monumentIcon.style.top = `${currentTop + deltaY}px`;
 }

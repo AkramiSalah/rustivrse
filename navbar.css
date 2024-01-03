@@ -8,6 +8,7 @@
   position: fixed;
   display: flex;
   list-style: none;
+  user-select: none;
   width: 100vw;
   z-index: 3;
   background: linear-gradient(180deg, rgb(20, 4, 4), rgb(138, 28, 28));

@@ -9,7 +9,7 @@ body {
 }
 
 .map {
-  background-image: url(images/map\ with\ icons\ 2.1.24.png);
+  background-image: url(images/iconlessMap03.01.24.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0px 0px;
@@ -31,6 +31,7 @@ body {
   font-weight: bolder;
   font-family: Arial, sans-serif;
   user-select: none;
+  z-index: 2;
 }
 
 .monument {
@@ -47,6 +48,7 @@ body {
   box-shadow: 1vh 1vh 5vh rgb(0, 0, 0);
   user-select: none;
   opacity: 0;
+  z-index: 2;
 }
 
 .monument-name {
