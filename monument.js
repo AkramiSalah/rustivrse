@@ -94,19 +94,15 @@ class Monument {
         isFadingIn = false;
         this.cardContainer.style.transition = "opacity 0.15678s ease-in-out";
       
-        // Change opacity and wait for transition to complete
         await new Promise(resolve => {
           this.cardContainer.style.opacity = 0;
           const transitionEndHandler = () => {
             resolve();
-            // Remove the event listener to avoid memory leaks
             this.cardContainer.removeEventListener('transitionend', transitionEndHandler);
           };
-          // Listen for the 'transitionend' event to know when the transition is complete
           this.cardContainer.addEventListener('transitionend', transitionEndHandler, { once: true });
         });
       
-        // After transition is complete, hide the container
         this.cardContainer.style.display = "none";
         map.style.cursor = "move";
       
@@ -119,24 +115,6 @@ class Monument {
         const { left, top } = this.calculateScaledPosition();
         this.cardContainer.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
     }
-
-    // alignMonumentLogo = (monLogo) => {
-    //     const { left, top } = this.calculateScaledPosition();
-    //     console.log(left,top);
-    //     monLogo.style.transform = `translate(${left}px, ${top}px) translate(-50%, -50%)`;
-    // }
-    alignMonumentLogo = (monLogo) => {
-        const { left, top } = this.calculateScaledPosition();
-        const imageWidth = monLogo.offsetWidth;
-        const imageHeight = monLogo.offsetHeight;
-    
-        // Calculate the position with respect to the center of the image
-        const adjustedLeft = left - imageWidth / 2;
-        const adjustedTop = top - imageHeight / 2;
-    
-        monLogo.style.left = `${adjustedLeft}px`;
-        monLogo.style.top = `${adjustedTop}px`;
-    };
 
     insideCard = (e) => {
         isInsideCard = true;

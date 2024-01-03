@@ -80,7 +80,6 @@ map.addEventListener('mousemove', handleDragMove);
 map.addEventListener('touchmove', handleDragMove);
 
 function handleDragMove(e) {
-    console.log('Dragging:', currentDragX, currentDragY);
     if (isDragging) {
         const clientX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
         const clientY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
@@ -88,23 +87,18 @@ function handleDragMove(e) {
         const deltaX = clientX - startPointX - currentDragX;
         const deltaY = clientY - startPointY - currentDragY;
 
-
-        
-
         const currentX = parseFloat(getComputedStyle(map).backgroundPositionX);
         const currentY = parseFloat(getComputedStyle(map).backgroundPositionY);
 
         const newX = currentX + deltaX;
         const newY = currentY + deltaY;
         
-
-
-        // Update background position within specified bounds
         if (newX <= 500 && newX >= -500) {
             isAtLeftEdge = false;
             map.style.backgroundPositionX = `${newX}px`;
             currentDragX += deltaX;
-        }else{
+        }
+        else{
             isAtLeftEdge = true;
         }
 
@@ -112,24 +106,24 @@ function handleDragMove(e) {
             isAtTopEdge = false;
             map.style.backgroundPositionY = `${newY}px`;
             currentDragY += deltaY;
-        }else{
+        }
+        else{
             isAtTopEdge = true;
         }
 
         if (currentCardShowing.length === 1){
             currentCardShowing[0].hideMonumentCard();
         }
+
         monumentsList.forEach(mon => {
             mon.alignMonumentCard();
-            updateMonumentIconPosition(mon, deltaX, deltaY);
-            
+            updateMonumentIconPosition(mon, deltaX, deltaY);     
         });
     }
+
     else{
         handleMapHover(e);     
-    }
-    
-    
+    }  
 }
 
 function handleMapHover(e) {
@@ -176,6 +170,7 @@ async function handleMonumentClick(e) {
     }
   }
 
+
 // Event listeners for ending drag - mouse and touch
 map.addEventListener('mouseup', handleDragEnd);
 map.addEventListener('touchend', handleDragEnd);
@@ -212,15 +207,12 @@ function calcSizeFactor() {
     mapWidth = mapImage.width;
     mapHeight = mapImage.height;
 
-    // Get the screen resolution
     let screenWidth = window.innerWidth;
     let screenHeight = window.innerHeight;
 
-    // Calculate the scale factors for width and height
     let widthScaleFactor = screenWidth / mapWidth;
     let heightScaleFactor = screenHeight / mapHeight;
 
-    // Use the maximum of the two scale factors
     sizeFactor = Math.max(widthScaleFactor, heightScaleFactor);
 
     // aligning current monument if window is rezised
@@ -237,38 +229,30 @@ function calcSizeFactor() {
     // }
 }
 
+
 function createMonumentIcons(){
     monumentsList.forEach((mon) => {
-    const monLogo = document.getElementById(mon.monumentName + "logo");
-    if(monLogo)
-        monLogo.remove();
+    const monIcon = document.getElementById(mon.monumentName + "icon");
+    if (monIcon)
+        monIcon.remove();
+
     const monumentImage = document.createElement('img');
-    monumentImage.className = 'monument-logo';
-    monumentImage.id = `${mon.monumentName + "logo"}`;
-    monumentImage.classList.add('monument-logo');
-    monumentImage.src = `images/Icons/MapIcons/${mon.monumentName}.png`;  // Use src instead of backgroundImage
-    monumentImage.style.width = `3.2vw`;
-    monumentImage.style.height = `3.2vw`;
-    monumentImage.style.position = 'absolute';
+    monumentImage.id = `${mon.monumentName + "icon"}`;
+    monumentImage.classList.add('monument-icon');
+    monumentImage.src = `images/Icons/MapIcons/${mon.monumentName}.png`;
     const { left, top } = mon.calculateScaledPosition();
     monumentImage.style.left = `${left}px`;
     monumentImage.style.top = `${top}px`;
-    monumentImage.style.zIndex = "1";
-    monumentImage.style.userSelect = "none";
-    monumentImage.style.transform= "translateY(-50%) translateX(-50%)";
-
-    // Append the monument image to the map
-    document.querySelector('.map').appendChild(monumentImage);
+    map.appendChild(monumentImage);
     });
 }
 
 function updateMonumentIconPosition(mon, deltaX, deltaY){
-    const monumentIcon = document.getElementById(mon.monumentName + "logo");
-    // Extracting the current left and top values
+    const monumentIcon = document.getElementById(mon.monumentName + "icon");
     const currentLeft = parseFloat(getComputedStyle(monumentIcon).left);
     const currentTop = parseFloat(getComputedStyle(monumentIcon).top);
-    if(!isAtLeftEdge)
+    if (!isAtLeftEdge)
         monumentIcon.style.left = `${currentLeft + deltaX}px`;
-    if(!isAtTopEdge)
+    if (!isAtTopEdge)
         monumentIcon.style.top = `${currentTop + deltaY}px`;
 }

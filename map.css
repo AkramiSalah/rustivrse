@@ -20,6 +20,15 @@ body {
   position: relative;
 }
 
+.monument-icon{
+  position: absolute;
+  width: 3.1vw;
+  height: 3.1vw;
+  z-index: 1;
+  user-select: none;
+  transform: translateY(-50%) translateX(-50%);
+}
+
 #coordinates {
   position: fixed;
   bottom: 10px;
