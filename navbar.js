@@ -69,9 +69,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (isMenuOpen) {
         e.preventDefault();
         closeNavbarMenu();
-      } else {
+      }
+      else {
         e.preventDefault();
       }
     }
   }
+
 });

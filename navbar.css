@@ -7,7 +7,6 @@
 .navbar ul {
   position: fixed;
   display: flex;
-  flex-wrap: wrap;
   list-style: none;
   width: 100vw;
   z-index: 3;
@@ -17,7 +16,7 @@
 
 .main-item-container {
   margin-left: auto;
-  margin-right: 4px;
+  margin-right: 0.4vw;
 }
 
 .navbar li {
@@ -26,7 +25,7 @@
   transition: 0.5s;
 }
 
-#lowTier-monuments {
+/* #lowTier-monuments {
   z-index: 6;
 }
 
@@ -36,13 +35,13 @@
 
 #highTier-monuments {
   z-index: 4;
-}
+} */
 
 .navbar li:hover:not(#logo-container) {
   background-color: hsl(360, 100%, 45%);
   transform: scale(1.05);
   box-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8),
-    0 0 2vh rgba(255, 255, 255, 0.8);
+  0 0 2vh rgba(255, 255, 255, 0.8);
 }
 
 .navbar ul li ul {
@@ -63,18 +62,18 @@
 .navbar a {
   display: block;
   color: white;
-  font: italic 2.2vh Impact, sans-serif;
+  font: italic 1.1200vw Impact, sans-serif;
   text-decoration: none;
   user-select: none;
   width: 100%;
-  padding: 2.2vh 2.2vh 2.2vh 2.2vh;
+  padding: 1.120vw 1.120vw 1.120vw 1.120vw;
   text-shadow: 1vh 1vh 4vh rgb(0, 0, 0);
   transition: 0.5s;
 }
 
 .navbar ul li ul li a {
-  padding: 1.8vh 1.5vh 1.8vh 1.5vh;
-  font-size: 2vh;
+  padding: 0.9vw 0.7vw 0.9vw 0.7vw;
+  font-size: 1vw;
   text-align: center;
 }
 
@@ -98,7 +97,7 @@
   background-size: cover;
   transform: scale(1.05);
   width: 10vw;
-  height: 7.5vh;
+  height: 3.8vw;
   user-select: none;
 }
 
