@@ -1,200 +1,203 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    background-color: rgba(11,59,74,255)
+body {
+  background-color: rgba(11, 59, 74, 255);
 }
 
-.map{
-    background-image: url(images/Icon\ Map\ final.png);
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-position: 0px 0px;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-    cursor: move;
-    position: relative;
+.map {
+  background-image: url(images/Icon\ Map\ final.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  cursor: move;
+  position: relative;
 }
 
 #coordinates {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 2vh;
-    font-weight: bolder;
-    font-family: Arial, sans-serif;
-    user-select: none;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 2vh;
+  font-weight: bolder;
+  font-family: Arial, sans-serif;
+  user-select: none;
 }
 
 .monument {
-    background: linear-gradient(180deg, rgb(20, 4, 4),rgba(95, 21, 21, 0.82));
-    width: 38vh;
-    height: 35vh;
-    display: none;
-    position: relative;
-    font-family: fantasy,Impact;
-    border-radius: 15%;
-    overflow: hidden;
-    border-style:groove;
-    border-color: white;
-    box-shadow: 1vh 1vh 5vh rgb(0, 0, 0);
-    user-select: none;
-    opacity: 0;
+  background: linear-gradient(180deg, rgb(20, 4, 4), rgba(95, 21, 21, 0.82));
+  width: 38vh;
+  height: 35vh;
+  display: none;
+  position: relative;
+  font-family: fantasy, Impact;
+  border-radius: 15%;
+  overflow: hidden;
+  border-style: groove;
+  border-color: white;
+  box-shadow: 1vh 1vh 5vh rgb(0, 0, 0);
+  user-select: none;
+  opacity: 0;
 }
 
-.monument-name{
-    position: relative;
-    height: 4vh;
-    width: 100%;
-    color: white;
-    font-size: 2.2vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom-color: white;
-    border-bottom-style: solid;
+.monument-name {
+  position: relative;
+  height: 4vh;
+  width: 100%;
+  color: white;
+  font-size: 2.2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-color: white;
+  border-bottom-style: solid;
 }
 
-.monument .close-icon{
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 16%; 
-    height: 100%;
-    left: 0; top: 50.5%;
-    padding: 0.3em 0 0 0.8em;
-    color: white;
-    font: normal bolder 2vh sans-serif;
-    transition: 0.5s ease-in-out;
-    transform: translateY(-50%);
-    border-radius: 5%;
+.monument .close-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16%;
+  height: 100%;
+  left: 0;
+  top: 50.5%;
+  padding: 0.3em 0 0 0.8em;
+  color: white;
+  font: normal bolder 2vh sans-serif;
+  transition: 0.5s ease-in-out;
+  transform: translateY(-50%);
+  border-radius: 5%;
 }
 
-.monument .close-icon:hover{
-    cursor: pointer;
-    background-color:hsl(360, 100%, 45%);
-    text-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
+.monument .close-icon:hover {
+  cursor: pointer;
+  background-color: hsl(360, 100%, 45%);
+  text-shadow: 0 0 2vh rgba(255, 255, 255, 0.8),
+    0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
 }
 
-.container{
-    display: flex;
-    align-items: center; 
+.container {
+  display: flex;
+  align-items: center;
 }
 
-.monument-image{
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 24vh;
-    width: 50%;
-    border-radius: 10%;
-    margin: 1vh 2vh 1vh 2vh;
-    border-color: white;
-    border-style: groove; 
+.monument-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 24vh;
+  width: 50%;
+  border-radius: 10%;
+  margin: 1vh 2vh 1vh 2vh;
+  border-color: white;
+  border-style: groove;
 }
 
-.monument-desc{
-    height: 27vh;
-    width: 50%;
-    color: white;
-    font-size: 2vh;
-    display: flex;
-    flex-direction: column;
-    padding: 0.3vh 1vh 2vh 0;
+.monument-desc {
+  height: 27vh;
+  width: 50%;
+  color: white;
+  font-size: 2vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0.3vh 1vh 2vh 0;
 }
 
 .info-item {
-    display: flex;
-    align-items: center;
-    margin: 1.1vh 1vh 0 0;
-    outline: 0.1150em groove white;
-    border-radius: 7%;
-    transition: 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  margin: 1.1vh 1vh 0 0;
+  outline: 0.115em groove white;
+  border-radius: 7%;
+  transition: 0.5s ease-in-out;
 }
 
-.info-item:hover{
-    background-color: rgba(255,0,0,255);
+.info-item:hover {
+  background-color: rgba(255, 0, 0, 255);
 }
 
-.info-item img{
-    width: 4vh;
-    margin: 0 1.2vh 0 1.2vh;
-    padding: 0.2em; 
+.info-item img {
+  width: 4vh;
+  margin: 0 1.2vh 0 1.2vh;
+  padding: 0.2em;
 }
 
 .content {
-    margin: 0 0.5vh 0 1vh;
+  margin: 0 0.5vh 0 1vh;
 }
 
-.radiation-info{
-    display: block;
-    margin-left: 2.4vh;
+.radiation-info {
+  display: block;
+  margin-left: 2.4vh;
 }
 
-.content img{
-    width: 2.6vh;
-    padding-top: 1vh;
+.content img {
+  width: 2.6vh;
+  padding-top: 1vh;
 }
 
-.moreDetails{
-    height: 4vh;
-    width: 100%;
-    font-size: 2.2vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.7s ease-in-out;
-    padding-bottom: 0.7vh;
-    border-top-color: white;
-    border-top-style: solid;
-    cursor: pointer;    
+.moreDetails {
+  height: 4vh;
+  width: 100%;
+  font-size: 2.2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.7s ease-in-out;
+  padding-bottom: 0.7vh;
+  border-top-color: white;
+  border-top-style: solid;
+  cursor: pointer;
 }
 
-.moreDetails a{
-    color: white;
-    text-decoration: none;
-    transition: 0.6s ease-in-out;
+.moreDetails a {
+  color: white;
+  text-decoration: none;
+  transition: 0.6s ease-in-out;
 }
 
 .moreDetails:hover {
-    background-color:hsl(360, 100%, 45%);
-    box-shadow: 2vh 2vh 1.5vh rgba(255, 255, 255, 0.8), 2vh 2vh 1.5vh rgba(255, 255, 255, 0.8), 2vh 2vh 1.5vh rgba(255, 255, 255, 0.8);
+  background-color: hsl(360, 100%, 45%);
+  box-shadow: 2vh 2vh 1.5vh rgba(255, 255, 255, 0.8),
+    2vh 2vh 1.5vh rgba(255, 255, 255, 0.8),
+    2vh 2vh 1.5vh rgba(255, 255, 255, 0.8);
 }
 
 .moreDetails:hover a {
-    text-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
-    transform: scale(1.08);
+  text-shadow: 0 0 2vh rgba(255, 255, 255, 0.8),
+    0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
+  transform: scale(1.08);
 }
 
-#mobile-menu{
-    display: none;
+#mobile-menu {
+  display: none;
 }
 
+@media screen and (max-width: 768px) {
+  #mobile-menu {
+    display: block;
+    position: fixed;
+    background-image: url(images/Icons/MENU.png);
+    background-position: center;
+    background-size: cover;
+    width: 11vw;
+    height: 11vw;
+    right: 3vw;
+    top: 2.7vh;
+    z-index: 999;
+  }
 
-@media screen and (max-width: 1024px){ 
-
-    #mobile-menu{
-        display: block;
-        position: fixed;
-        background-image: url(images/Icons/MENU.png);
-        background-position: center;
-        background-size: cover;
-        width: 11vw;
-        height: 11vw;
-        right: 3vw;
-        top: 2.7vh;
-        z-index: 999;
-    }
-
-    .monument{
-        z-index: 9;
-    }
+  .monument {
+    z-index: 9;
+  }
 }
