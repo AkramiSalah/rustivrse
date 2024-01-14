@@ -6,18 +6,18 @@ const monumentsList = [
     new Monument(988, 330, 50, "Train Yard", 'x', 30, 'v', 'x', 'v'),
     new Monument(807, 189, 50, "Sewer Branch", 'x', 30, 'v', 'x', 'v'),
     new Monument(222, 343, 40, "Missile Silo", 'x', 30, 'v', 'v', 'v'),
-    new Monument(181, 664, 50, "Giant Excavator", 'x', 30, 'v', 'v', 'x'),
+    new Monument(188, 665, 50, "Giant Excavator", 'x', 30, 'v', 'v', 'x'),
     new Monument(571, 602, 40, "Military Tunnels", 'x', 30, 'v', 'v', 'v'),
     new Monument(996, 765, 40, "Water Treatment", 'x', 30, 'v', 'x', 'v'),
     new Monument(1296, 836, 40, "Small Harbour", 'x', 0, 'v', 'x', 'v'),
     new Monument(920, 1046, 35, "Arctic Research Base", 'x', 30, 'v', 'v', 'v'),
-    new Monument(585, 1160, 35, "Satellite Dish", 'x', 30, 'v', 'x', 'v'),
+    new Monument(595, 1170, 35, "Satellite Dish", 'x', 30, 'v', 'x', 'v'),
     new Monument(308, 1102, 45, "Power Plant", 'x', 30, 'v', 'x', 'v'),
     new Monument(695, 900, 38, "Bandit Camp", 'v', 0, 'x', 'x', 'v'),
     new Monument(1270, 220, 35, "Harbour", 'x', 0, 'v', 'x', 'v'),
     new Monument(1060, 95, 35, "Ferry Terminal", 'x', 0, 'v', 'x', 'v'),
     new Monument(735, 700, 35, "Dome", 'x', 30, 'x', 'x', 'x'),
-    new Monument(1100, 1240, 40, "Junkyard", 'x', 0, 'v', 'x', 'v'),
+    new Monument(1094, 1242, 40, "Junkyard", 'x', 0, 'v', 'x', 'v'),
     new Monument(1277, 1173, 35, "Lighthouse", 'x', 0, 'x', 'x', 'v'),
     new Monument(152, 945, 35, "Fishing Village", 'v', 0, 'x', 'x', 'x'),
     new Monument(1159, 950, 35, "Mining Outpost", 'x', 0, 'x', 'x', 'v'),
@@ -69,7 +69,8 @@ function handleDragStart(e) {
     if (e.type === 'mousedown') {
         startPointX = e.clientX;
         startPointY = e.clientY;
-    } else if (e.type === 'touchstart') {
+    }
+    else if (e.type === 'touchstart') {
         startPointX = e.touches[0].clientX;
         startPointY = e.touches[0].clientY;
     }                     
@@ -134,22 +135,7 @@ function handleMapHover(e) {
     const clientX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
     const clientY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
     coordinatesElement.textContent = `(${clientX - totalDragX}, ${clientY - totalDragY}),
-                                        (${Math.round(absPosX)}, ${Math.round(absPosY)})`; 
-                                 
-    handleMonumentHover(e);                                         
-}
-
-function handleMonumentHover(e) { 
-    let isAnyMonumentInsideBounds = monumentsList.some(mon => {
-        return mon.isInsideBounds(e.clientX, e.clientY);
-    });
-    
-    if (isAnyMonumentInsideBounds) {
-        map.style.cursor = "pointer";
-    }
-    else {
-        map.style.cursor = "move";
-    }                                        
+                                        (${Math.round(absPosX)}, ${Math.round(absPosY)})`;                                                                              
 }
 
 
@@ -220,13 +206,8 @@ function calcSizeFactor() {
         currentCardShowing[0].alignMonumentCard();
     }  
 
-    createMonumentIcons();
-    
-    // sizeFactorMin = Math.min(widthScaleFactor, heightScaleFactor);
-  
-    // if( widthScaleFactor <= 1 || heightScaleFactor <= 1){
-    //     isScreenSmall = true;
-    // }
+    // creating monument icons again when window is rezised
+    createMonumentIcons();   
 }
 
 

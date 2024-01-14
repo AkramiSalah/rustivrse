@@ -11,7 +11,7 @@
   user-select: none;
   width: 100vw;
   z-index: 3;
-  background: linear-gradient(180deg, rgb(20, 4, 4), rgb(138, 28, 28));
+  background: linear-gradient(180deg, rgb(30, 30, 26), rgb(138, 28, 28));
   box-shadow: 1vh 1vh 3vh rgb(0, 0, 0);
 }
 
@@ -20,29 +20,23 @@
   margin-right: 0.4vw;
 }
 
+.main-item:hover{
+  outline: 0.125vh black solid;
+}
+
 .navbar li {
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-/* #lowTier-monuments {
-  z-index: 6;
-}
-
-#midTier-monuments {
-  z-index: 5;
-}
-
-#highTier-monuments {
-  z-index: 4;
-} */
-
 .navbar li:hover:not(#logo-container) {
   background-color: hsl(360, 100%, 45%);
   transform: scale(1.05);
   box-shadow: 0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8),
   0 0 2vh rgba(255, 255, 255, 0.8);
+  border-color: black;
+  z-index: 1;
 }
 
 .navbar ul li ul {
@@ -65,7 +59,6 @@
   color: white;
   font: italic 1.1200vw Impact, sans-serif;
   text-decoration: none;
-  user-select: none;
   width: 100%;
   padding: 1.120vw 1.120vw 1.120vw 1.120vw;
   text-shadow: 1vh 1vh 4vh rgb(0, 0, 0);
@@ -76,11 +69,6 @@
   padding: 0.9vw 0.7vw 0.9vw 0.7vw;
   font-size: 1vw;
   text-align: center;
-}
-
-.navbar a:hover {
-  text-shadow: 0 0 2vh rgba(255, 255, 255, 0.8),
-  0 0 2vh rgba(255, 255, 255, 0.8), 0 0 2vh rgba(255, 255, 255, 0.8);
 }
 
 #logo-container {

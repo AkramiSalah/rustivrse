@@ -22,11 +22,12 @@ body {
 
 .monument-icon{
   position: absolute;
-  width: 3.1vw;
-  height: 3.1vw;
+  width: 3vw;
+  height: 3vw;
   z-index: 1;
   user-select: none;
   transform: translateY(-50%) translateX(-50%);
+  cursor: pointer;
 }
 
 #coordinates {
