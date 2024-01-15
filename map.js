@@ -139,24 +139,6 @@ function handleMapHover(e) {
 }
 
 
-map.addEventListener('click',handleMonumentClick);
-async function handleMonumentClick(e) {
-    for (let monument of monumentsList) {
-      if (monument.isInsideBounds(e.clientX, e.clientY) && !isInsideCard) {
-        if (currentCardShowing.length === 0) {
-          currentCardShowing.push(monument);
-          await currentCardShowing[0].showMonumentCard();
-        }
-        else {
-          await currentCardShowing[0].hideMonumentCard();
-          currentCardShowing.push(monument);
-          await currentCardShowing[0].showMonumentCard();
-        }
-      }
-    }
-  }
-
-
 // Event listeners for ending drag - mouse and touch
 map.addEventListener('mouseup', handleDragEnd);
 map.addEventListener('touchend', handleDragEnd);
@@ -206,19 +188,21 @@ function calcSizeFactor() {
         currentCardShowing[0].alignMonumentCard();
     }  
 
-    // creating monument icons again when window is rezised
+    // creating monument icons again when window is rezised or when starting out web
     createMonumentIcons();   
 }
 
 
 function createMonumentIcons(){
     monumentsList.forEach((mon) => {
+
     const monIcon = document.getElementById(mon.monumentName + "icon");
     if (monIcon)
         monIcon.remove();
 
     const monumentImage = document.createElement('img');
     monumentImage.id = `${mon.monumentName + "icon"}`;
+    monumentImage.alt = mon.monumentName;
     monumentImage.classList.add('monument-icon');
     monumentImage.src = `images/Icons/MapIcons/${mon.monumentName}.png`;
     const { left, top } = mon.calculateScaledPosition();
@@ -237,3 +221,27 @@ function updateMonumentIconPosition(mon, deltaX, deltaY){
     if (!isAtTopEdge)
         monumentIcon.style.top = `${currentTop + deltaY}px`;
 }
+
+
+document.addEventListener("DOMContentLoaded",() =>{
+    const monumentIcons = document.querySelectorAll(".monument-icon");
+    monumentIcons.forEach(mon =>{
+        mon.addEventListener("click",handleMonumentClick);
+    });       
+
+    async function handleMonumentClick() {    
+        const monument = monumentsList.find(mon => mon.monumentName === String(this.alt));
+        console.log(monument);                   
+        if (!isInsideCard) {
+            if (currentCardShowing.length === 0) {
+            currentCardShowing.push(monument);
+            await currentCardShowing[0].showMonumentCard();
+            }
+            else {
+            await currentCardShowing[0].hideMonumentCard();
+            currentCardShowing.push(monument);
+            await currentCardShowing[0].showMonumentCard();
+            }
+        }                      
+    }
+});
