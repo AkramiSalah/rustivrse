@@ -206,13 +206,14 @@ function calcSizeFactor() {
         currentCardShowing[0].alignMonumentCard();
     }  
 
-    // creating monument icons again when window is rezised
+    // creating monument icons when loading map or when window is rezised
     createMonumentIcons();   
 }
 
 
 function createMonumentIcons(){
     monumentsList.forEach((mon) => {
+
     const monIcon = document.getElementById(mon.monumentName + "icon");
     if (monIcon)
         monIcon.remove();
@@ -224,7 +225,7 @@ function createMonumentIcons(){
     const { left, top } = mon.calculateScaledPosition();
     monumentImage.style.left = `${left}px`;
     monumentImage.style.top = `${top}px`;
-    map.appendChild(monumentImage);
+    document.querySelector(".monument-icons-container").appendChild(monumentImage);
     });
 }
 

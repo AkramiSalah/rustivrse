@@ -20,6 +20,10 @@ body {
   position: relative;
 }
 
+.monument-icons-container{
+  user-select: none;
+}
+
 .monument-icon{
   position: absolute;
   width: 3vw;
