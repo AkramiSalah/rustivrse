@@ -26,10 +26,10 @@ body {
 
 .monument-icon{
   position: absolute;
-  width: 3vw;
-  height: 3vw;
+  width: 4.5em;
   z-index: 1;
   user-select: none;
+  -webkit-user-drag: none;
   transform: translateY(-50%) translateX(-50%);
   cursor: pointer;
 }
@@ -211,6 +211,11 @@ body {
     right: 3vw;
     top: 2.7vh;
     z-index: 999;
+  }
+
+  .monument-icon{
+    width: 2.3em;
+    height: auto;
   }
 
   .monument {

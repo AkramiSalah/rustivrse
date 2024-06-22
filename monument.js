@@ -74,42 +74,33 @@ class Monument {
     }
 
     showMonumentCard() {
-        if (!isFadingIn){
-            if(!isMenuTransitioning){
-                // const diameter = isScreenSmall ? (this.radius * 2) * sizeFactor : (this.radius * 2) / sizeFactorMin; //important no delete 
-                isFadingIn = true;
-                this.alignMonumentCard();
-                this.cardContainer.style.display = "block";
-                this.cardContainer.style.pointerEvents= "auto";
-                setTimeout(() => {
-                    this.cardContainer.style.transition = "opacity 0.4s ease-in-out";
-                    this.cardContainer.style.opacity = 1;         
-                }, 0);
-            }
+        if (!isFadingIn && !isMenuTransitioning){        
+            // const diameter = isScreenSmall ? (this.radius * 2) * sizeFactor : (this.radius * 2) / sizeFactorMin; //important no delete 
+            isFadingIn = true;
+            this.alignMonumentCard();
+            this.cardContainer.style.display = "block";
+            this.cardContainer.style.pointerEvents= "auto";
+            setTimeout(() => {
+                this.cardContainer.style.transition = "opacity 0.4s ease-in-out";
+                this.cardContainer.style.opacity = 1;         
+            }, 0);        
         }          
     }
         
-   
     hideMonumentCard = async () => {
         isFadingIn = false;
         this.cardContainer.style.transition = "opacity 0.15678s ease-in-out";
-      
+         
         await new Promise(resolve => {
           this.cardContainer.style.opacity = 0;
-          const transitionEndHandler = () => {
-            resolve();
-            this.cardContainer.removeEventListener('transitionend', transitionEndHandler);
-          };
+          const transitionEndHandler = () => resolve();      
           this.cardContainer.addEventListener('transitionend', transitionEndHandler, { once: true });
         });
       
         this.cardContainer.style.display = "none";
-        map.style.cursor = "move";
-      
-        if (currentCardShowing.length !== 0) {
-          currentCardShowing.pop();
-        }
-      };
+        map.style.cursor = "move";   
+        currentCardShowing.pop();     
+    };
       
     alignMonumentCard = () => {
         const { left, top } = this.calculateScaledPosition();
@@ -121,7 +112,5 @@ class Monument {
         e.currentTarget.style.cursor = "default";
     }
 
-    outsideCard = () => {
-        isInsideCard = false;
-    }
+    outsideCard = () => isInsideCard = false;    
 }
